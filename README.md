@@ -19,7 +19,7 @@ The portal communicates what was built, why it was built, and how it was built â
 | **Certification** | 1,300+ scenario-based questions across 26 exams and 4 providers | [Live](https://bonjohen.github.io/certification/) / [Repo](https://github.com/bonjohen/certification) |
 | **JobClass** | Government job data analysis with pipelines, lessons learned, and architecture discussions | [Live](https://bonjohen.github.io/jobclass/) / [Repo](https://github.com/bonjohen/jobclass) |
 | **Epstein DOJ Disclosures** | RAG system for AI-powered search over 4,000+ DOJ disclosure PDFs | [Docs](https://epstein.johnboen.com/) / [Repo](https://github.com/bonjohen/epstein) |
-| **AI Usage Trust Paradox** | Visual exploration of why 3/4 of people use AI but only 1/3 trust it | [Live](https://aiusage.johnboen.com/) |
+| **AI Usage Trust Paradox** | Visual exploration of why 3/4 of people use AI but only 1/3 trust it | [Live](https://aiusage.johnboen.com/) / [Repo](https://github.com/bonjohen/ai_usage) |
 | **Story Structure Explorer** | Story arc evaluation, worldbuilding, and agentic dialogue generation (BYOK) | [Live](https://bonjohen.github.io/story_v5/) / [Repo](https://github.com/bonjohen/story_v5) |
 
 ## Technical Stack
