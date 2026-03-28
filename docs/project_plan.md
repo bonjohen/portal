@@ -32,35 +32,35 @@ Set up the file structure, boilerplate HTML, and baseline CSS so all subsequent 
 
 Create `index.html` with DOCTYPE, head (meta charset, viewport, title, favicon placeholder, CSS link), and body containing empty semantic landmarks: `<header>`, `<nav>`, `<main>`, `<footer>`. Include section shells with IDs for `#home`, `#projects`, `#themes`, `#about`.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:00 PST
+- **Completed:** 2026-03-27 00:01 PST
 
 ### Task 1.2 — Create base stylesheet
 
 Create `css/styles.css` with CSS reset/normalize, CSS custom properties for the dark color palette, base typography (font stack, sizes, weights), and responsive breakpoints. Establish the dark, clean, technical aesthetic per the design doc.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:00 PST
+- **Completed:** 2026-03-27 00:01 PST
 
 ### Task 1.3 — Create JavaScript file
 
 Create `js/main.js` with placeholder structure for smooth-scroll navigation and any future interactivity. Keep it minimal.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:00 PST
+- **Completed:** 2026-03-27 00:01 PST
 
 ### Task 1.4 — Verify scaffolding renders
 
 Open `index.html` in a browser or confirm the structure is valid. Ensure CSS loads, dark background applies, and no console errors.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:01 PST
+- **Completed:** 2026-03-27 00:02 PST
 
-**→ Phase 1 check-in required before proceeding.**
+**→ Phase 1 complete.**
 
 ---
 
@@ -72,27 +72,27 @@ Build the fixed/sticky nav and the hero section — the first thing visitors see
 
 Implement the top nav with links: Home (`#home`), Projects (`#projects`), About (`#about`), GitHub (external link to profile). Style for desktop and mobile (hamburger or collapsible menu on small screens).
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:02 PST
+- **Completed:** 2026-03-27 00:05 PST
 
 ### Task 2.2 — Build hero section
 
 Implement the hero section per design doc §8.1: primary heading "John Boen", supporting heading, body copy, primary CTA (→ projects section), secondary CTA (→ GitHub profile). Use the recommended hero message from the design doc.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:02 PST
+- **Completed:** 2026-03-27 00:05 PST
 
 ### Task 2.3 — Style hero section
 
 Apply dark aesthetic, strong typography hierarchy, CTA button styling, and responsive layout. Hero should be visually commanding but not cluttered.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:02 PST
+- **Completed:** 2026-03-27 00:05 PST
 
-**→ Phase 2 check-in required before proceeding.**
+**→ Phase 2 complete.**
 
 ---
 
@@ -104,59 +104,59 @@ This is the core content area. Build all five project cards with correct data fr
 
 Design and implement a reusable card structure: project name, value statement, description, live-site link button, repository link button. Cards must be easy to duplicate for future additions.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:05 PST
+- **Completed:** 2026-03-27 00:08 PST
 
 ### Task 3.2 — Populate Certification card
 
 Content and links per design doc §9.1. Scenario-based certification study site, 1300 questions, 26 exams, four providers, CCA-F mention.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:05 PST
+- **Completed:** 2026-03-27 00:08 PST
 
 ### Task 3.3 — Populate JobClass card
 
 Content and links per design doc §9.2. Government job data analysis, pipelines, warehouse build, common practices, lessons learned.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:05 PST
+- **Completed:** 2026-03-27 00:08 PST
 
 ### Task 3.4 — Populate AI Usage Trust Paradox card
 
 Content and links per design doc §9.5. Three-quarters use AI, one-third trust it. Visual, engaging. Live site link only (repo link optional).
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:05 PST
+- **Completed:** 2026-03-27 00:08 PST
 
 ### Task 3.5 — Populate Story Structure Explorer card
 
 Content and links per design doc §9.3. Story arc evaluation, archetypal beats, worldbuilding, agentic generation, BYOK model.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:05 PST
+- **Completed:** 2026-03-27 00:08 PST
 
 ### Task 3.6 — Populate AI Usage Repository card
 
 Content and links per design doc §9.4. Visual exploration of AI usage observations, browsable web pages.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:05 PST
+- **Completed:** 2026-03-27 00:08 PST
 
 ### Task 3.7 — Style project cards
 
 Apply card layout (grid or responsive columns), dark card surfaces, hover effects, button styling, spacing. Cards should feel substantial and interactive per design doc §12.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:05 PST
+- **Completed:** 2026-03-27 00:08 PST
 
-**→ Phase 3 check-in required before proceeding.**
+**→ Phase 3 complete.**
 
 ---
 
@@ -168,27 +168,27 @@ Fill in the narrative sections that give context to the project collection.
 
 Implement the themes section per design doc §8.3. Highlight structured data, visible systems, layered pipelines, exploratory interfaces, making complexity understandable. Present the collection as coherent work.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:08 PST
+- **Completed:** 2026-03-27 00:10 PST
 
 ### Task 4.2 — Build about section
 
 Implement the about section per design doc §8.4. Brief professional intro — software and data engineering experience, interest in AI and process design, intention behind the projects. Keep short.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:08 PST
+- **Completed:** 2026-03-27 00:10 PST
 
 ### Task 4.3 — Style themes and about sections
 
 Apply consistent typography, spacing, and dark aesthetic. Ensure visual flow from the project cards above into these sections.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:08 PST
+- **Completed:** 2026-03-27 00:10 PST
 
-**→ Phase 4 check-in required before proceeding.**
+**→ Phase 4 complete.**
 
 ---
 
@@ -200,27 +200,27 @@ Wrap up the page structure and wire up navigation behavior.
 
 Implement footer per design doc §8.5: GitHub profile link, copyright line for johnboen.com, optional note about repo-backed static sites.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:10 PST
+- **Completed:** 2026-03-27 00:12 PST
 
 ### Task 5.2 — Implement smooth-scroll navigation
 
 Wire up nav links and CTAs to smooth-scroll to their target sections. Ensure anchor links work for direct linking (`#projects`, `#about`, etc.).
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:10 PST
+- **Completed:** 2026-03-27 00:12 PST
 
 ### Task 5.3 — Mobile navigation behavior
 
 Ensure nav works on mobile — hamburger toggle, menu closes on link click, touch-friendly targets.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:10 PST
+- **Completed:** 2026-03-27 00:12 PST
 
-**→ Phase 5 check-in required before proceeding.**
+**→ Phase 5 complete.**
 
 ---
 
@@ -232,35 +232,35 @@ Final pass to ensure the site looks and works well everywhere.
 
 Test and fix layout at mobile (≤480px), tablet (481–768px), and desktop (769px+) breakpoints. Ensure project cards stack properly, text remains readable, buttons are tappable.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:12 PST
+- **Completed:** 2026-03-27 00:14 PST
 
 ### Task 6.2 — Typography and spacing polish
 
 Refine font sizes, line heights, margins, and padding across all sections. Ensure clear visual hierarchy and comfortable reading.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:12 PST
+- **Completed:** 2026-03-27 00:14 PST
 
 ### Task 6.3 — Hover and interaction effects
 
 Add subtle hover transitions on project cards and buttons. Keep effects minimal and purposeful — portfolio feel, not flashy.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:12 PST
+- **Completed:** 2026-03-27 00:14 PST
 
 ### Task 6.4 — Performance check
 
 Verify minimal file sizes, no unnecessary dependencies, fast load. Confirm no console errors. Validate HTML.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:14 PST
+- **Completed:** 2026-03-27 00:15 PST
 
-**→ Phase 6 check-in required before proceeding.**
+**→ Phase 6 complete.**
 
 ---
 
@@ -272,25 +272,25 @@ Prepare for GitHub Pages deployment.
 
 Add `<meta>` description, Open Graph tags, and a `<title>` appropriate for the site. Add a simple favicon if available.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:15 PST
+- **Completed:** 2026-03-27 00:16 PST
 
 ### Task 7.2 — Add CNAME file
 
 Create `CNAME` with `johnboen.com` for GitHub Pages custom domain.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:15 PST
+- **Completed:** 2026-03-27 00:16 PST
 
 ### Task 7.3 — Final review against design document
 
 Walk through `docs/project_design.md` sections 1–18 and confirm every requirement is met: all five cards present with correct content and links, all sections in order, responsive, fast, correct tone.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:16 PST
+- **Completed:** 2026-03-27 00:17 PST
 
 ### Task 7.4 — Commit and push
 
