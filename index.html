@@ -28,6 +28,7 @@
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#how-i-build" class="nav-link">Process</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="https://github.com/bonjohen" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub<span class="external-icon" aria-hidden="true"> &#8599;</span></a></li>
                 </ul>
@@ -36,11 +37,12 @@
     </header>
 
     <main>
+        <!-- ===== Hero [R1, R2, R28, R29] ===== -->
         <section id="hero" class="section">
             <div class="container hero-content">
                 <h1 class="hero-title">John Boen</h1>
-                <p class="hero-subtitle">Interactive Systems &amp; Data-Driven Web Projects</p>
-                <p class="hero-body">I build GitHub Pages projects that turn research, structured data, and exploratory ideas into sites people can actually use.</p>
+                <p class="hero-subtitle">Data &amp; AI Systems Engineer</p>
+                <p class="hero-body">I build these projects for myself first — to learn, to test ideas, and to solve real problems. Then I publish them so anyone else can use them too. What you see here is a working process, not a portfolio exercise.</p>
                 <div class="hero-ctas">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="https://github.com/bonjohen" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
@@ -48,106 +50,227 @@
             </div>
         </section>
 
+        <!-- ===== Projects [R9-12, R20, R25-27, R29] ===== -->
         <section id="projects" class="section">
             <div class="container">
                 <h2 class="section-heading">Featured Projects</h2>
                 <div class="projects-grid">
 
-                    <article class="card">
+                    <article class="card" data-expandable>
                         <div class="card-content">
                             <h3 class="card-title">Certification</h3>
                             <p class="card-value">Scenario-based certification study across providers and exams</p>
+                            <p class="card-why">Built because I needed a structured study system I could actually use — not flashcards, but scenario-driven practice at exam depth.</p>
                             <p class="card-description">A study site featuring 1,300+ sample questions covering 26 certification exams across four providers — including the recently added CCA-F Claude Certified Architect, Foundations.</p>
+                            <div class="card-tags">
+                                <span class="tag">Content Systems</span>
+                                <span class="tag">Structured Data</span>
+                                <span class="tag">AI-Generated Content</span>
+                            </div>
+                            <p class="card-freshness">Updated March 2026</p>
                         </div>
-                        <div class="card-links">
-                            <a href="https://bonjohen.github.io/certification/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
-                            <a href="https://github.com/bonjohen/certification" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>JSON-backed question bank organized by provider, exam, and domain. Static site generation produces filterable study interfaces with progress tracking via localStorage.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>HTML/CSS/JS, JSON data layer, localStorage persistence, AI-assisted content generation pipeline.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Generating high-quality exam scenarios at scale requires structured prompts and multi-pass validation. The hardest part is ensuring questions test understanding, not memorization.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://bonjohen.github.io/certification/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/certification" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
                         </div>
                     </article>
 
-                    <article class="card">
+                    <article class="card" data-expandable>
                         <div class="card-content">
                             <h3 class="card-title">JobClass</h3>
-                            <p class="card-value">Government job data analysis powered by layered pipelines</p>
+                            <p class="card-value">Labor market analysis with twenty lessons learned and architecture discussions</p>
+                            <p class="card-why">Built to understand how government job data is organized and what patterns emerge when you process it through a real pipeline.</p>
                             <p class="card-description">An analysis of government job classification data supported by extraction and processing pipelines, warehouse build steps, and release pipeline output. The live site includes common practices, lessons learned, and technology explanations.</p>
+                            <div class="card-tags">
+                                <span class="tag">Pipelines</span>
+                                <span class="tag">Analytics</span>
+                                <span class="tag">Data Warehouse</span>
+                                <span class="tag">ETL</span>
+                            </div>
+                            <p class="card-freshness">Updated March 2026</p>
                         </div>
-                        <div class="card-links">
-                            <a href="https://bonjohen.github.io/jobclass/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
-                            <a href="https://github.com/bonjohen/jobclass" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Multi-stage pipeline: extraction from public data sources, processing and normalization, warehouse build, and static site publishing. Each stage is independently runnable and inspectable.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Python extraction scripts, JSON/CSV data layers, HTML/CSS/JS presentation, pipeline orchestration, GitHub Pages publishing.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Government data is messy in predictable ways. The twenty lessons learned section on the site captures the practical patterns — what breaks, what scales, and what to normalize early.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://bonjohen.github.io/jobclass/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/jobclass" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
                         </div>
                     </article>
 
-                    <article class="card">
+                    <article class="card" data-expandable>
                         <div class="card-content">
                             <h3 class="card-title">AI Usage Trust Paradox</h3>
                             <p class="card-value">Exploring the gap between AI adoption and trust</p>
+                            <p class="card-why">Built to make a compelling data point impossible to ignore — three-quarters of us use AI, but two-thirds don't trust it.</p>
                             <p class="card-description">A focused presentation of the paradox that roughly three-quarters of people use AI while only about one-third trust it — designed to highlight that gap in a visually engaging and easy-to-understand format.</p>
+                            <div class="card-tags">
+                                <span class="tag">Data Visualization</span>
+                                <span class="tag">Presentation Design</span>
+                                <span class="tag">Research</span>
+                            </div>
+                            <p class="card-freshness">Updated February 2026</p>
                         </div>
-                        <div class="card-links">
-                            <a href="https://aiusage.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Single-page narrative presentation with animated data visualizations. Designed to walk a visitor through the paradox in a way that builds understanding progressively.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>HTML/CSS/JS, CSS animations, responsive data presentation, scroll-driven narrative.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Presenting data persuasively is a design problem, not a data problem. The same statistic can be forgettable or unforgettable depending on how the visitor encounters it.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://aiusage.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
                         </div>
                     </article>
 
-                    <article class="card">
+                    <article class="card" data-expandable>
                         <div class="card-content">
                             <h3 class="card-title">Story Structure Explorer</h3>
-                            <p class="card-value">Story structure evaluation, worldbuilding, and agentic generation</p>
+                            <p class="card-value">Storyline structures with deep theory and the ability to save your work</p>
+                            <p class="card-why">Built to test whether agentic generation could produce constrained creative output — dialogue within defined story structures and guardrails.</p>
                             <p class="card-description">A tool that began as a story arc evaluator and now supports exploration of archetypal beats, worldbuilding refinement, and agentic generation of dialogue between characters and narrator. Uses a bring-your-own API key model.</p>
+                            <div class="card-tags">
+                                <span class="tag">Agentic</span>
+                                <span class="tag">API Integration</span>
+                                <span class="tag">Client-Side Storage</span>
+                                <span class="tag">BYOK</span>
+                            </div>
+                            <p class="card-freshness">Updated March 2026</p>
                         </div>
-                        <div class="card-links">
-                            <a href="https://bonjohen.github.io/story_v5/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
-                            <a href="https://github.com/bonjohen/story_v5" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Client-side application with structured story models driving agentic generation. Story data persists in localStorage. API calls are made directly from the browser using the visitor's own key — no backend required.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>HTML/CSS/JS, LLM API integration (BYOK), localStorage persistence, agent swarm orchestration in the browser.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Agentic generation needs structure more than freedom. The best results came from tightly defined story models with clear guardrails, not from giving the model open-ended prompts.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://bonjohen.github.io/story_v5/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/story_v5" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
                         </div>
                     </article>
 
                 </div>
+
+                <!-- What's Next [R18, R19] -->
+                <div class="whats-next">
+                    <p>More projects are in progress. This is a living collection — each project grows as I learn, and new ones get added as new questions come up.</p>
+                </div>
             </div>
         </section>
 
-        <section id="themes" class="section">
+        <!-- ===== How I Build [R6, R7, R8, R30] ===== -->
+        <section id="how-i-build" class="section">
             <div class="container">
-                <h2 class="section-heading">Common Themes</h2>
-                <p class="themes-intro">These projects look different on the surface, but they share a set of recurring principles:</p>
-                <div class="themes-grid">
-                    <div class="theme-item">
-                        <h3 class="theme-title">Structured Data</h3>
-                        <p class="theme-description">Every project starts with real data — certification catalogs, job classifications, usage statistics, story archetypes — and builds structure around it.</p>
+                <h2 class="section-heading">How I Build</h2>
+                <div class="build-grid">
+                    <div class="build-item">
+                        <h3 class="build-title">AI-Assisted Development</h3>
+                        <p class="build-description">Claude is my primary coding platform. I use AI daily as part of a structured engineering process — design, prototyping, coding, testing, refinement, and content generation.</p>
                     </div>
-                    <div class="theme-item">
-                        <h3 class="theme-title">Visible Systems</h3>
-                        <p class="theme-description">Nothing is hidden behind a black box. Pipelines, processes, and logic are exposed so visitors can see how things work, not just what they produce.</p>
+                    <div class="build-item">
+                        <h3 class="build-title">Agentic Workflows</h3>
+                        <p class="build-description">Several of these projects use agent-based patterns — coordinated AI processes that work within defined structures and guardrails rather than open-ended generation.</p>
                     </div>
-                    <div class="theme-item">
-                        <h3 class="theme-title">Layered Pipelines</h3>
-                        <p class="theme-description">Data flows through clear stages — extraction, processing, transformation, presentation — each designed to be understandable on its own.</p>
+                    <div class="build-item">
+                        <h3 class="build-title">Structured Pipelines</h3>
+                        <p class="build-description">Data flows through clear stages: extraction, processing, transformation, presentation. Each stage is designed to be understandable and independently inspectable.</p>
                     </div>
-                    <div class="theme-item">
-                        <h3 class="theme-title">Exploratory Interfaces</h3>
-                        <p class="theme-description">These are tools for exploration, not just display. Visitors interact, filter, and navigate rather than passively reading.</p>
-                    </div>
-                    <div class="theme-item">
-                        <h3 class="theme-title">Clarity Over Complexity</h3>
-                        <p class="theme-description">Complexity isn't hidden — it's made understandable. The goal is always to make the hard parts accessible without dumbing them down.</p>
+                    <div class="build-item">
+                        <h3 class="build-title">Local Infrastructure</h3>
+                        <p class="build-description">I run local AI infrastructure alongside hosted services — including local models supported by my own hardware — giving me flexibility across the stack.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ===== Positioning (replaces Common Themes) [R15, R16, R17, R28] ===== -->
+        <section id="approach" class="section">
+            <div class="container">
+                <h2 class="section-heading">What Ties These Together</h2>
+                <div class="positioning-content">
+                    <p>Every project here follows the same pattern: start with real data, build a visible pipeline, and produce something usable at the other end.</p>
+                    <p>I don't hide complexity behind abstractions — I make it understandable. Pipelines, processes, and logic are exposed so you can see how things work, not just what they produce. The goal is always clarity: accessible without being dumbed down.</p>
+                    <p>These aren't demo projects or isolated experiments. They're working systems I use myself, built with the same engineering discipline I'd apply to production work. The fact that they're also useful to other people is the point — that's how I know they actually work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== About [R3, R4, R5, R13, R14, R30] ===== -->
         <section id="about" class="section">
             <div class="container about-content">
                 <h2 class="section-heading">About</h2>
-                <p>I'm John Boen — a software and data engineering professional with long-term experience building systems that process, organize, and present information.</p>
-                <p>These projects reflect my interest in AI, process design, and making structured data useful through practical, interactive web experiences. Each one started as an exploration of a real question or problem and grew into something others can use.</p>
-                <p>This site is the front door to that collection.</p>
+                <p>I'm John Boen — a senior data and AI systems engineer with 30 years of experience in database engineering, data engineering, analytics, and production data systems.</p>
+                <p>Over the past two-plus years, I've focused heavily on applied AI — turning a long foundation in data pipelines, system architecture, and reliability engineering into practical AI systems work. That means agentic workflows, AI-assisted development, local and hosted model integration, tool-connected systems, and data-driven applications.</p>
+                <p>My engineering philosophy is straightforward: build structured systems with visible pipelines that produce usable outputs. Use AI as a daily tool, not an occasional experiment. Make the hard parts accessible without hiding them.</p>
+                <p>These projects are where that philosophy meets real questions I wanted to answer.</p>
+                <div class="about-links">
+                    <a href="https://www.linkedin.com/in/johnboen" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/bonjohen" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- ===== Footer [R23, R24] ===== -->
     <footer id="footer">
         <div class="container footer-content">
-            <p class="footer-note">Repository-backed projects, statically hosted on GitHub Pages.</p>
+            <p class="footer-note">This site and its projects are built with AI assistance — Claude, agentic workflows, and local model infrastructure.</p>
             <div class="footer-links">
                 <a href="https://github.com/bonjohen" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span class="footer-sep">|</span>
+                <a href="https://www.linkedin.com/in/johnboen" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
             <p class="footer-copy">&copy; 2026 johnboen.com</p>
         </div>

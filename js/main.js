@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toggle.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close menu when a nav link is clicked
         navLinks.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
@@ -48,4 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateActiveLink, { passive: true });
     updateActiveLink();
+
+    // Expandable card details
+    document.querySelectorAll('.card-expand-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.card');
+            const isExpanded = card.classList.toggle('expanded');
+            btn.setAttribute('aria-expanded', isExpanded);
+            btn.textContent = isExpanded ? 'Less' : 'Details';
+        });
+    });
 });

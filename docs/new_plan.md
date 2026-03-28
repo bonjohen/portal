@@ -36,27 +36,27 @@ Reframe the entry point of the site to communicate dual purpose and professional
 
 Rewrite the hero heading, subtitle, and body copy to frame the projects as personal tools the author actively uses that are also made available to others. Avoid generic portfolio language. Convey a real working process.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:20 PST
+- **Completed:** 2026-03-27 00:25 PST
 
 ### Task 1.2 — Expand About section [R3, R4, R5, R30]
 
 Rewrite the About section drawing from `docs/johnboen.md`. Include: 30 years of database and data engineering experience, deliberate pivot to applied AI, engineering philosophy (structured systems, visible pipelines, AI as a daily tool). Keep it concise — no resume dump.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:20 PST
+- **Completed:** 2026-03-27 00:25 PST
 
 ### Task 1.3 — Add contact/LinkedIn link [R13, R14, R30]
 
 Add a LinkedIn link to the About section and to the footer. Add "LinkedIn" to the nav if it fits cleanly; otherwise footer and About are sufficient.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:20 PST
+- **Completed:** 2026-03-27 00:25 PST
 
-**→ Phase 1 check-in required before proceeding.**
+**→ Phase 1 complete.**
 
 ---
 
@@ -68,35 +68,35 @@ Add technology tags, motivation lines, and freshness indicators to each card.
 
 Add a short motivation line to each of the four project cards explaining the personal or practical reason the project was built. Not a feature description — a reason.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:25 PST
+- **Completed:** 2026-03-27 00:30 PST
 
 ### Task 2.2 — Add technology tags to each card [R9, R10, R30]
 
 Add small inline tags to each card showing the major technical themes: e.g., "Pipelines," "Agentic," "API Integration," "Data Viz," "Content Systems," "Client-Side Storage." Style them as pill badges.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:25 PST
+- **Completed:** 2026-03-27 00:30 PST
 
 ### Task 2.3 — Add freshness indicators to each card [R25, R26, R27]
 
 Add a "Last updated" date or activity marker to each card. Use manually set dates for now (can be automated later).
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:25 PST
+- **Completed:** 2026-03-27 00:30 PST
 
 ### Task 2.4 — Style card enhancements [R20]
 
 Style the new card elements (tags, motivation line, freshness) so the cards remain scannable and don't feel cluttered. Tags should be small pills, motivation line should be visually distinct from the description, freshness should be subtle.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:25 PST
+- **Completed:** 2026-03-27 00:30 PST
 
-**→ Phase 2 check-in required before proceeding.**
+**→ Phase 2 complete.**
 
 ---
 
@@ -108,27 +108,27 @@ Add the "How I Build" section and rework Common Themes into a positioning sectio
 
 Create a new section (between Projects and the positioning section) explaining the development approach: AI-assisted development with Claude, agentic workflows, structured pipelines from data to presentation, local model infrastructure. Keep it to 3–4 short scannable points. Add nav link.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:30 PST
+- **Completed:** 2026-03-27 00:35 PST
 
 ### Task 3.2 — Rework Common Themes into a positioning section [R15, R16, R17, R28]
 
 Replace the current abstract Common Themes with a first-person positioning section. Directly connect the engineering point of view to the projects: real data in, visible pipeline, usable output. The visitor should think "this person has a clear approach to building things."
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:30 PST
+- **Completed:** 2026-03-27 00:35 PST
 
 ### Task 3.3 — Style new sections
 
 Apply consistent dark aesthetic, typography, and spacing. "How I Build" should feel technical but approachable. Positioning section should feel like a concise manifesto, not a bulleted list.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:30 PST
+- **Completed:** 2026-03-27 00:35 PST
 
-**→ Phase 3 check-in required before proceeding.**
+**→ Phase 3 complete.**
 
 ---
 
@@ -140,35 +140,35 @@ Add the roadmap indicator, AI transparency note, and optional card expansion.
 
 Add a short note or mini-section below the projects area signaling that projects are actively evolving and new ones are in progress. One or two sentences — not a formal roadmap.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:35 PST
+- **Completed:** 2026-03-27 00:40 PST
 
 ### Task 4.2 — Add AI transparency note [R23, R24]
 
 Add a concise note (footer or About section) stating that the site and its projects are built with AI assistance — referencing Claude, agentic workflows, and local model usage. Honest and brief.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:35 PST
+- **Completed:** 2026-03-27 00:40 PST
 
 ### Task 4.3 — Implement expandable card detail [R20, R21, R22]
 
 Add a click-to-expand or detail panel to each project card. Expanded view should have space for: architecture notes, tech stack detail, a "what I learned" paragraph, and an optional screenshot placeholder. Keep the overview scannable — expansion is opt-in.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:35 PST
+- **Completed:** 2026-03-27 00:40 PST
 
 ### Task 4.4 — Style expandable cards and new elements
 
 Style the expansion interaction (smooth open/close), detail panel layout, and ensure mobile behavior is clean. Transparency note and What's Next should integrate visually without disrupting page flow.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:35 PST
+- **Completed:** 2026-03-27 00:40 PST
 
-**→ Phase 4 check-in required before proceeding.**
+**→ Phase 4 complete.**
 
 ---
 
@@ -180,32 +180,32 @@ Ensure everything works together across breakpoints and meets all 30 requirement
 
 Test all new elements (tags, expanded cards, How I Build, positioning section) at mobile (≤480px), tablet (481–768px), and desktop (769px+). Fix any layout breaks.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:40 PST
+- **Completed:** 2026-03-27 00:42 PST
 
 ### Task 5.2 — Typography and spacing polish
 
 Ensure the new sections, card elements, and expanded views maintain clear visual hierarchy and consistent spacing with the original design.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:40 PST
+- **Completed:** 2026-03-27 00:42 PST
 
 ### Task 5.3 — Requirements verification [R1–R30]
 
 Walk through every requirement in `docs/new_requirements.md` and confirm it is met. Note any gaps.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:42 PST
+- **Completed:** 2026-03-27 00:43 PST
 
 ### Task 5.4 — Performance check
 
 Verify page weight is still minimal, no unnecessary dependencies added, fast load, no console errors.
 
-- **State:** Open
-- **Started:**
-- **Completed:**
+- **State:** Completed
+- **Started:** 2026-03-27 00:42 PST
+- **Completed:** 2026-03-27 00:43 PST
 
-**→ Phase 5 check-in required. Enhancement complete.**
+**→ Phase 5 complete. All enhancements implemented.**
