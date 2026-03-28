@@ -131,6 +131,44 @@
 
                     <article class="card" data-expandable>
                         <div class="card-content">
+                            <h3 class="card-title">Epstein DOJ Disclosures</h3>
+                            <p class="card-value">AI-powered search over 4,000+ publicly released DOJ documents</p>
+                            <p class="card-why">Built to see if RAG and local AI infrastructure could make a large public document release genuinely searchable — not just downloadable, but answerable.</p>
+                            <p class="card-description">A Retrieval-Augmented Generation system that collects, processes, and indexes 4,049 PDF documents from the DOJ's Epstein disclosure releases. Combines vector-based semantic search with local LLM inference to enable natural-language queries across the full corpus.</p>
+                            <div class="card-tags">
+                                <span class="tag">RAG</span>
+                                <span class="tag">Vector Search</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Local AI</span>
+                                <span class="tag">Pipelines</span>
+                                <span class="tag">Document Processing</span>
+                            </div>
+                            <p class="card-freshness">Updated March 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Three-container Docker stack: FastAPI application, Qdrant vector database, and Ollama for local GPU-accelerated LLM inference. Data pipeline downloads 5 ZIP releases (~2.8 GB) from justice.gov, extracts and organizes PDFs by dataset, then processes them through text extraction, chunking, and embedding for vector storage.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Python, FastAPI, Qdrant, Ollama, sentence-transformers (all-MiniLM-L6-v2), pypdf, Docker Compose, SHA256 integrity verification, 56-test suite.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>The hardest part of RAG at document scale isn't the AI — it's the pipeline before it. Getting 4,000+ government PDFs reliably downloaded, verified, extracted, chunked, and embedded requires serious data engineering discipline. The AI layer only works if every upstream stage is solid.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://github.com/bonjohen/epstein" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
                             <h3 class="card-title">AI Usage Trust Paradox</h3>
                             <p class="card-value">Exploring the gap between AI adoption and trust</p>
                             <p class="card-why">Built to make a compelling data point impossible to ignore — three-quarters of us use AI, but two-thirds don't trust it.</p>
