@@ -102,7 +102,7 @@ I build GitHub Pages projects that turn research, structured data, and explorato
 
 The featured projects section is the central content area of the site.
 
-This section must present five project cards. Each card must provide enough information for a visitor to understand the project at a glance and choose whether to explore the live site or repository.
+This section must present six project cards. Each card must provide enough information for a visitor to understand the project at a glance and choose whether to explore the live site or repository.
 
 Each project card must include:
 
@@ -127,6 +127,8 @@ The featured projects shall appear in the following recommended order:
 4. Story Structure Explorer
 
 5. AI Usage Repository Project
+
+6. MD Reader
 
 This order is chosen to place the most immediately understandable and practical projects first, followed by more exploratory projects.
 
@@ -162,9 +164,9 @@ Optional short note indicating that the featured projects are repository-backed 
 
 This project should be described as a scenario-based certification study site covering multiple providers and exams.
 
-The description should mention that it includes 1300 sample questions covering 26 certification exams across four providers.
+The description should mention that it includes 4,600+ sample questions covering 46 exams across ten providers (AWS, Azure, GCP, Anthropic, GitHub, Databricks, NVIDIA, Cisco, CompTIA, ISC2).
 
-The description should also mention the most recent addition, CCA-F Claude Certified Architect, Foundations.
+The description should highlight the latest expansion: 10 exams added across new and existing providers. It should also note that several exams now carry lifecycle status badges as vendors retire and replace them (e.g., AWS SOA-C02 retired, Azure AI-900 and AZ-204 ending soon).
 
 Required links:
 
@@ -221,6 +223,20 @@ Required link:
 Live site: [https://aiusage.johnboen.com/](https://aiusage.johnboen.com/)
 
 Repository link is optional and should only be shown if there is a public repository intended for visitors.
+
+### 9.6 MD Reader
+
+This project should be described as a browser-based markdown reader with integrated text-to-speech, live editing, and playlist navigation.
+
+The description should mention that it was built as a daily workflow tool — for reading and editing AI responses while the next one generates, reviewing written work, and saving clean output. It should note that the tool supports folder-based playlist navigation, one-click download, and full GitHub Flavored Markdown rendering with syntax-highlighted code blocks.
+
+The description should mention that it is a pure static site with no frameworks, no build step, and no backend.
+
+Required links:
+
+Live site: [https://mdreader.johnboen.com/](https://mdreader.johnboen.com/)
+
+Repository: [https://github.com/bonjohen/mdreader](https://github.com/bonjohen/mdreader)
 
 ## 10. Functional Requirements
 
@@ -296,7 +312,7 @@ A single responsive landing page
 
 A hero section
 
-A featured projects section with five project cards
+A featured projects section with six project cards
 
 A common themes section
 
