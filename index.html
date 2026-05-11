@@ -54,35 +54,75 @@
 
                     <article class="card" data-expandable>
                         <div class="card-content">
-                            <h3 class="card-title">Certification</h3>
-                            <p class="card-value">Scenario-based certification study across providers and exams</p>
-                            <p class="card-why">Built because I needed a structured study system I could actually use — not flashcards, but scenario-driven practice at exam depth.</p>
-                            <p class="card-description">A study site featuring 2,500 sample questions covering 50 exams across ten providers — with 10 exams added in the latest expansion (GitHub, Databricks, NVIDIA, Cisco, and new additions to AWS, Azure, and GCP). Several exams now carry lifecycle badges as vendors retire and replace them.</p>
+                            <h3 class="card-title">Lessons Hub</h3>
+                            <p class="card-value">A searchable, AI-powered library harvesting lessons learned from across all projects</p>
+                            <p class="card-why">Built to consolidate scattered lessons-learned documents from multiple repos into one place — searchable, browsable, and queryable by AI.</p>
+                            <p class="card-description">An Astro-based static site and Python pipeline that harvests markdown lessons from multiple GitHub repositories into a unified library. Features full-text search via Pagefind, a RAG-powered chatbot with citations, browser-native text-to-speech with paragraph highlighting, and automatic gap detection. Currently indexes 132 lessons from 4 repositories across 74 tags.</p>
                             <div class="card-tags">
-                                <span class="tag">Content Systems</span>
-                                <span class="tag">Structured Data</span>
-                                <span class="tag">AI-Generated Content</span>
+                                <span class="tag">RAG</span>
+                                <span class="tag">Search</span>
+                                <span class="tag">Astro</span>
+                                <span class="tag">Multi-Repo</span>
+                                <span class="tag">Text-to-Speech</span>
                             </div>
-                            <p class="card-freshness">Last pushed May 5, 2026</p>
+                            <p class="card-freshness">Last pushed May 11, 2026</p>
                         </div>
                         <div class="card-expand-content">
                             <div class="card-detail">
                                 <h4>Architecture</h4>
-                                <p>XML-backed question banks organized by provider, exam, and domain. A shared quiz engine serves all providers with progress tracking via localStorage.</p>
+                                <p>Python harvester clones source repositories and extracts markdown lessons from <code>docs/lessons/</code> directories. Astro generates the static site with Pagefind for client-side full-text search. RAG chatbot uses FastAPI with configurable LLM backends (AWS Bedrock, Azure OpenAI, Vertex AI) to answer questions with citations to specific lessons.</p>
                             </div>
                             <div class="card-detail">
                                 <h4>Tech Stack</h4>
-                                <p>HTML/CSS/JS, XML data layer, localStorage persistence, AI-assisted content generation pipeline.</p>
+                                <p>Python, Astro, Pagefind, FastAPI, Playwright (E2E tests), Pytest, Ruff, Web Speech API, GitHub Actions CI/CD, GitHub Pages with custom domain.</p>
                             </div>
                             <div class="card-detail">
                                 <h4>What I Learned</h4>
-                                <p>Generating high-quality exam scenarios at scale requires structured prompts and multi-pass validation. The hardest part is ensuring questions test understanding, not memorization.</p>
+                                <p>The value of lessons learned multiplies when they're aggregated. Individual project lessons are useful in context, but cross-project search reveals patterns you'd never notice in isolation. Gap detection — finding what the corpus can't answer — turned out to be as valuable as the search itself.</p>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="card-links">
-                                <a href="https://bonjohen.github.io/certification/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
-                                <a href="https://github.com/bonjohen/certification" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                                <a href="https://lessons.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/Lessons" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
+                            <h3 class="card-title">Artemis</h3>
+                            <p class="card-value">Calendar optimization from 12,000 space mission photos using ML and voter preferences</p>
+                            <p class="card-why">Built to see if statistical modeling and ML could solve a real collection optimization problem — selecting 13 images from 12,000 that balance preferences, diversity, and coverage.</p>
+                            <p class="card-description">A data science platform that ingests ~12,000 NASA Artemis II photos, extracts CLIP embeddings, clusters for visual diversity, scores via Elo and Borda voting, and uses Hungarian algorithm optimization to produce the best 13-image calendar. Includes an interactive web dashboard for browsing, comparison, and cluster exploration.</p>
+                            <div class="card-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Optimization</span>
+                                <span class="tag">Data Science</span>
+                                <span class="tag">CLIP</span>
+                                <span class="tag">DuckDB</span>
+                            </div>
+                            <p class="card-freshness">Last pushed May 10, 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Layered data warehouse (raw, staging, core, feature store, modeling, optimization, marts, reports) in DuckDB. CLIP-based multimodal embeddings feed k-means clustering for visual diversity. Beta-Binomial posteriors, Elo ratings, and Borda scoring drive preference modeling. Hungarian algorithm assigns optimal images to calendar months.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Python, DuckDB, CLIP (sentence-transformers), scikit-learn, FastAPI backend, vanilla JavaScript SPA frontend, Pillow for image processing and PDF rendering.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Collection optimization is harder than ranking. Selecting 13 images that are individually strong and collectively diverse requires treating it as a constrained optimization problem, not a sorting problem. The combination of voter preferences, visual embeddings, and temporal suitability made this a genuine data science challenge.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://artemis.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/Artemis" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
                             </div>
                             <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
                         </div>
@@ -91,25 +131,26 @@
                     <article class="card" data-expandable>
                         <div class="card-content">
                             <h3 class="card-title">JobClass</h3>
-                            <p class="card-value">Labor market analysis with twenty lessons learned and architecture discussions</p>
+                            <p class="card-value">Labor market analysis with twenty-one lessons learned, a DuckDB warehouse, and pipeline visualization</p>
                             <p class="card-why">Built to understand how government job data is organized and what patterns emerge when you process it through a real pipeline.</p>
-                            <p class="card-description">An analysis of government job classification data supported by extraction and processing pipelines, warehouse build steps, and release pipeline output. The live site includes common practices, lessons learned, and technology explanations.</p>
+                            <p class="card-description">A data pipeline that ingests SOC, OEWS, O*NET, and BLS Projections into a 57+ table DuckDB warehouse across four layers (raw, staging, core, marts). The live site includes 21 lessons learned, architecture discussions, a Pipeline Explorer visualization, and CPI domain analysis. Backed by 840+ tests.</p>
                             <div class="card-tags">
                                 <span class="tag">Pipelines</span>
                                 <span class="tag">Analytics</span>
                                 <span class="tag">Data Warehouse</span>
                                 <span class="tag">ETL</span>
+                                <span class="tag">DuckDB</span>
                             </div>
-                            <p class="card-freshness">Last pushed April 24, 2026</p>
+                            <p class="card-freshness">Last pushed May 9, 2026</p>
                         </div>
                         <div class="card-expand-content">
                             <div class="card-detail">
                                 <h4>Architecture</h4>
-                                <p>Multi-stage pipeline: extraction from public data sources, processing and normalization, warehouse build, and static site publishing. Each stage is independently runnable and inspectable.</p>
+                                <p>Four-tier DuckDB warehouse (raw, staging, core, marts) with 57+ tables fed by 9 pipeline workflows. Includes a canvas-based Pipeline Explorer for visualizing data flow across all stages. FastAPI web app with search, hierarchy, trends, and CPI analysis.</p>
                             </div>
                             <div class="card-detail">
                                 <h4>Tech Stack</h4>
-                                <p>Python extraction scripts, JSON/CSV data layers, HTML/CSS/JS presentation, pipeline orchestration, GitHub Pages publishing.</p>
+                                <p>Python, DuckDB, FastAPI, HTML/CSS/JS presentation, pipeline orchestration, 840+ tests, GitHub Pages publishing with custom domain.</p>
                             </div>
                             <div class="card-detail">
                                 <h4>What I Learned</h4>
@@ -118,8 +159,45 @@
                         </div>
                         <div class="card-footer">
                             <div class="card-links">
-                                <a href="https://bonjohen.github.io/jobclass/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://jobclass.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
                                 <a href="https://github.com/bonjohen/jobclass" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
+                            <h3 class="card-title">Certification</h3>
+                            <p class="card-value">Scenario-based certification study across providers and exams</p>
+                            <p class="card-why">Built because I needed a structured study system I could actually use — not flashcards, but scenario-driven practice at exam depth.</p>
+                            <p class="card-description">A study site featuring 2,500 scenario-based questions covering 50 exams across ten providers (AWS, Azure, GCP, Anthropic, GitHub, Databricks, NVIDIA, Cisco, CompTIA, ISC2). Recently migrated to a JSON data layer with schema validation, redesigned with the Atlas design system, and expanded with a 28-lesson lessons section. Azure exams carry lifecycle badges as vendors retire and replace them.</p>
+                            <div class="card-tags">
+                                <span class="tag">Content Systems</span>
+                                <span class="tag">Structured Data</span>
+                                <span class="tag">AI-Generated Content</span>
+                                <span class="tag">JSON</span>
+                            </div>
+                            <p class="card-freshness">Last pushed May 8, 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>JSON-backed question banks with schema validation, organized by provider, exam, and domain. A shared quiz engine serves all providers with progress tracking via localStorage. Atlas design system provides consistent styling across all pages.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>HTML/CSS/JS, JSON data layer with schema validation, localStorage persistence, AI-assisted content generation pipeline, Atlas design system.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Generating high-quality exam scenarios at scale requires structured prompts and multi-pass validation. The hardest part is ensuring questions test understanding, not memorization.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://certification.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/certification" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
                             </div>
                             <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
                         </div>
@@ -150,7 +228,7 @@
                             </div>
                             <div class="card-detail">
                                 <h4>What I Learned</h4>
-                                <p>The Web Speech API is surprisingly capable but full of browser-specific edge cases — Chrome's 15-second silence cutoff, voice availability differences, and rate persistence all needed workarounds. Eventually I settled on something easier. I made my own tool to edit while listening. The tool became more useful than I expected - I find I am using it seceral times a day.</p>
+                                <p>The Web Speech API is surprisingly capable but full of browser-specific edge cases — Chrome's 15-second silence cutoff, voice availability differences, and rate persistence all needed workarounds. Eventually I settled on something easier. I made my own tool to edit while listening. The tool became more useful than I expected - I find I am using it several times a day.</p>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -279,6 +357,59 @@
                 <!-- What's Next [R18, R19] -->
                 <div class="whats-next">
                     <p>More projects are in progress. This is a living collection — each project grows as I learn, and new ones get added as new questions come up.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Recent Lessons ===== -->
+        <section id="recent-lessons" class="section section-tight">
+            <div class="container">
+                <h2 class="section-heading">Recent Lessons</h2>
+                <p class="lessons-intro">The latest lessons learned across all projects — harvested from <a href="https://lessons.johnboen.com/" target="_blank" rel="noopener noreferrer">Lessons Hub</a>.</p>
+                <div class="lessons-list">
+                    <a href="https://lessons.johnboen.com/lessons/acceptance-testing-with-playwright/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Acceptance Testing with Playwright</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/voice-reader-for-lesson-pages/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Adding a Voice Reader to Lesson Pages</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/github-pages-custom-domain-setup/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">GitHub Pages Custom Domain Setup</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/live-infrastructure-for-integration-testing/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Live Infrastructure for Integration Testing</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/mock-vs-live-testing-trade-offs/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Mock vs Live Testing Trade-offs</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/preflight-gates-as-local-ci/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Preflight Gates as Local CI</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/skill-driven-workflow-automation/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Skill-Driven Workflow Automation</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/test-pyramid-for-static-sites/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Test Pyramid for Static Sites</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/testing-cross-repo-content-pipelines/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Testing Cross-Repo Content Pipelines</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 10</span>
+                    </a>
+                    <a href="https://lessons.johnboen.com/lessons/adapter-pattern-for-multi-cloud-portability/" class="lesson-item" target="_blank" rel="noopener noreferrer">
+                        <span class="lesson-title">Adapter Pattern for Multi-Cloud Portability</span>
+                        <span class="lesson-meta">Lessons Hub &middot; May 9</span>
+                    </a>
+                </div>
+                <div class="lessons-cta">
+                    <a href="https://lessons.johnboen.com/lessons/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View All 132 Lessons &#8599;</a>
                 </div>
             </div>
         </section>

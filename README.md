@@ -8,7 +8,7 @@ The front door to a collection of GitHub Pages projects by John Boen.
 
 ## What This Is
 
-A single-page portal site that introduces five actively maintained projects spanning certification study, labor market analysis, document-scale RAG, AI adoption research, and story structure exploration. Each project started as a personal tool to answer a real question, then grew into something others can use.
+A single-page portal site that introduces eight actively maintained projects spanning certification study, labor market analysis, markdown tooling, document-scale RAG, AI adoption research, story structure exploration, calendar optimization, and cross-project lessons aggregation. Each project started as a personal tool to answer a real question, then grew into something others can use.
 
 The portal communicates what was built, why it was built, and how it was built â€” serving as both a personal resource hub and a professional technology portfolio.
 
@@ -16,11 +16,14 @@ The portal communicates what was built, why it was built, and how it was built â
 
 | Project | What It Does | Links |
 |---|---|---|
-| **Certification** | 1,300+ scenario-based questions across 26 exams and 4 providers | [Live](https://bonjohen.github.io/certification/) / [Repo](https://github.com/bonjohen/certification) |
-| **JobClass** | Government job data analysis with pipelines, lessons learned, and architecture discussions | [Live](https://bonjohen.github.io/jobclass/) / [Repo](https://github.com/bonjohen/jobclass) |
+| **Certification** | 2,500 scenario-based questions across 50 exams and 10 providers, Atlas design system, JSON data layer | [Live](https://certification.johnboen.com/) / [Repo](https://github.com/bonjohen/certification) |
+| **JobClass** | Labor market data pipeline with 57+ table DuckDB warehouse, 21 lessons learned, Pipeline Explorer | [Live](https://jobclass.johnboen.com/) / [Repo](https://github.com/bonjohen/jobclass) |
+| **MD Reader** | Browser-based markdown reader with text-to-speech, editing, and playlist navigation | [Live](https://mdreader.johnboen.com/) / [Repo](https://github.com/bonjohen/mdreader) |
 | **Epstein DOJ Disclosures** | RAG system for AI-powered search over 4,000+ DOJ disclosure PDFs | [Docs](https://epstein.johnboen.com/) / [Repo](https://github.com/bonjohen/epstein) |
 | **AI Usage Trust Paradox** | Visual exploration of why 3/4 of people use AI but only 1/3 trust it | [Live](https://aiusage.johnboen.com/) / [Repo](https://github.com/bonjohen/ai_usage) |
 | **Story Structure Explorer** | Story arc evaluation, worldbuilding, and agentic dialogue generation (BYOK) | [Live](https://bonjohen.github.io/story_v5/) / [Repo](https://github.com/bonjohen/story_v5) |
+| **Artemis** | Calendar optimization from 12,000 NASA Artemis II photos using CLIP, Elo, and Hungarian algorithm | [Live](https://artemis.johnboen.com/) / [Repo](https://github.com/bonjohen/Artemis) |
+| **Lessons Hub** | Searchable, AI-powered library harvesting 132 lessons from 4 repos with RAG chatbot and voice reader | [Live](https://lessons.johnboen.com/) / [Repo](https://github.com/bonjohen/Lessons) |
 
 ## Technical Stack
 

@@ -19,12 +19,12 @@ The design document lives at `docs/project_design.md` and is the authoritative s
 
 Single-page layout with these sections in order:
 1. **Hero** — name, tagline, CTAs (projects section + GitHub profile)
-2. **Featured Projects** — five project cards (Certification, JobClass, AI Usage Trust Paradox, Story Structure Explorer, AI Usage Repository)
+2. **Featured Projects** — eight project cards (Certification, JobClass, MD Reader, Epstein DOJ Disclosures, AI Usage Trust Paradox, Story Structure Explorer, Artemis, Lessons Hub)
 3. **Common Themes** — what ties the projects together
 4. **About** — brief professional intro
 5. **Footer** — GitHub link, copyright
 
-Navigation: Home, Projects, About, GitHub (in-page anchors + external link).
+Navigation: Home, Projects, Process, About, GitHub (in-page anchors + external link).
 
 ## Project Card Data
 

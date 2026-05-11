@@ -102,7 +102,7 @@ I build GitHub Pages projects that turn research, structured data, and explorato
 
 The featured projects section is the central content area of the site.
 
-This section must present six project cards. Each card must provide enough information for a visitor to understand the project at a glance and choose whether to explore the live site or repository.
+This section must present eight project cards. Each card must provide enough information for a visitor to understand the project at a glance and choose whether to explore the live site or repository.
 
 Each project card must include:
 
@@ -122,15 +122,19 @@ The featured projects shall appear in the following recommended order:
 
 2. JobClass
 
-3. AI Usage Trust Paradox
+3. MD Reader
 
-4. Story Structure Explorer
+4. Epstein DOJ Disclosures
 
-5. AI Usage Repository Project
+5. AI Usage Trust Paradox
 
-6. MD Reader
+6. Story Structure Explorer
 
-This order is chosen to place the most immediately understandable and practical projects first, followed by more exploratory projects.
+7. Artemis
+
+8. Lessons Hub
+
+This order is chosen to place the most immediately understandable and practical projects first, followed by more exploratory and cross-cutting projects.
 
 ### 8.3 Common Themes Section
 
@@ -164,7 +168,7 @@ Optional short note indicating that the featured projects are repository-backed 
 
 This project should be described as a scenario-based certification study site covering multiple providers and exams.
 
-The description should mention that it includes 4,600+ sample questions covering 46 exams across ten providers (AWS, Azure, GCP, Anthropic, GitHub, Databricks, NVIDIA, Cisco, CompTIA, ISC2).
+The description should mention that it includes 2,500 scenario-based questions covering 50 exams across ten providers (AWS, Azure, GCP, Anthropic, GitHub, Databricks, NVIDIA, Cisco, CompTIA, ISC2).
 
 The description should highlight the latest expansion: 10 exams added across new and existing providers. It should also note that several exams now carry lifecycle status badges as vendors retire and replace them (e.g., AWS SOA-C02 retired, Azure AI-900 and AZ-204 ending soon).
 
@@ -178,7 +182,7 @@ Repository: [https://github.com/bonjohen/certification](https://github.com/bonjo
 
 This project should be described as an analysis of government job data supported by multiple pipelines.
 
-The description should mention extraction and processing, warehouse build steps, release pipeline output, and the fact that the live site includes examples of common practices, lessons learned, and technology explanations.
+The description should mention extraction and processing, a 57+ table DuckDB warehouse across four layers, Pipeline Explorer visualization, and the fact that the live site includes 21 lessons learned, architecture discussions, and CPI domain analysis.
 
 Required links:
 
@@ -237,6 +241,34 @@ Required links:
 Live site: [https://mdreader.johnboen.com/](https://mdreader.johnboen.com/)
 
 Repository: [https://github.com/bonjohen/mdreader](https://github.com/bonjohen/mdreader)
+
+### 9.7 Artemis
+
+This project should be described as a data science and engineering platform for optimizing a 13-month calendar from NASA Artemis II mission imagery.
+
+The description should mention that it ingests approximately 12,000 Artemis II photos, extracts CLIP-based visual embeddings, clusters for diversity using k-means, scores images via Elo and Borda voting, and uses Hungarian algorithm optimization to assign the best images to calendar months.
+
+The description should mention the interactive web dashboard for browsing, comparison, cluster exploration, and vote simulation. It should note that the platform includes a layered DuckDB warehouse and full PDF calendar rendering.
+
+Required links:
+
+Live site: [https://artemis.johnboen.com/](https://artemis.johnboen.com/)
+
+Repository: [https://github.com/bonjohen/Artemis](https://github.com/bonjohen/Artemis)
+
+### 9.8 Lessons Hub
+
+This project should be described as a searchable, AI-powered library that harvests lessons-learned documents from multiple GitHub repositories into a unified site.
+
+The description should mention the Astro-based static site, Python harvesting pipeline, Pagefind full-text search, RAG-powered chatbot with citations, browser-native text-to-speech with paragraph highlighting, and automatic gap detection.
+
+The description should note that the site currently indexes 132 lessons from 4 repositories across 74 tags, and supports configurable LLM backends (AWS Bedrock, Azure OpenAI, Vertex AI).
+
+Required links:
+
+Live site: [https://lessons.johnboen.com/](https://lessons.johnboen.com/)
+
+Repository: [https://github.com/bonjohen/Lessons](https://github.com/bonjohen/Lessons)
 
 ## 10. Functional Requirements
 
@@ -312,7 +344,7 @@ A single responsive landing page
 
 A hero section
 
-A featured projects section with six project cards
+A featured projects section with eight project cards
 
 A common themes section
 

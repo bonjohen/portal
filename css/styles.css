@@ -163,7 +163,8 @@ img {
     transition: color var(--transition-fast);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
     color: var(--color-text-primary);
 }
 
@@ -243,12 +244,6 @@ img {
     max-width: 600px;
 }
 
-.hero-ctas {
-    display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-}
-
 /* ===== Buttons ===== */
 .btn {
     display: inline-flex;
@@ -262,17 +257,6 @@ img {
     cursor: pointer;
     border: none;
     text-decoration: none;
-}
-
-.btn-primary {
-    background: var(--color-accent);
-    color: #fff;
-}
-
-.btn-primary:hover {
-    background: var(--color-accent-hover);
-    color: #fff;
-    transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -518,6 +502,60 @@ img {
     font-style: italic;
 }
 
+/* ===== Recent Lessons ===== */
+.lessons-intro {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+}
+
+.lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.lesson-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-bg-card);
+    text-decoration: none;
+    transition: background var(--transition-fast);
+}
+
+.lesson-item:hover {
+    background: var(--color-bg-card-hover);
+    color: inherit;
+}
+
+.lesson-title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
+}
+
+.lesson-item:hover .lesson-title {
+    color: var(--color-accent);
+}
+
+.lesson-meta {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    margin-left: var(--space-lg);
+}
+
+.lessons-cta {
+    margin-top: var(--space-xl);
+    text-align: center;
+}
+
 /* ===== How I Build ===== */
 .build-grid {
     display: grid;
@@ -710,6 +748,16 @@ img {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .lesson-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+
+    .lesson-meta {
+        margin-left: 0;
+    }
 }
 
 /* ===== Responsive — Small Mobile (≤480px) ===== */
@@ -720,15 +768,6 @@ img {
 
     .hero-title {
         font-size: var(--text-3xl);
-    }
-
-    .hero-ctas {
-        flex-direction: column;
-    }
-
-    .hero-ctas .btn {
-        text-align: center;
-        justify-content: center;
     }
 
     .about-links {
