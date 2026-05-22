@@ -54,6 +54,118 @@
 
                     <article class="card" data-expandable>
                         <div class="card-content">
+                            <h3 class="card-title">HAx — Human Advantage Experiments</h3>
+                            <p class="card-value">Actionable experiments extracted from TED Talks, organized by evidence and persona</p>
+                            <p class="card-why">Built to see if curated talk content could be transformed into a structured, searchable collection of practical experiments — with evidence levels, not just inspiration.</p>
+                            <p class="card-description">A discovery site that curates TED Talks into four clusters (Body, Cognition, Environment, Social), extracts actionable experiments, and tags each with evidence levels from High to Narrative/Conceptual. Features persona-guided navigation, Pagefind search, localStorage experiment saving, printable cards, and shareable permalinks. Non-commercial — uses TED embeds and outbound links, not rehosted media.</p>
+                            <div class="card-tags">
+                                <span class="tag">Curation</span>
+                                <span class="tag">Search</span>
+                                <span class="tag">Astro</span>
+                                <span class="tag">Evidence-Based</span>
+                                <span class="tag">Accessibility</span>
+                            </div>
+                            <p class="card-freshness">Last pushed May 22, 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Astro site with Preact interactive components and Zod schema validation at build time. Content organized by clusters, talks, and experiments with cross-referencing. Pagefind provides static search indexing. Five personas guide navigation paths for different user types (skeptical knowledge worker, self-optimizing student, team lead, coach/educator, wellness-curious generalist).</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Astro 6.3, Preact, TypeScript, Zod, Pagefind, Playwright + axe-core for E2E and accessibility testing, Cloudflare Pages, WCAG 2.1 AA compliance.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Evidence tagging is the hardest editorial decision in the pipeline. The difference between "High" and "Moderate" evidence changes whether an experiment feels credible or aspirational — and getting it wrong undermines the whole premise of the site. Persona-based navigation also turned out to be more useful than category browsing alone.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://hax.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/hax" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
+                            <h3 class="card-title">SOC 2 Readiness</h3>
+                            <p class="card-value">An educational guide to SOC 2 readiness for technology company leaders</p>
+                            <p class="card-why">Built to make SOC 2 preparation understandable for founders and CTOs who need compliance to close enterprise deals — without hiding behind jargon or selling fear.</p>
+                            <p class="card-description">A static site that educates technology company leaders about SOC 2 readiness. Covers 12 control domains with evidence examples, readiness process timelines, service packages, and AI &amp; data advisory modules. Designed for founders, CTOs, and security leads at SaaS, AI, data, and developer-tooling companies navigating their first SOC 2 engagement.</p>
+                            <div class="card-tags">
+                                <span class="tag">Compliance</span>
+                                <span class="tag">Security</span>
+                                <span class="tag">Astro</span>
+                                <span class="tag">Education</span>
+                            </div>
+                            <p class="card-freshness">Last pushed May 22, 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Astro-based static site with structured content pages for each of the 12 control domains (logical access, MFA, change management, logging, vulnerability management, incident response, vendor management, asset inventory, encryption, backup, data handling, privacy). Includes a RACI matrix, service boundary disclaimers, and tool evaluations.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Astro 5.8, @astrojs/sitemap, sharp, dark-slate design system, Inter font, GitHub Pages with custom domain.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Compliance education works best when it's structured like engineering documentation — clear scope, concrete examples, and explicit boundaries about what's included and what isn't. The hardest part was being precise about where readiness consulting ends and audit work begins.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://soc2.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/soc2" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
+                            <h3 class="card-title">I2I — Idea to Implementation</h3>
+                            <p class="card-value">A structured, prompt-driven SDLC workflow from idea through phased delivery</p>
+                            <p class="card-why">Built to codify the development process I actually use — a repeatable sequence of prompts that moves a software idea through design, PDR, planning, and phased implementation.</p>
+                            <p class="card-description">A static site that explains and demonstrates a prompt-driven software development lifecycle. Covers eight commands (draft-user, draft-pdr, draft-plan, gen-pdr, gen-plan, finalize, expand, implement) that move a project from user requirements through product design review, phased release plan, and per-phase execution. Serves as both workflow documentation and a portfolio piece for AI-assisted engineering practice.</p>
+                            <div class="card-tags">
+                                <span class="tag">SDLC</span>
+                                <span class="tag">AI Workflow</span>
+                                <span class="tag">Astro</span>
+                                <span class="tag">Process Design</span>
+                            </div>
+                            <p class="card-freshness">Last pushed May 21, 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>Astro-based static site with structured content pages for each workflow stage and command. Includes getting-started guides, artifact examples from generated documents, and case studies showing the workflow applied to real projects.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Astro 5.8, @astrojs/sitemap, sharp for image optimization, responsive design, GitHub Pages with custom domain.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>The most valuable thing about a structured SDLC isn't the documents it produces — it's the forcing function it creates. Each stage surfaces questions you'd otherwise discover too late. Codifying the process made it teachable, which made it better.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="https://sdlc.johnboen.com/" class="btn btn-card" target="_blank" rel="noopener noreferrer">Live Site &#8599;</a>
+                                <a href="https://github.com/bonjohen/sdlc" class="btn btn-card-alt" target="_blank" rel="noopener noreferrer">Repository &#8599;</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
                             <h3 class="card-title">Lessons Hub</h3>
                             <p class="card-value">A searchable, AI-powered library harvesting lessons learned from across all projects</p>
                             <p class="card-why">Built to consolidate scattered lessons-learned documents from multiple repos into one place — searchable, browsable, and queryable by AI.</p>
@@ -351,6 +463,7 @@
                             <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
                         </div>
                     </article>
+
 
                 </div>
 
