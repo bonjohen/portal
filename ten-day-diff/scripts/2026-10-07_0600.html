@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude in Google Workspace, tracking settlements, and local decision models · The Ten-Day Diff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f5f6f3;--fg:#1d2320;--muted:#5d6862;--line:#dde2dd;--accent:#1f6f5c;
+--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#121614;--fg:#e4e9e5;--muted:#9aa6a0;--line:#2b3430;--accent:#5cc2a4;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);padding:32px 16px 64px}
+main{max-width:660px;margin:0 auto}
+.label{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:600 clamp(26px,6vw,36px)/1.15 var(--display);margin:8px 0 6px;text-wrap:balance}
+.meta{font:400 13px/1.4 var(--mono);color:var(--muted);margin:0 0 28px}
+h2{font:600 21px/1.3 var(--display);margin:36px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
+p{margin:0 0 16px}
+ul{padding-left:20px} li{margin:4px 0;font-size:15px}
+a{color:var(--accent);text-underline-offset:3px}
+.back{font:500 13px var(--body);text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../">← All episodes</a>
+<p class="label" style="margin-top:24px">The Ten-Day Diff · script</p>
+<h1>Claude in Google Workspace, tracking settlements, and local decision models</h1>
+<p class="meta">Oct 7, 2026 · covers Sep 27 to Oct 6</p>
+<p>This is The Ten-Day Diff for Wednesday, October 7, 2026, recorded at 6:00 in the morning Pacific and covering September 27 through October 6. Today&#x27;s lead is Claude arriving inside Google Docs, Sheets, and Slides. After that: a report that puts a dollar figure on website tracking lawsuits, and small decision models you can run on a laptop.</p>
+<h2>Technical - AI/software</h2>
+<p>Ollama added support for decision models on September 29, and Hackaday ran a plain-language explainer on October 6. A decision model takes text in and returns numbers instead of prose: a yes or no, a score, or a pick from a list you supply, each with a probability. Ollama 0.35 exposes this through a new local endpoint, /v1/systemone. The main model is Nimble, a 9 billion parameter model from Bespoke Labs. Ollama reports about 91 milliseconds per decision on an M5 Max. This is the same family as Cloudflare Clef, presented October 4, and the AWS Strands Decider, presented October 3, but it runs on your own machine at no cost per call. For you, that fits lead routing and ticket triage, where you want a typed answer with a confidence value and not a paragraph to parse.</p>
+<p>On October 5, Snowflake made the Cortex Agent code execution tool generally available. You turn it on in the agent specification. The agent then decides when to write and run Python during a conversation, for calculations, data processing, or a chart. It runs in a sandbox that sees only the current session&#x27;s data. If any of your pipeline reporting sits behind a Cortex Agent, this removes the need to hand off to a separate notebook for the arithmetic.</p>
+<h2>Technical - Materials science</h2>
+<p>Three papers, all published October 6.</p>
+<p>A Tsinghua University group reported a tungsten bronze ceramic in Nature Electronics, aimed at small capacitors. It combines a dielectric constant near 185 with a loss tangent below 0.0005 and a temperature coefficient within 30 parts per million per degree. Usually you give up one of those to get the others. Prototype single-layer chip capacitors came out about 85% smaller than the commercial benchmark. The team used machine learning to narrow the composition space, then tuned it with bismuth and germanium substitution.</p>
+<p>In Nature Communications, a team from the Chinese Academy of Sciences, Nanyang Technological University, the Weizmann Institute, and Boston College imaged titanium-doped CsV3Sb5, a kagome metal, with a scanning tunneling microscope. They found that the ordinary metallic state already breaks every mirror symmetry and has a handedness. They call it a chiral-nematic Fermi liquid, and argue it is the parent of both the charge density wave and the superconductivity seen at lower temperature. If that holds, the strange behavior of kagome metals starts earlier than people assumed.</p>
+<p>Also in Nature Communications, a group led from Xi&#x27;an Jiaotong University reported organic solar cells processed from water with a certified efficiency of 12.59%. The earlier best was 11.1%. The gain came from controlling the tension at the water-oil boundary while the nanoparticles form, so they fuse into a better film. The cells kept 80% of their output for more than 2,000 hours at 85 degrees Celsius. Solvent-processed organic cells are still well ahead on efficiency, but this gets rid of the toxic solvents that make printing them at scale hard to permit.</p>
+<h2>DIY electronics</h2>
+<p>Hackaday covered a tidy trick on October 6 for the GeekMagic SmallTV, the little cube display built on an ESP8266 or ESP32. Yongha Kim&#x27;s project, token-tv, leaves the stock firmware alone. A Python script on another machine draws a 240 by 240 image with Pillow and pushes it over HTTP to the device&#x27;s built-in photo viewer. Animated GIFs work too. His demo shows Claude and Codex usage numbers, so this is a cheap desk display for your own token spend, with no soldering.</p>
+<p>CNX Software wrote up the XIMEA MU003TG-SY-UC on October 6. It is a USB 3 time-of-flight camera built on the Sony IMX556: 640 by 480 depth at 60 frames per second, in a housing about 26 millimeters square that weighs 31 grams. It has Python, C, and OpenCV support on Linux, Windows, and macOS. Two cautions. It is an engineering sample with no price yet, and you supply the laser illumination and the lens yourself.</p>
+<h2>Data regulation</h2>
+<p>Privado AI released its 2026 website and app privacy litigation report on October 5. It projects $1.4 billion in tracking settlements in the United States this year, up 36% from 2025, with an average of $6.7 million. The federal Wiretap Act appears in 53% of this year&#x27;s settlements and the California Invasion of Privacy Act in 43%. Meta&#x27;s pixel is named in 91% of the settlements that identify a tracker. Treat the numbers with some care, because Privado sells compliance software. Still, the direction matters to you. SB 690 being signed, presented October 1, narrows the California claims, and this report says the federal claims are already the larger share. So a pixel or session replay script on a marketing site keeps its legal exposure.</p>
+<p>A related filing came on October 6 in the Flo Health case in the Northern District of California. Plaintiffs asked for final approval of the $56 million settlement with Google and Flo, covering 222,115 class members. They also answered Meta&#x27;s objections, and said the amount Meta owes after last year&#x27;s jury verdict is $1.11 billion. That works out to the statutory $5,000 per class member, which is how a tracking SDK becomes a ten-figure number.</p>
+<h2>Claude for GTM engineering</h2>
+<p>Claude for Google Workspace entered public beta on October 6, on all paid plans. It is a sidebar add-on for Docs, Sheets, and Slides, installed from the Google Workspace Marketplace. It reads the open file and your selection, and edits in place. In Sheets it writes formulas, builds pivot tables and native charts, and can clean data with Python before writing it back. You pick between approving each edit and accepting all of them. The sidebar carries your existing connectors and skills, so a HubSpot or Snowflake connector is reachable from a sheet. Alongside it are new connectors that let Claude create and edit Google files from chat. On Team and Enterprise plans an owner has to enable those first. Some limits to know: it cannot read BigQuery-connected sheets, charts in Slides land as static images, and zero data retention and HIPAA coverage do not apply.</p>
+<p>Anthropic expanded Claude for Startups on October 6. Qualifying companies get a free year of Claude Team with up to five premium seats and $1,000 in API credits, along with Marketplace access and office hours with the Applied AI team. A company qualifies if it was founded in the last five years or funded in the last two. Worth knowing if you advise small teams or sell plugins to them.</p>
+<p>Two small ones. On October 5 the Models API began reporting whether each model accepts thinking set to disabled, so you can check before sending a request and not after it fails. And Claude Code 2.1.291, out October 6, fixes two regressions: cloud sessions dropping answers to permission prompts, which came in with 2.1.290, presented October 6, and the last messages of a session being lost on quit. If you run unattended cloud sessions, update.</p>
+<p>That is the diff. Back tomorrow.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ollama.com/blog/ollama-now-supports-jev-style-decision-models">Ollama decision models: Nimble 9B and the /v1/systemone endpoint</a></li>
+<li><a href="https://hackaday.com/2026/10/06/a-new-type-of-llm-on-the-block-decision-making-models/">Hackaday explainer on decision-making models</a></li>
+<li><a href="https://docs.snowflake.com/en/release-notes/2026/other/2026-10-05-cortex-agents-code-execution-tool-ga">Snowflake Cortex Agent code execution tool GA</a></li>
+<li><a href="https://www.nature.com/articles/s41928-026-01721-1">Temperature-stable high-κ tungsten bronze oxide for miniaturized capacitors (Tsinghua, Nature Electronics)</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78385-0">Chiral-nematic Fermi liquid as the parent state in kagome metal CsV3Sb5 (Nature Communications)</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78233-1">Water-based organic solar cells at 12.59% certified efficiency (Xi&#x27;an Jiaotong, Nature Communications)</a></li>
+<li><a href="https://hackaday.com/2026/10/06/smalltv-hacking-with-surprisingly-little-fuss/">token-tv: custom displays on the GeekMagic SmallTV with stock firmware</a></li>
+<li><a href="https://www.cnx-software.com/2026/10/06/ximea-mu003tg-sy-uc-a-miniature-modular-0-3mp-usb-3-0-tof-sensor-based-on-sony-imx556/">XIMEA MU003TG-SY-UC USB 3 time-of-flight camera (Sony IMX556)</a></li>
+<li><a href="https://www.businesswire.com/news/home/20261005512701/en/US-Companies-Set-to-Pay-$1.4-Billion-in-Privacy-Settlements-Over-Web-and-App-Tracking-up-36-From-2025">Privado AI report: $1.4 billion in US tracking settlements projected for 2026</a></li>
+<li><a href="https://www.mlex.com/mlex/data-privacy-security/articles/2534590">Flo Health: plaintiffs seek final approval of $56M Google and Flo settlement</a></li>
+<li><a href="https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides">Claude for Google Workspace public beta (Docs, Sheets, Slides)</a></li>
+<li><a href="https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/">Claude for Startups expansion: free year of Claude Team and $1,000 in API credits</a></li>
+<li><a href="https://docs.claude.com/en/release-notes/overview">Models API reports capabilities.thinking.types.disabled</a></li>
+<li><a href="https://releasebot.io/updates/anthropic/claude-code">Claude Code 2.1.291: two regression fixes</a></li>
+</ul>
+</main>
+</body>
+</html>

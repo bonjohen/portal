@@ -1289,5 +1289,106 @@
     ]
    }
   ]
+ },
+ {
+  "date": "2026-10-07",
+  "published_at": "2026-10-07_0600",
+  "window": "Sep 27 to Oct 6",
+  "title": "Claude in Google Workspace, tracking settlements, and local decision models",
+  "duration": "9:09",
+  "audio_url": "episodes/2026-10-07_0600.mp3",
+  "script_url": "scripts/2026-10-07_0600.html",
+  "sections": [
+   {
+    "area": "Technical - AI/software",
+    "items": [
+     {
+      "name": "Ollama decision models: Nimble 9B and tev1 on the local /v1/systemone endpoint (Ollama 0.35)",
+      "date": "2026-09-29",
+      "url": "https://ollama.com/blog/ollama-now-supports-jev-style-decision-models"
+     },
+     {
+      "name": "Snowflake Cortex Agent code execution tool GA",
+      "date": "2026-10-05",
+      "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-10-05-cortex-agents-code-execution-tool-ga"
+     }
+    ]
+   },
+   {
+    "area": "Technical - Materials science",
+    "items": [
+     {
+      "name": "Temperature-stable high-κ tungsten bronze oxide for miniaturized capacitors (Tsinghua, Nature Electronics)",
+      "date": "2026-10-06",
+      "url": "https://www.nature.com/articles/s41928-026-01721-1"
+     },
+     {
+      "name": "Chiral-nematic Fermi liquid as parent state in Ti-doped kagome metal CsV3Sb5 (CAS / NTU / Weizmann / Boston College, Nature Communications)",
+      "date": "2026-10-06",
+      "url": "https://www.nature.com/articles/s41467-026-78385-0"
+     },
+     {
+      "name": "Water-based organic solar cells at 12.59% certified efficiency (Xi'an Jiaotong, Nature Communications)",
+      "date": "2026-10-06",
+      "url": "https://www.nature.com/articles/s41467-026-78233-1"
+     }
+    ]
+   },
+   {
+    "area": "DIY electronics",
+    "items": [
+     {
+      "name": "token-tv: custom images on the GeekMagic SmallTV (ESP8266 / ESP32) with stock firmware (Yongha Kim)",
+      "date": "2026-10-06",
+      "url": "https://hackaday.com/2026/10/06/smalltv-hacking-with-surprisingly-little-fuss/"
+     },
+     {
+      "name": "XIMEA MU003TG-SY-UC USB 3 time-of-flight camera (Sony IMX556)",
+      "date": "2026-10-06",
+      "url": "https://www.cnx-software.com/2026/10/06/ximea-mu003tg-sy-uc-a-miniature-modular-0-3mp-usb-3-0-tof-sensor-based-on-sony-imx556/"
+     }
+    ]
+   },
+   {
+    "area": "Data regulation",
+    "items": [
+     {
+      "name": "Privado AI 2026 litigation report: $1.4B in US web and app tracking settlements, federal Wiretap Act claims outpace CIPA (follows SB 690 signed, presented 2026-10-01)",
+      "date": "2026-10-05",
+      "url": "https://www.businesswire.com/news/home/20261005512701/en/US-Companies-Set-to-Pay-$1.4-Billion-in-Privacy-Settlements-Over-Web-and-App-Tracking-up-36-From-2025"
+     },
+     {
+      "name": "Flo Health: plaintiffs seek final approval of $56M Google / Flo settlement, say Meta owes $1.11B",
+      "date": "2026-10-06",
+      "url": "https://www.mlex.com/mlex/data-privacy-security/articles/2534590"
+     }
+    ]
+   },
+   {
+    "area": "Claude for GTM engineering",
+    "items": [
+     {
+      "name": "Claude for Google Workspace public beta: add-on and connectors for Docs, Sheets and Slides",
+      "date": "2026-10-06",
+      "url": "https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides"
+     },
+     {
+      "name": "Claude for Startups expansion: free year of Claude Team, $1,000 API credits",
+      "date": "2026-10-06",
+      "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/"
+     },
+     {
+      "name": "Claude Models API reports capabilities.thinking.types.disabled",
+      "date": "2026-10-05",
+      "url": "https://docs.claude.com/en/release-notes/overview"
+     },
+     {
+      "name": "Claude Code 2.1.291: fixes for dropped cloud permission answers and lost final messages (follows Claude Code 2.1.290, presented 2026-10-06)",
+      "date": "2026-10-06",
+      "url": "https://releasebot.io/updates/anthropic/claude-code"
+     }
+    ]
+   }
+  ]
  }
 ]
