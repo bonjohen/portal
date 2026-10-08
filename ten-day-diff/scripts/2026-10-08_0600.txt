@@ -1,0 +1,60 @@
+This is The Ten-Day Diff for Thursday, October 8, 2026, recorded at 6:00 in the morning Pacific and covering September 28 through October 7. Today's lead is Claude Haiku 5.5, a small model priced at a tenth of a dollar per million input tokens. After that: Mistral previews a trillion-parameter model, and the EU's Digital Omnibus hits a snag over trade secrets.
+
+## Technical - AI/software
+
+Mistral opened a public preview of Mistral Large 4 on October 6. It is a mixture-of-experts model with about 1 trillion total parameters, of which 49 billion are active on any one token. It takes text and images, and Mistral's documentation lists a 1 million token context window. API pricing is $1.36 per million input tokens and $4.18 per million output. Mistral says the weights will be published by the end of October. Like Reflection AI's Beam, presented October 6, this is an open model whose weights have been promised and not yet delivered, so treat it as an API you can test now and a download you can plan for.
+
+Also on October 6, Google released EmbeddingGemma 2 under Apache 2.0. It is a 740 million parameter embedding model that places text, code, images, audio, and video in one shared vector space. Text-only use loads about 270 million parameters. Vectors are 768 wide and can be cut down to 128, and the input window is 8,000 tokens. Google reports its code retrieval score rising from 68.76 to 78.68. It is already in Ollama, sentence-transformers, and llama.cpp. If you index call transcripts next to documents and screenshots, one small local model can now cover all of them.
+
+## Technical - Materials science
+
+Two papers from Communications Materials.
+
+On October 7, a team working at the European XFEL published a way to see where a phase transition starts inside a thin film. The material is iron rhodium, FeRh, which switches from antiferromagnetic to ferromagnetic when heated. They hit a 44 nanometer film with a laser and used the strain pulse that the laser launches as a moving marker, reading it out with ultrafast X-ray diffraction. The ferromagnetic regions start near the lit surface as columns about 20 nanometers tall, and they grow with a time constant of about 8 picoseconds. The method needs no special sample structure, so it should carry over to other films with distinct diffraction peaks, including buried layers.
+
+On October 6, a group from ETH Zurich, the Paul Scherrer Institute, EPFL, and Lund University showed three-dimensional movies of a laser melt pool in alumina at 25,000 volumes per second. Ordinary tomography is limited by how fast you can spin the sample. Their setup sends three X-ray beamlets through at different angles at once, and a self-supervised neural network rebuilds each volume. They report a 250-fold gain over prior melt-pool imaging. For anyone in additive manufacturing, that means watching a keyhole form instead of inferring it afterward.
+
+## DIY electronics
+
+CNX Software covered DSPi on October 7. It is open-source firmware that turns a Raspberry Pi Pico or Pico 2 into a USB sound card with a signal processor inside. It does room correction, crossovers, parametric EQ, and time alignment, split across both cores. The RP2350 build gets more EQ bands and more outputs than the RP2040 build. That is an active crossover on a $4 board.
+
+Hackaday, October 7: pico-ttl2dvi by Charlysan converts TTL RGB video from old computers to DVI on an RP2350. The PIO blocks sample the incoming video into a framebuffer, and PicoDVI drives the output. It targets the Waveshare RP2350-PiZero, which already has an HDMI socket, and needs only resistors for level shifting.
+
+Also from Hackaday on October 7, Gareth Davies used an ESP32-S3 to keep vintage radios useful. The board pulls an internet radio stream and puts out a 200 kilohertz long wave signal by pulsing a GPIO pin into a loose wire coil. The radio sits next to the box and picks it up. The maker notes this may not be legal where you live.
+
+## Data regulation
+
+On October 7, EU national ambassadors failed to agree a Council position on the Digital Omnibus. MLex reports that Germany led a push for stronger trade secret protections. A revised draft is expected, and ambassadors meet again on Sunday. This follows the October 2 Council draft, presented October 6. The cookie and AI-processing changes you may be waiting on cannot move to talks with Parliament until the Council settles this.
+
+Also October 7, 21 states led by Nebraska's attorney general wrote to the FCC about TP-Link routers. They say the company's ability to share consumer data is disclosed only deep in its privacy policies, and that its staff and facilities fall under China's 2017 intelligence law. The FCC is reviewing TP-Link's request to sell new router models. The argument to notice is that a buried disclosure is being treated as a consumer protection harm.
+
+And in New York City on October 7, the mayor proposed letting residents and organizations sue directly over unfair business practices. The city's consumer protection department, led by a former FTC official, is behind it. MLex published only a summary, so the terms are not yet clear. If it passes, it adds another private right of action that could reach data practices.
+
+## Claude for GTM engineering
+
+Claude Haiku 5.5 launched October 7. It costs $0.10 per million input tokens and $0.50 per million output, rising to five times that for prompts over 100,000 tokens. The context window is 1 million tokens, output goes up to 128,000, and adaptive thinking is on by default. Three cautions before you switch a pipeline. The same text counts as roughly 30 percent more tokens than on Haiku 4.5. Requests that set a thinking budget, a temperature, or an assistant prefill now return errors. And a response can begin with a thinking block, so pick content by type and not by position. For enrichment, routing, and subagent work across HubSpot and Gong records, this is the new default to test.
+
+The same day, Anthropic halved the price of prompt cache reads on Sonnet 5.5, from $0.20 to $0.10 per million tokens. This follows the Sonnet 5.5 launch, presented September 30. Long agent sessions that reread a large cached prefix get cheaper with no code change.
+
+Max and Team plans now include monthly API credits, also announced October 7. Max 5x gets $100 and Max 20x gets $200. Team gets $20 per standard seat and $100 per premium seat, pooled and capped at $500. Credits cover the API, Managed Agents, and the Agent SDK. They do not cover Claude Code, and they do not roll over. You claim them by linking a Console organization under billing settings.
+
+Claude Code shipped 2.1.292 on October 6 and 2.1.293 on October 7, following 2.1.291, presented October 7. The useful parts: claude plugin install takes a marketplace flag that adds the marketplace and installs in one step. The Agent tool accepts an effort level for sub-agents. Local MCP servers now negotiate the July 2026 protocol version by default. Scheduled routines can publish a private artifact without asking for approval. And 2.1.293 makes Haiku 5.5 the default Haiku model.
+
+That's the diff. Back tomorrow.
+
+## Sources
+
+- [Mistral Large 4 public preview](https://www.testingcatalog.com/mistral-launches-large-4-preview-with-1-t-parameters/)
+- [EmbeddingGemma 2](https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/)
+- [Ultrafast X-ray sonography of the FeRh phase transition (European XFEL)](https://www.nature.com/articles/s43246-026-01378-5)
+- [4D reconstruction of alumina laser melt pools at 25 kHz (ETH Zurich / PSI / EPFL / Lund)](https://www.nature.com/articles/s43246-026-01387-4)
+- [DSPi firmware: RP2040 / RP2350 USB sound card with onboard DSP](https://www.cnx-software.com/2026/10/07/dspi-firmware-turns-raspberry-pi-rp2040-rp2350-into-a-usb-sound-card-with-an-onboard-dsp-engine/)
+- [pico-ttl2dvi: TTL RGB video to DVI on an RP2350 (Charlysan)](https://hackaday.com/2026/10/07/solve-your-ttl-video-woes-with-an-rp2350/)
+- [ESP32-S3 long wave transmitter for vintage radios (Gareth Davies)](https://hackaday.com/2026/10/07/keep-that-old-radio-alive-with-an-esp32/)
+- [EU Digital Omnibus: Council deal stalls over trade secrets](https://www.mlex.com/mlex/data-privacy-security/articles/2535174)
+- [21 states tell the FCC that TP-Link poses privacy and security risks](https://www.mlex.com/mlex/data-privacy-security/articles/2535433)
+- [NYC mayor proposes private right of action for unfair business conduct](https://www.mlex.com/mlex/data-privacy-security/articles/2535360/nyc-mayor-proposes-private-right-of-action-for-unfair-business-conduct)
+- [Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/whats-new-haiku-5-5)
+- [Sonnet 5.5 prompt cache read price cut](https://platform.claude.com/docs/en/release-notes/overview)
+- [Monthly API credits for Max and Team plans](https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers)
+- [Claude Code 2.1.292 and 2.1.293](https://code.claude.com/docs/en/changelog)

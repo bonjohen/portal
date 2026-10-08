@@ -1390,5 +1390,111 @@
     ]
    }
   ]
+ },
+ {
+  "date": "2026-10-08",
+  "published_at": "2026-10-08_0600",
+  "window": "Sep 28 to Oct 7",
+  "title": "Haiku 5.5, Mistral Large 4, and the Digital Omnibus stall",
+  "duration": "9:16",
+  "audio_url": "episodes/2026-10-08_0600.mp3",
+  "script_url": "scripts/2026-10-08_0600.html",
+  "sections": [
+   {
+    "area": "Technical - AI/software",
+    "items": [
+     {
+      "name": "Mistral Large 4 public preview: 1T parameters (49B active), weights due end of October",
+      "date": "2026-10-06",
+      "url": "https://www.testingcatalog.com/mistral-launches-large-4-preview-with-1-t-parameters/"
+     },
+     {
+      "name": "EmbeddingGemma 2: open 740M multimodal embedding model (Apache 2.0)",
+      "date": "2026-10-06",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/"
+     }
+    ]
+   },
+   {
+    "area": "Technical - Materials science",
+    "items": [
+     {
+      "name": "Ultrafast X-ray sonography of the laser-induced FeRh phase transition (European XFEL, Communications Materials)",
+      "date": "2026-10-07",
+      "url": "https://www.nature.com/articles/s43246-026-01378-5"
+     },
+     {
+      "name": "4D reconstruction of alumina laser melt pools at 25 kHz (ETH Zurich / PSI / EPFL / Lund, Communications Materials)",
+      "date": "2026-10-06",
+      "url": "https://www.nature.com/articles/s43246-026-01387-4"
+     }
+    ]
+   },
+   {
+    "area": "DIY electronics",
+    "items": [
+     {
+      "name": "DSPi firmware: RP2040 / RP2350 USB sound card with onboard DSP",
+      "date": "2026-10-07",
+      "url": "https://www.cnx-software.com/2026/10/07/dspi-firmware-turns-raspberry-pi-rp2040-rp2350-into-a-usb-sound-card-with-an-onboard-dsp-engine/"
+     },
+     {
+      "name": "pico-ttl2dvi: TTL RGB video to DVI on an RP2350 (Charlysan)",
+      "date": "2026-10-07",
+      "url": "https://hackaday.com/2026/10/07/solve-your-ttl-video-woes-with-an-rp2350/"
+     },
+     {
+      "name": "ESP32-S3 long wave transmitter for vintage radios (Gareth Davies)",
+      "date": "2026-10-07",
+      "url": "https://hackaday.com/2026/10/07/keep-that-old-radio-alive-with-an-esp32/"
+     }
+    ]
+   },
+   {
+    "area": "Data regulation",
+    "items": [
+     {
+      "name": "EU Digital Omnibus: Council deal stalls over trade secrets (follows October 2 Council draft presented 2026-10-06)",
+      "date": "2026-10-07",
+      "url": "https://www.mlex.com/mlex/data-privacy-security/articles/2535174"
+     },
+     {
+      "name": "21 states tell the FCC that TP-Link poses privacy and security risks",
+      "date": "2026-10-07",
+      "url": "https://www.mlex.com/mlex/data-privacy-security/articles/2535433"
+     },
+     {
+      "name": "NYC mayor proposes private right of action for unfair business conduct",
+      "date": "2026-10-07",
+      "url": "https://www.mlex.com/mlex/data-privacy-security/articles/2535360/nyc-mayor-proposes-private-right-of-action-for-unfair-business-conduct"
+     }
+    ]
+   },
+   {
+    "area": "Claude for GTM engineering",
+    "items": [
+     {
+      "name": "Claude Haiku 5.5: $0.10 / $0.50 per million tokens, 1M context, adaptive thinking",
+      "date": "2026-10-07",
+      "url": "https://platform.claude.com/docs/en/models/haiku-5-5/whats-new-haiku-5-5"
+     },
+     {
+      "name": "Sonnet 5.5 prompt cache read price cut to $0.10 per million tokens (follows Sonnet 5.5 launch presented 2026-09-30)",
+      "date": "2026-10-07",
+      "url": "https://platform.claude.com/docs/en/release-notes/overview"
+     },
+     {
+      "name": "Monthly API credits for Claude Max and Team plans",
+      "date": "2026-10-07",
+      "url": "https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers"
+     },
+     {
+      "name": "Claude Code 2.1.292 and 2.1.293: plugin install --marketplace, Agent tool effort, MCP protocol 2026-07-28 default, Haiku 5.5 default (follows Claude Code 2.1.291 presented 2026-10-07)",
+      "date": "2026-10-07",
+      "url": "https://code.claude.com/docs/en/changelog"
+     }
+    ]
+   }
+  ]
  }
 ]
