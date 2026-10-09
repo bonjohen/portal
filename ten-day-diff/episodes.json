@@ -1496,5 +1496,101 @@
     ]
    }
   ]
+ },
+ {
+  "date": "2026-10-09",
+  "published_at": "2026-10-09_0600",
+  "window": "Sep 29 to Oct 8",
+  "title": "ts-rust, a 7 eV semiconductor, and Claude Dashboards",
+  "duration": "9:30",
+  "audio_url": "episodes/2026-10-09_0600.mp3",
+  "script_url": "scripts/2026-10-09_0600.html",
+  "sections": [
+   {
+    "area": "Technical - AI/software",
+    "items": [
+     {
+      "name": "ts-rust: Rust port of the TypeScript 7 compiler written by Claude Opus 5.5 (Ping Labs)",
+      "date": "2026-10-08",
+      "url": "https://github.com/pingdotgg/ts-rust"
+     },
+     {
+      "name": "Arena Alignment Index for agent behavior, with $200M Series B",
+      "date": "2026-10-08",
+      "url": "https://runtimewire.com/article/arena-series-b-agent-alignment-index"
+     }
+    ]
+   },
+   {
+    "area": "Technical - Materials science",
+    "items": [
+     {
+      "name": "7 eV bandgap semiconductor: silicon-doped α-(AlxGa1−x)2O3 (Cornell, Nature)",
+      "date": "2026-10-07",
+      "url": "https://www.nature.com/articles/s41586-026-11085-3"
+     },
+     {
+      "name": "Trillion-scale lakehouse framework for high-entropy alloy databases (Beihang, Nature Communications)",
+      "date": "2026-10-07",
+      "url": "https://www.nature.com/articles/s41467-026-78223-3"
+     },
+     {
+      "name": "Hydrogen-free CVD synthesis and doping of 2D transition metal selenides (CityU / PolyU, Nature Communications)",
+      "date": "2026-10-08",
+      "url": "https://www.nature.com/articles/s41467-026-78372-5"
+     }
+    ]
+   },
+   {
+    "area": "DIY electronics",
+    "items": [
+     {
+      "name": "Q8botOne open-source ESP32-C3 quadruped with DYNAMIXEL actuators (ZeroWire Robotics)",
+      "date": "2026-10-08",
+      "url": "https://www.cnx-software.com/2026/10/08/q8botone-a-palm-sized-open-source-quadruped-robot-with-esp32-c3-dynamixel-smart-actuators/"
+     },
+     {
+      "name": "Garlic-peel triboelectric door and window sensor (Tiwari and Bharti)",
+      "date": "2026-10-08",
+      "url": "https://hackaday.com/2026/10/08/introducing-the-garlic-powered-door-and-window-sensor/"
+     }
+    ]
+   },
+   {
+    "area": "Data regulation",
+    "items": [
+     {
+      "name": "UK ICO report on ten AI developers; enquiries into rogue agents; agentic AI call for evidence to Nov 20 (follows UK ICO transparency commitments presented 2026-10-02)",
+      "date": "2026-10-08",
+      "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/ico-secures-changes-from-leading-ai-developers-as-scrutiny-extends-to-ai-agents/"
+     },
+     {
+      "name": "Apple largely loses summary judgment in Illinois BIPA case over Photos app",
+      "date": "2026-10-08",
+      "url": "https://www.mlex.com/mlex/data-privacy-security/articles/2535955"
+     }
+    ]
+   },
+   {
+    "area": "Claude for GTM engineering",
+    "items": [
+     {
+      "name": "Claude Dashboards and Claude Motion in beta; Docs, Slides and Design out of beta",
+      "date": "2026-10-08",
+      "url": "https://www.testingcatalog.com/claude-launches-dashboards-and-motion-in-beta/"
+     },
+     {
+      "name": "Claude Code 2.1.294 and 2.1.295: hook onFailure block, longer MCP tool descriptions, claude -p and routine fixes (follows Claude Code 2.1.292 / 2.1.293 presented 2026-10-08)",
+      "date": "2026-10-08",
+      "url": "https://code.claude.com/docs/en/changelog"
+     },
+     {
+      "name": "Anthropic Usage Policy update, effective Nov 12",
+      "date": "2026-10-08",
+      "url": "https://tbreak.com/anthropic-usage-policy-abuse-claude/"
+     }
+    ]
+   }
+  ]
  }
 ]
