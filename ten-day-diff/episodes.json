@@ -1592,5 +1592,126 @@
     ]
    }
   ]
+ },
+ {
+  "date": "2026-10-10",
+  "published_at": "2026-10-10_0559",
+  "window": "Sep 30 to Oct 9",
+  "title": "Jev's $7.5B round, fast-charging lithium-sulfur, and TikTok's placebo reset",
+  "duration": "9:38",
+  "audio_url": "episodes/2026-10-10_0559.mp3",
+  "script_url": "scripts/2026-10-10_0559.html",
+  "sections": [
+   {
+    "area": "Technical - AI/software",
+    "items": [
+     {
+      "name": "TypeSafe AI raises $870M at a $7.5B valuation for Jev",
+      "date": "2026-10-09",
+      "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/"
+     },
+     {
+      "name": "Anthropic cuts live internet access from all internal evaluations after agent incidents",
+      "date": "2026-10-09",
+      "url": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html"
+     },
+     {
+      "name": "Google AI Edge Foresight: offline meeting notes for Mac",
+      "date": "2026-10-08",
+      "url": "https://techcrunch.com/2026/10/08/google-releases-a-new-local-first-granola-competitor/"
+     },
+     {
+      "name": "Snowflake Agentic Marketplace Discovery preview; Snowsight tags and data protection policies GA",
+      "date": "2026-10-09",
+      "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-10-09-agentic-marketplace-discovery-preview"
+     }
+    ]
+   },
+   {
+    "area": "Technical - Materials science",
+    "items": [
+     {
+      "name": "Fast-charging all-solid-state lithium-sulfur batteries with a solid-solid iodine redox mediator (Peking University, Nature Communications)",
+      "date": "2026-10-09",
+      "url": "https://www.nature.com/articles/s41467-026-78042-6"
+     },
+     {
+      "name": "Tin-doped Li2MnO3 platinum-free cathode for anion exchange membrane fuel cells (Tongji / DICP, Nature Communications)",
+      "date": "2026-10-09",
+      "url": "https://www.nature.com/articles/s41467-026-78358-3"
+     },
+     {
+      "name": "Dipolar surface twists and scintillating dynamics in Fe3GaTe2 (Fudan, Nature Communications)",
+      "date": "2026-10-09",
+      "url": "https://www.nature.com/articles/s41467-026-78513-w"
+     }
+    ]
+   },
+   {
+    "area": "DIY electronics",
+    "items": [
+     {
+      "name": "esp32-c3-adblock: DNS ad blocker for 500,000 domains without PSRAM",
+      "date": "2026-10-09",
+      "url": "https://www.cnx-software.com/2026/10/09/open-source-esp32-c3-dns-ad-blocker-supports-up-to-over-500000-domains-without-psram/"
+     },
+     {
+      "name": "Sipeed SLogic32U3 32-channel USB 3.2 logic analyzer",
+      "date": "2026-10-09",
+      "url": "https://www.cnx-software.com/2026/10/09/sipeed-slogic32u3-high-speed-10-gbps-usb-3-2-logic-analyzer/"
+     },
+     {
+      "name": "esp-hosted-linux: ESP32 as a Raspberry Pi wireless co-processor over SDIO",
+      "date": "2026-10-07",
+      "url": "https://hackaday.com/2026/10/07/esp32-as-your-raspberry-pis-linux-wireless-co-processor/"
+     }
+    ]
+   },
+   {
+    "area": "Data regulation",
+    "items": [
+     {
+      "name": "New York's unsealed complaint: TikTok gave users a placebo Algo Refresh",
+      "date": "2026-10-07",
+      "url": "https://thenextweb.com/news/tiktok-placebo-safety-tool"
+     },
+     {
+      "name": "China draft rules on platform workers and management algorithms, comments to Nov 8",
+      "date": "2026-10-09",
+      "url": "https://www.mlex.com/mlex/artificial-intelligence/articles/2536059/china-proposes-tighter-algorithm-rules-broader-protections-for-platform-workers"
+     },
+     {
+      "name": "Dutch privacy regulator sets up AI oversight directorate",
+      "date": "2026-10-09",
+      "url": "https://www.mlex.com/mlex/artificial-intelligence/articles/2536106"
+     },
+     {
+      "name": "Washington State lawmaker to revive comprehensive privacy bill",
+      "date": "2026-10-09",
+      "url": "https://www.mlex.com/mlex/data-privacy-security/articles/2536041"
+     }
+    ]
+   },
+   {
+    "area": "Claude for GTM engineering",
+    "items": [
+     {
+      "name": "Claude Code 2.1.296",
+      "date": "2026-10-09",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.296"
+     },
+     {
+      "name": "Compliance API chat endpoints cover unified Claude chats (beta)",
+      "date": "2026-10-08",
+      "url": "https://releases.sh/anthropic/claude-platform-releases"
+     },
+     {
+      "name": "Managed Agents web_fetch limited to URLs already in the session; SDK browser and computer use toolsets",
+      "date": "2026-10-07",
+      "url": "https://releases.sh/anthropic/claude-platform-releases"
+     }
+    ]
+   }
+  ]
  }
 ]
