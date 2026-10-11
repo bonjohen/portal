@@ -1,0 +1,69 @@
+This is The Ten-Day Diff for Sunday, October 11, 2026, covering October 1 through October 10. Most of today's items landed in the last three days.
+
+## Technical - AI/software
+
+Deno is joining Cloudflare. The deal was announced October 9, and it is a full acquisition. Cloudflare wants celld, the Deno team's open-source take on Durable Objects that first shipped in August, so that self-hosting the Workers runtime, workerd, becomes a first-class option. The Deno runtime gets one more year of monthly bug and security fixes, then Cloudflare stops developing it. The code stays open source. Ryan Dahl said Node compatibility had pulled the project off course. If you have anything running on Deno, you now have a twelve-month clock.
+
+On October 7, Perplexity open-sourced pplx-embed-v2-late, a pair of late-interaction embedding models under the MIT license. One is 0.6 billion parameters and one is 9 billion. They produce a 128-dimension vector per token, ColBERT style, and they handle text, images and whole pages. The part worth noting is that both share one embedding space, so you can build an index with the big model and query it with the small one. The 9B model scores 92.4% on MADQA, a question set over about 18,000 PDF pages. It is self-host only for now, with an API promised later.
+
+Google Cloud, on October 8, gave its Gemini coworker agent its own identity. Each agent gets a Workspace account with an email address, a calendar, Drive storage and a seat in the company directory. Agents can run for up to seven days, spawn sub-agents, and route work across Gemini models and Claude. It is in private preview. For anyone building pipeline automation, an agent that shows up as a named user changes how you handle permissions and audit trails.
+
+Also on October 8, Anthropic launched its Cyber Mission. The practical piece is OSS Scanner: free, periodic security scans of open-source projects, opted into by a pull request from a core maintainer. Reports arrive without human review, each with a reproducer. In early testing, experts cleared 85 of 97 serious findings for disclosure. The other half is a critical infrastructure program with eleven founding partners, including CrowdStrike, Dragos and Rockwell Automation.
+
+## Technical - Materials science
+
+Three papers from Nature Communications.
+
+Published October 9, a team from UC San Diego, Arizona State and Toyota Research Institute of North America reports a fluorine-free battery binder. It combines polyacrylic acid and carboxymethyl cellulose, crosslinked with citric acid, and it is processed in water instead of NMP. LiFePO4 cathodes made with it match PVDF controls on initial capacity and cycle better. Spent electrodes can be directly recycled back to pristine performance with no fluorinated residue. That is a processing result, which is usually where battery recycling gets stuck.
+
+Published October 10, a group in Ljubljana, led by the National Institute of Chemistry, scaled up identical-location electron microscopy. They track hundreds of carbon-supported platinum-cobalt nanoparticles before and after electrochemical cycling, with a machine learning pipeline that segments, tracks and classifies each degradation event. The finding is that smaller and irregular particles are the ones that detach. It turns a handful of pretty images into actual statistics on catalyst wear.
+
+Also October 10, Tsinghua reports an inorganic piezoelectric that is intrinsically flexible. It is a polyoxometalate subnanowire, ZnBiPMo12, with a piezoelectric coefficient of 24.9 pC/N. Built into an electronic skin, it senses forces from 0.045 to 0.319 newtons, and a wireless wearable version reads blinking, breathing and heart rate. With a classifier on top, it recognized nine facial expressions and twelve spoken words.
+
+## DIY electronics
+
+The M5Stack ToughC5, covered October 10, is a weather-resistant ESP32-C5 controller at $49.90. You get dual-band Wi-Fi 6, Bluetooth LE, Zigbee and Thread, a 2-inch touch display, RS485, and power from 6 to 24 volts. It has no formal IP rating, so treat it as splash-proof. Arduino support is ready and UiFlow2 is still in progress.
+
+Hackaday, on October 10, looked at the Radxa Dragon Q8B, a $209 single-board computer built on Qualcomm's SC8280XP laptop chip with 8 GB of RAM. Jeff Geerling's testing shows about three times the Raspberry Pi 5's multi-core Geekbench score, plus two 2.5-gigabit Ethernet ports. The catch is software. Linux needs Radxa's own images, the UEFI firmware has rough edges, and boards are hard to find.
+
+On October 8, Efinix released the Sapphire RV64 SoC, a configurable 64-bit RISC-V soft core for its Titanium, Topaz and larger Trion FPGAs. You can pick one to four cores, add an MMU for Linux, and attach DDR3, LPDDR4x or HyperRAM. The Efinity tools are free.
+
+And one small one from October 10: PixelFonts, by mcer12, is a family of condensed fonts for low-resolution displays. They work with Adafruit GFX and U8g2 and ship with BDF source files.
+
+## Data regulation
+
+Flock Safety plans to cut about 270 jobs, roughly 18% of staff, according to Reuters reporting on October 8. This follows the Tulsa ruling that a warrantless Flock search violated the Fourth Amendment, presented October 4. Customers are leaving too. Henrico County, Virginia said on October 6 it will end its contract, and Scottsdale voted on October 8 to look at other vendors. The questions cities are asking are about data sharing, access and retention, and those same questions apply to any vendor holding your customer data.
+
+Canada's privacy commissioner has draft guidance out on assessing third-party service providers, reported October 9, with comments open until December 4. It says to vet a vendor before you sign. Map the data flows, check retention and deletion, and for AI vendors ask where the training data came from and whether they use your data for their own purposes.
+
+On October 7, Italy's privacy regulator fined Michael Page's Italian arm 225,000 euros. The company kept three former employees' email accounts for years and read them for litigation without telling them properly.
+
+Also October 7, Japan's Personal Information Protection Commission told companies holding large or sensitive data sets to tighten access controls and delete what they no longer need. It previewed updated security guidelines covering multifactor authentication and intrusion detection.
+
+## Claude for GTM engineering
+
+On October 9, dynamic workflows for Claude Managed Agents went to public beta. A lead agent writes a plan, the platform runs it across as many as 1,000 agents in phases, and the results are combined at the end. You turn it on through the agent's multiagent setting and follow progress through workflow run events. In Anthropic's bug-hunt test, the workflow found 66 of 70 planted bugs where a single agent found 14 to 27. The obvious GTM use is fan-out work: scoring every open account, or reviewing a quarter of Gong calls in one run. Cost grows with agent count, so set a budget first.
+
+The Claude desktop app release from October 8, version 2.31226.0, fixes several scheduled task problems. Runs no longer stall asking for a folder they already had. Tools marked "ask" by an org policy now prompt instead of being skipped. And you get a failure notice when a task's sandbox cannot start. In Code, environment variables now live on saved environments. For third-party deployments, a new desktopHome setting controls Unified Claude, which merges Chat and Cowork. Left unset, the split stays until November 10, when Unified Claude turns on for all organizations.
+
+That's the diff. Talk to you tomorrow.
+
+## Sources
+
+- [Deno joins Cloudflare](https://simonwillison.net/2026/Oct/9/deno-is-joining-cloudflare/)
+- [Perplexity pplx-embed-v2-late open embedding models](https://aiweekly.co/alerts/perplexity-open-sources-pplx-embed-v2-late-924-on-madqa)
+- [Google Cloud Gemini coworker agents get their own Workspace accounts](https://aiweekly.co/alerts/google-clouds-gemini-agent-gets-a-mailbox-and-directory-seat)
+- [Anthropic Cyber Mission and OSS Scanner](https://siliconangle.com/2026/10/08/anthropic-launches-critical-infrastructure-program-and-free-oss-scanner-for-open-source/)
+- [Fluorine-free polymer binder for recyclable lithium-ion batteries](https://www.nature.com/articles/s41467-026-78215-3)
+- [Large-scale identical-location electron microscopy of catalyst degradation](https://www.nature.com/articles/s41467-026-78329-8)
+- [Flexible inorganic piezoelectric subnanowire ZnBiPMo12](https://www.nature.com/articles/s41467-026-78557-y)
+- [M5Stack ToughC5 ESP32-C5 controller](https://www.cnx-software.com/2026/10/10/m5stack-toughc5-weatherproof-esp32-c5-iot-controller-offers-dual-band-wi-fi-6-ble-5-and-zigbee-thread/)
+- [Radxa Dragon Q8B single-board computer](https://hackaday.com/2026/10/10/poking-at-the-radxa-dragon-q8b-raspberry-pi-5-killer/)
+- [Efinix Sapphire RV64 RISC-V SoC](https://www.cnx-software.com/2026/10/08/efinix-sapphire-rv64-soc-configurable-risc-v-soft-cores-with-ddr3-lpddr4x-and-hyperram-for-efinix-fpgas/)
+- [PixelFonts for small displays](https://hackaday.com/2026/10/10/slim-type-for-small-screens-with-pixelfonts/)
+- [Flock Safety plans about 270 job cuts](https://runtimewire.com/article/flock-safety-plans-270-job-cuts-backlash)
+- [Canada OPC draft guidance on assessing third-party service providers](https://iapp.org/news/a/notes-from-the-iapp-canada-opc-draft-guidance-moves-vendor-privacy-due-diligence-upstream)
+- [Italian Garante fines Michael Page EUR 225,000](https://www.mlex.com/mlex/data-privacy-security/articles/2534950/michael-page-gets-225-000-italian-gdpr-fine-over-former-staff-emails)
+- [Japan PPC urges stronger data safeguards](https://www.mlex.com/mlex/articles/2534969/japan-s-privacy-watchdog-urges-stronger-data-safeguards-after-major-leaks)
+- [Claude Managed Agents dynamic workflows public beta](https://releasebot.io/updates/anthropic)
+- [Claude desktop app 2.31226.0: scheduled task fixes and Unified Claude setting](https://claude.com/docs/cowork/changelog)
