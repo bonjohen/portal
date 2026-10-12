@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python 3.15, decision models, and Italy&#x27;s email pixel deadline · The Ten-Day Diff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f5f6f3;--fg:#1d2320;--muted:#5d6862;--line:#dde2dd;--accent:#1f6f5c;
+--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#121614;--fg:#e4e9e5;--muted:#9aa6a0;--line:#2b3430;--accent:#5cc2a4;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);padding:32px 16px 64px}
+main{max-width:660px;margin:0 auto}
+.label{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:600 clamp(26px,6vw,36px)/1.15 var(--display);margin:8px 0 6px;text-wrap:balance}
+.meta{font:400 13px/1.4 var(--mono);color:var(--muted);margin:0 0 28px}
+h2{font:600 21px/1.3 var(--display);margin:36px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
+p{margin:0 0 16px}
+ul{padding-left:20px} li{margin:4px 0;font-size:15px}
+a{color:var(--accent);text-underline-offset:3px}
+.back{font:500 13px var(--body);text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../">← All episodes</a>
+<p class="label" style="margin-top:24px">The Ten-Day Diff · script</p>
+<h1>Python 3.15, decision models, and Italy&#x27;s email pixel deadline</h1>
+<p class="meta">Oct 12, 2026 · covers Oct 2 to Oct 11</p>
+<p>This is The Ten-Day Diff for Monday, October 12. It covers October 2 through October 11. Today: Python 3.15 is out, Microsoft and Liquid AI both ship decision models, a tiny alloy crystal that is strong and still stretches, the end of the eZ80, and an Italian email-tracking deadline that lands at the end of this month.</p>
+<h2>Technical - AI/software</h2>
+<p>Python 3.15.0 was released on October 9. The feature most people will notice is explicit lazy imports, from PEP 810. A module isn&#x27;t loaded until the code actually uses it, which can cut startup time a lot for command-line tools and short jobs. UTF-8 is now the default encoding on every platform, Windows included. There is also a new frozendict built-in, a sentinel type, and Tachyon, a sampling profiler in the standard library. Frame pointers are on by default, so system profilers see Python stacks properly. For your pipeline code, the UTF-8 change is the one to test first. Any script that quietly relied on a Windows code page will now read and write files differently.</p>
+<p>Microsoft released Microsoft-Decision-1 in Foundry on October 9. It isn&#x27;t a chat model. You give it a question and a fixed set of options, and in one pass it returns a calibrated probability for each one. It&#x27;s a post-trained Qwen 3.5 9B, priced at $0.042 per million input tokens, with output free. Microsoft claims it&#x27;s 35 times faster than GPT-6 Sol at median latency. The more useful claim is consistency: decisions changed only about 1.3% of the time when the same request was reworded or the options were shuffled. Lead routing, intent scoring, and &quot;should the agent take this step&quot; checks are the fixed-choice calls this kind of model is built for.</p>
+<p>Liquid AI got there a day earlier. On October 8 it put two open-weight decision models on Hugging Face. d1-3B takes text and images; d1-omni-600M adds audio. Liquid reports about 8 milliseconds per question on an RTX 4090, and both run in llama.cpp. With Amazon and Cloudflare already shipping their own, decision models are turning into a product category. The small open ones are worth trying if you want scoring to run next to your data instead of through a paid API.</p>
+<h2>Technical - Materials science</h2>
+<p>On October 11, a Beijing University of Technology team, with co-authors including the University of Sydney, reported in Nature Communications on nanosized single crystals of a multi-principal element alloy, Fe48Mn32Co10Cr10. Metal crystals this small are usually strong but brittle, because they run out of ways to make dislocations. These reached about 3 GPa with about 20% uniform elongation, measured during in-situ tension at the atomic scale. The authors credit an uneven distribution of enthalpy through the crystal. That spreads out the energy barriers for full dislocations, partial dislocations and nanotwins, so defects start all over the crystal instead of piling up in one spot. It&#x27;s a tidy mechanism argument for why compositional disorder buys ductility at small scale.</p>
+<p>Also on October 11, a Tsinghua group reported sub-nanometer layers of nickel alternating with nickel molybdate, Ni/NiMoO4, made by confined spinodal decomposition. The oleylamine ligands on the starting nanowires act as a mild reducing agent and turn some of the nickel ions into metallic nickel with coherent interfaces. As a hydrogen evolution catalyst in alkaline solution, it needs only about 14 mV of overpotential to reach 10 mA per square centimeter. In an anion exchange membrane electrolyzer at 80 °C, it delivered 2 A per square centimeter at 1.62 V and ran for more than 2,200 hours. Those are the numbers that matter for cheap, platinum-free electrolysis.</p>
+<p>On October 10, a team led by the University of Science and Technology of China showed that the steps in a terraced flake of Fe3GaTe2, a van der Waals ferromagnet that works above room temperature, control how the thinner terraces switch. A reversal that starts on the thick side can lower the coercivity of the thin side next to it by up to 59%. The authors pitch step engineering as a way to tune 2D spintronic devices without changing the chemistry.</p>
+<h2>DIY electronics</h2>
+<p>Littelfuse, which owns Zilog, has issued a notice ending the eZ80 along with every other microcontroller line it still makes. Hackaday covered it on October 11. Last-time-buy orders close December 21, and final shipments run into 2027. The original Z80 was discontinued in 2024, so this closes the last commercial path. If anything you maintain uses one, buy spares now or plan the port. Hobbyists still have open-source Z80 cores and Tiny Tapeout silicon.</p>
+<p>On October 11, CNX Software covered the Wireless-Tag WT32P4C5-43S, a 4.3-inch, 800 by 480 capacitive touch display board for about $32. An ESP32-P4 runs the application and graphics, and an ESP32-C5 handles dual-band Wi-Fi 6, Bluetooth LE, and Thread or Zigbee. It also has a MIPI camera connector, a microSD slot and a separate debug header for each chip. That makes it a cheap base for a wall-mounted dashboard, or a Thread controller with a screen.</p>
+<p>And on October 10, Hackaday looked inside the IKEA Kortlinje, a clock and thermometer that sells for around $20 and has a white LED matrix. Inside are three VK1640 LED drivers, which appear to be clones of the TM1640, plus an unmarked microcontroller. The hack replaces that microcontroller so you can drive the matrix yourself, and there&#x27;s early firmware on GitHub. It&#x27;s a cheap, ready-made display for a small project.</p>
+<h2>Data regulation</h2>
+<p>The EU Digital Omnibus has stalled again. This follows the Council deal that stalled over trade secrets, presented October 8. On October 11, MLex reported that the package was pulled from Sunday&#x27;s meeting of national ambassadors, with no new date and no revised text. Germany and other member states still want stronger trade secret protection. So the proposed GDPR changes on AI processing and cookies stay in limbo for now.</p>
+<p>Italy&#x27;s data protection authority, the Garante, said on October 8 that companies must comply with its email tracking pixel rules by October 29. Under those rules, open-tracking pixels have to be disclosed, and in many cases they need prior consent. People who subscribed before April 29 must be told and given a way to opt out. This one is squarely in your lane. If your HubSpot sequences or marketing email reach Italian contacts, open tracking may need to be turned off or gated on consent for them, and open rates for that segment will drop.</p>
+<p>On October 9, the UK&#x27;s data protection regulator said complaints about automated nuisance calls have hit their highest level since 2021. They rose from 1,374 in July to 3,684 in September, and the regulator is investigating. If anyone on an outbound team is trying AI voice agents for UK prospects, expect closer attention to automated calling.</p>
+<h2>Claude for GTM engineering</h2>
+<p>Two smaller items this time. On October 6, the Claude Models API began returning capabilities.server_tools, so GET /v1/models now tells you whether each model supports web search and code execution. If your pipelines choose models at runtime, you can check that field instead of hard-coding which models get which tools.</p>
+<p>On October 9, version 2.1 of the community Google Workspace MCP server shipped. One MCP endpoint exposes more than 120 tools across Gmail, Drive, Calendar, Docs, Sheets and Apps Script. It supports OAuth 2.1 with multiple users, a read-only mode, and stateless container deployment. It isn&#x27;t an Anthropic product, but it works with any MCP client, Claude Code included. The multi-user sign-in is what makes it usable as a shared team server rather than something that only runs on one laptop.</p>
+<p>That&#x27;s the diff for October 12. Every source is linked in the notes.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.python.org/downloads/release/python-3150/">Python 3.15.0 release</a></li>
+<li><a href="https://www.testingcatalog.com/microsoft-launches-decision-1-model-in-foundry/">Microsoft-Decision-1 decision model in Foundry</a></li>
+<li><a href="https://aiweekly.co/alerts/liquid-ai-opens-d1-3b-and-d1-omni-600m-decision-models">Liquid AI d1-3B and d1-omni-600M decision models</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78017-7">Nanosized Fe48Mn32Co10Cr10 alloy single crystals: about 3 GPa with 20% uniform elongation</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78575-w">Sub-nanometer Ni/NiMoO4 heterostructures for hydrogen evolution</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78522-9">Step boundaries control magnetization reversal in Fe3GaTe2</a></li>
+<li><a href="https://hackaday.com/2026/10/11/littelfuse-announces-retirement-of-the-ez80/">Littelfuse ends the eZ80 and its other MCU lines</a></li>
+<li><a href="https://www.cnx-software.com/2026/10/11/wireless-tag-wt32p4c5-43s-a-fully-integrated-4-3-inch-esp32-p4-and-esp32-c5-touch-display-devkit/">Wireless-Tag WT32P4C5-43S ESP32-P4 / ESP32-C5 touch display board</a></li>
+<li><a href="https://hackaday.com/2026/10/10/another-ikea-product-yields-an-led-matrix/">IKEA Kortlinje clock LED matrix hack</a></li>
+<li><a href="https://www.mlex.com/mlex/data-privacy-security/articles/2536092/eu-digital-simplification-package-talks-postponed-amid-trade-secrets-dispute">EU Digital Omnibus talks postponed over trade secrets</a></li>
+<li><a href="https://www.mlex.com/mlex/data-privacy-security/articles/2536170/email-tracking-pixel-compliance-required-by-oct-29-italian-regulator-says">Italian Garante: email tracking pixel compliance by Oct 29</a></li>
+<li><a href="https://www.mlex.com/mlex/data-privacy-security/articles/2536115/automated-nuisance-call-complaints-hit-five-year-high-uk-regulator-says">UK automated nuisance call complaints hit five-year high</a></li>
+<li><a href="https://releasebot.io/updates/anthropic">Claude Models API capabilities.server_tools</a></li>
+<li><a href="https://github.com/taylorwilsdon/google_workspace_mcp">Google Workspace MCP v2.1 (community server)</a></li>
+</ul>
+</main>
+</body>
+</html>
