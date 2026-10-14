@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemini 4 Argon opens up, Workday on Claude, and Google&#x27;s call-recording case · The Ten-Day Diff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f5f6f3;--fg:#1d2320;--muted:#5d6862;--line:#dde2dd;--accent:#1f6f5c;
+--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#121614;--fg:#e4e9e5;--muted:#9aa6a0;--line:#2b3430;--accent:#5cc2a4;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);padding:32px 16px 64px}
+main{max-width:660px;margin:0 auto}
+.label{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:600 clamp(26px,6vw,36px)/1.15 var(--display);margin:8px 0 6px;text-wrap:balance}
+.meta{font:400 13px/1.4 var(--mono);color:var(--muted);margin:0 0 28px}
+h2{font:600 21px/1.3 var(--display);margin:36px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
+p{margin:0 0 16px}
+ul{padding-left:20px} li{margin:4px 0;font-size:15px}
+a{color:var(--accent);text-underline-offset:3px}
+.back{font:500 13px var(--body);text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../">← All episodes</a>
+<p class="label" style="margin-top:24px">The Ten-Day Diff · script</p>
+<h1>Gemini 4 Argon opens up, Workday on Claude, and Google&#x27;s call-recording case</h1>
+<p class="meta">Oct 14, 2026 · covers Oct 4 to Oct 13</p>
+<p>This is The Ten-Day Diff for Wednesday, October 14, covering October 4 through October 13. Yesterday&#x27;s episode already took most of the weekend news, so almost everything here landed on Monday or Tuesday.</p>
+<h2>Technical - AI/software</h2>
+<p>Google made Gemini 4 Argon broadly available on October 13. This follows Gemini 4 Argon, presented October 2, when it was limited to the Fairwind security partners. It&#x27;s now on the paid Gemini API, AI Studio, Antigravity and the Gemini business plans. Launch pricing is $2 per million input tokens and $10 per million output, with a 95% discount on cached input. That doubles to $4 and $20 after November 30. Output can now run to a full million tokens in one response, but that shares the same 1M window as the prompt. Google&#x27;s own table puts it ahead of Opus 5.5 on DeepSWE and AutomationBench and behind it on Terminal-Bench. For you, the window to run a cheap bake-off against Claude on your pipeline evals is about seven weeks.</p>
+<p>On October 12, Anthropic&#x27;s Frontier Red Team published work on whether models could copy themselves onto cheap hardware. In a closed Google Cloud test with eight Android emulator nodes, GLM-5.2 spread from one instance to all eight in four of five runs. A small model, Qwen3.5-9B, got an inference server running on eight of nine hardware types. Their conclusion is that exploitation isn&#x27;t the hard part. Getting inference to run on odd devices is. They think small open models could reach that level by the end of next year. If you run agents with shell access anywhere, this is the argument for egress limits.</p>
+<h2>Technical - Materials science</h2>
+<p>From the University of Warwick, with ScienceDaily coverage on October 9: a new form of bismuth vanadate, called beta BiVO4. BiVO4 is a well-known photoanode for solar water splitting. This version is a kinetic polymorph, caught by heating single-source precursors and watching the amorphous stage before it crystallizes. It has a clearly larger band gap than the known forms. The same work turned up another phase that stores a lot of lithium. The useful idea for a materials person is the method. Slow down the path to the stable phase and you can trap phases that normal synthesis skips.</p>
+<p>Also October 9: Caltech and Yale, in Science, computed the Kondo effect from real atomic structure instead of a toy model. They took seven transition metal atoms, iron and manganese among them, sitting in copper. Using quantum chemistry tools, they got predictions up to a hundred times more accurate than the usual model-based approach for most of the elements. The Kondo effect is the classic case of one magnetic impurity changing a metal&#x27;s resistance. Being able to predict it from first principles is a step toward simulating harder correlated materials.</p>
+<h2>DIY electronics</h2>
+<p>Hackaday reported on October 13 that ESP-SDR can now transmit. This follows the ESP32 SDR receive work, presented October 4. A developer called marble added transmit to the ESP32&#x27;s radio and showed it sending between an ESP32-S3 and an ESP32-C6 in a Hellschreiber-style mode. It&#x27;s early. Tuning seems limited to roughly 1.8 to 2.8 gigahertz, and work on 802.15.4 for ZigBee is in progress. A two-dollar chip that can both send and receive arbitrary waveforms is a nice bench tool.</p>
+<p>Also October 13: OSIRIS, open firmware that fixes Onkyo AV receivers that power on but make no sound. The failure is usually the TI D830 audio processor or its small NAND flash. OSIRIS supports easier-to-find replacement chips like the OMAP-L137 and modern NAND with larger pages. The author says the list of unfinished features is still longer than the working list. It&#x27;s a good example of right-to-repair done in firmware.</p>
+<p>And for fun, also October 13: pico-duke3D runs Duke Nukem 3D on an RP2350 Pico clone with DVI output, using SNES or USB controllers. Both the shareware and full versions run.</p>
+<h2>Data regulation</h2>
+<p>On October 13 in San Francisco, Judge Rita Lin heard a proposed class action claiming Google&#x27;s Contact Center AI recorded customer service calls for Uber, Home Depot, Hulu and Verizon, then used them to train its models. The claim is under CIPA, California&#x27;s wiretap law. Coverage says she sounded skeptical, mainly on whether callers who were told the call is recorded had consented. This one matters to you directly. It&#x27;s the same legal theory people keep testing against call-recording vendors, and Gong is in that category.</p>
+<p>Same day, Judge Beth Labson Freeman gave final approval to the $68 million Google Assistant settlement. It covers recordings made by &quot;false accepts,&quot; when the device woke up without being asked. Device buyers get roughly $18 to $56 each and the privacy class $2 to $10. Lawyers get about $22.6 million.</p>
+<p>In South Korea, on October 13, the head of the privacy regulator told the national audit that the country&#x27;s data security &quot;lags considerably.&quot; This came after AI-assisted breaches at Shinhan Bank and KB Kookmin Bank. These are the first big cases since the revised law took effect on September 11, which lets fines reach 10% of global revenue. She also said the framework will be revised for AI agents, likely in 2027.</p>
+<h2>Claude for GTM engineering</h2>
+<p>Workday and Anthropic announced a partnership on October 13. Workday&#x27;s Sana agents connect to Claude over MCP, so you can query HR and finance data and act on it from inside Claude, with Workday&#x27;s own permissions and audit trail applied. A Sana in Claude plugin is in early access now, with general availability expected late this year. Workday&#x27;s Agent-Ready Tools are generally available through Workday Extend AI. For a GTM engineer, it&#x27;s another big system of record shipping its own governed MCP layer. Look at how they did permissions before you build your own for HubSpot or Snowflake.</p>
+<p>Also October 13, the Claude desktop app shipped version 2.37337.1. There are two breaking changes in managed configuration. The isDxt keys are now isDesktopExtension keys, and a few third-party gateway keys were renamed, for example inferenceGatewayHeaders became inferenceCustomHeaders. Cowork artifacts now render charts, tables and diagrams offline, and scheduled task editing got fixes. If you manage the app with policy files, check those keys before the update reaches your machines.</p>
+<p>That&#x27;s the diff for this run. Links to everything are in the show notes.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.marktechpost.com/2026/10/13/google-gemini-4-argon-api-release/">Google makes Gemini 4 Argon broadly available</a></li>
+<li><a href="https://thenewstack.io/self-replicating-ai-worms/">Anthropic red team: self-replicating AI on cheap devices</a></li>
+<li><a href="https://www.sciencedaily.com/releases/2026/10/261007042118.htm">β-BiVO4 kinetic polymorph (University of Warwick)</a></li>
+<li><a href="https://www.sciencedaily.com/releases/2026/10/261006234520.htm">Kondo effect predicted in real materials (Caltech / Yale, Science)</a></li>
+<li><a href="https://hackaday.com/2026/10/13/esp-sdr-can-now-transmit/">ESP-SDR can now transmit</a></li>
+<li><a href="https://hackaday.com/2026/10/13/open-firmware-fixes-dead-onkyo-av-receivers/">OSIRIS open firmware fixes dead Onkyo AV receivers</a></li>
+<li><a href="https://hackaday.com/2026/10/13/does-it-run-duke-nukem-3d/">pico-duke3D: Duke Nukem 3D on an RP2350</a></li>
+<li><a href="https://www.courthousenews.com/judge-skeptical-of-claims-google-ai-tool-wiretapped-customer-service-calls/">Judge skeptical of claims Google AI tool wiretapped customer service calls</a></li>
+<li><a href="https://www.courthousenews.com/judge-approves-68-million-google-assistant-privacy-settlement/">Judge approves $68 million Google Assistant privacy settlement</a></li>
+<li><a href="https://www.techtimes.com/articles/328976/20261014/korea-privacy-regulator-admits-security-failures-banking-breach-tests-pipa-fine-ceiling.htm">Korea privacy regulator admits security failures</a></li>
+<li><a href="https://newsroom.workday.com/2026-10-13-Workday-and-Anthropic-Announce-New-Partnership-to-Connect-Reasoning-to-the-Rules-That-Run-the-Business,-Wherever-People-Choose-to-Work">Workday and Anthropic partnership</a></li>
+<li><a href="https://claude.com/docs/cowork/changelog">Claude desktop app 2.37337.1 changelog</a></li>
+</ul>
+</main>
+</body>
+</html>

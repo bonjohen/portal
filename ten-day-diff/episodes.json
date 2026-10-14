@@ -2036,5 +2036,101 @@
     ]
    }
   ]
+ },
+ {
+  "date": "2026-10-14",
+  "published_at": "2026-10-14_0600",
+  "window": "Oct 4 to Oct 13",
+  "title": "Gemini 4 Argon opens up, Workday on Claude, and Google's call-recording case",
+  "duration": "7:58",
+  "audio_url": "episodes/2026-10-14_0600.mp3",
+  "script_url": "scripts/2026-10-14_0600.html",
+  "sections": [
+   {
+    "area": "Technical - AI/software",
+    "items": [
+     {
+      "name": "Gemini 4 Argon broadly available ($2/$10 until Nov 30)",
+      "date": "2026-10-13",
+      "url": "https://www.marktechpost.com/2026/10/13/google-gemini-4-argon-api-release/"
+     },
+     {
+      "name": "Anthropic Frontier Red Team: self-replicating models on cheap devices",
+      "date": "2026-10-12",
+      "url": "https://thenewstack.io/self-replicating-ai-worms/"
+     }
+    ]
+   },
+   {
+    "area": "Technical - Materials science",
+    "items": [
+     {
+      "name": "β-BiVO4 kinetic polymorph (University of Warwick, Nature Communications)",
+      "date": "2026-10-09",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261007042118.htm"
+     },
+     {
+      "name": "Kondo effect predicted from first principles (Caltech / Yale, Science)",
+      "date": "2026-10-09",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261006234520.htm"
+     }
+    ]
+   },
+   {
+    "area": "DIY electronics",
+    "items": [
+     {
+      "name": "ESP-SDR can now transmit (ESP32-S3 / ESP32-C6)",
+      "date": "2026-10-13",
+      "url": "https://hackaday.com/2026/10/13/esp-sdr-can-now-transmit/"
+     },
+     {
+      "name": "OSIRIS open firmware for dead Onkyo AV receivers",
+      "date": "2026-10-13",
+      "url": "https://hackaday.com/2026/10/13/open-firmware-fixes-dead-onkyo-av-receivers/"
+     },
+     {
+      "name": "pico-duke3D: Duke Nukem 3D on an RP2350",
+      "date": "2026-10-13",
+      "url": "https://hackaday.com/2026/10/13/does-it-run-duke-nukem-3d/"
+     }
+    ]
+   },
+   {
+    "area": "Data regulation",
+    "items": [
+     {
+      "name": "Judge skeptical of CIPA claims over Google Contact Center AI call recordings",
+      "date": "2026-10-13",
+      "url": "https://www.courthousenews.com/judge-skeptical-of-claims-google-ai-tool-wiretapped-customer-service-calls/"
+     },
+     {
+      "name": "Final approval of $68M Google Assistant privacy settlement",
+      "date": "2026-10-13",
+      "url": "https://www.courthousenews.com/judge-approves-68-million-google-assistant-privacy-settlement/"
+     },
+     {
+      "name": "Korea PIPC chair admits security gaps after AI-assisted bank breaches",
+      "date": "2026-10-13",
+      "url": "https://www.techtimes.com/articles/328976/20261014/korea-privacy-regulator-admits-security-failures-banking-breach-tests-pipa-fine-ceiling.htm"
+     }
+    ]
+   },
+   {
+    "area": "Claude for GTM engineering",
+    "items": [
+     {
+      "name": "Workday and Anthropic partnership (Sana agents in Claude over MCP)",
+      "date": "2026-10-13",
+      "url": "https://newsroom.workday.com/2026-10-13-Workday-and-Anthropic-Announce-New-Partnership-to-Connect-Reasoning-to-the-Rules-That-Run-the-Business,-Wherever-People-Choose-to-Work"
+     },
+     {
+      "name": "Claude desktop app 2.37337.1 (managed-config key renames, offline artifact charts)",
+      "date": "2026-10-13",
+      "url": "https://claude.com/docs/cowork/changelog"
+     }
+    ]
+   }
+  ]
  }
 ]
