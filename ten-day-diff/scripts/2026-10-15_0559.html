@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drama 3 TTS, ESP32-S31 board, and VPPA at the Supreme Court · The Ten-Day Diff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f5f6f3;--fg:#1d2320;--muted:#5d6862;--line:#dde2dd;--accent:#1f6f5c;
+--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#121614;--fg:#e4e9e5;--muted:#9aa6a0;--line:#2b3430;--accent:#5cc2a4;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);padding:32px 16px 64px}
+main{max-width:660px;margin:0 auto}
+.label{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:600 clamp(26px,6vw,36px)/1.15 var(--display);margin:8px 0 6px;text-wrap:balance}
+.meta{font:400 13px/1.4 var(--mono);color:var(--muted);margin:0 0 28px}
+h2{font:600 21px/1.3 var(--display);margin:36px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
+p{margin:0 0 16px}
+ul{padding-left:20px} li{margin:4px 0;font-size:15px}
+a{color:var(--accent);text-underline-offset:3px}
+.back{font:500 13px var(--body);text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../">← All episodes</a>
+<p class="label" style="margin-top:24px">The Ten-Day Diff · script</p>
+<h1>Drama 3 TTS, ESP32-S31 board, and VPPA at the Supreme Court</h1>
+<p class="meta">Oct 15, 2026 · covers Oct 5 to Oct 14</p>
+<p>This is The Ten-Day Diff for Thursday, October 15, covering October 5 through October 14. Fourteen items today, and a few of them land close to home: an open speech model you could swap into this very show, a new Espressif chip on its first board, and the Supreme Court weighing what counts as a video &quot;consumer.&quot;</p>
+<h2>Technical - AI/software</h2>
+<p>Fish Audio released Drama 3 on October 13. It&#x27;s an open-weight text-to-speech model built on a 35B mixture-of-experts backbone with about 3B parameters active per token, covering 83 languages. The interesting part is direction. You write stage notes in square brackets, like &quot;barely holding it together,&quot; and drop non-verbal cues such as a small laugh or a shaky breath right where you want them. Weights are on Hugging Face under a community license that&#x27;s free for commercial use below $500K in annual revenue. The API is $10 per million characters through November 12, then $50. If you ever want this brief to sound less like a newsreader, this is the model to test against the current voice.</p>
+<p>CedarDB put its cloud service into limited availability on October 14, announced on stage at TechCrunch Disrupt. CedarDB is a Munich spinout from the Technical University of Munich&#x27;s Umbra project, and it&#x27;s one Postgres-compatible engine meant to handle both transactions and analytics. The pitch is aimed at agent workloads, where an agent writes and then immediately queries the same data. For a Snowflake-heavy pipeline it isn&#x27;t a replacement, but it&#x27;s a cheap thing to watch if you ever want a single operational store that agents can hit without an ETL hop.</p>
+<h2>Technical - Materials science</h2>
+<p>On October 13, researchers at the Indian Institute of Science, working with Hindustan Petroleum and Singapore&#x27;s A*STAR, reported in Nature Communications that the standard picture of CO2 hydrogenation on copper was missing most of the chemistry. They used quantum calculations plus machine learning to grow the reaction network from 152 steps to 9,389. The small network predicted formic acid as the main product. The big one predicted methanol and carbon monoxide, which is what experiments actually see, and about 40 times more CO2 conversion. It also showed hydrogen sometimes moving as an intact H2 molecule. The lesson for catalyst design is that a hand-picked mechanism can be confidently wrong.</p>
+<p>Also on October 13 in Nature Communications: a route to recycle end-of-life NdFeB magnets with molten salt electrolysis, using a consumable magnesium cathode. Rare-earth supply is a strategic problem, and most magnet recycling today is either hydrometallurgy with a lot of acid or simple re-sintering. An electrochemical path that pulls the rare earths straight out of scrap is worth reading in full if supply chains for motors and drives come up in your work.</p>
+<p>And on October 14, another Nature Communications paper reports high-performance p-type two-dimensional transistors made by what the authors call weak disorder engineering. P-type 2D devices have lagged n-type ones for years, and that gap blocks 2D CMOS. Deliberately adding a small, controlled amount of disorder to help the holes is a counterintuitive move, and a useful one to compare against the doping approaches we&#x27;ve covered before.</p>
+<h2>DIY electronics</h2>
+<p>VIEWE is selling what CNX Software calls the first third-party board built on Espressif&#x27;s new ESP32-S31. That was reported October 14. The board has a 4.3-inch 800 by 480 touch screen, an audio codec with two mics and two speaker amps, RS485, CAN, and a microSD slot, for $38.99. The S31 itself is a 320 MHz RISC-V part with Wi-Fi 6, Bluetooth 5.4 with LE Audio, and 802.15.4 for Thread and Matter. It&#x27;s still a preview chip, so you need the ESP-IDF master branch with the preview flag. Good for a smart display or an intercom; not for anything you need to ship this month.</p>
+<p>Hackaday covered ESP32-DATV on October 14, a project by SP8ESA that uses an ESP32-C3&#x27;s own radio to transmit DVB-S2 video. A host PC does the heavy encoding and the C3 feeds samples straight to its RF block. The catch is frequency: the C3 lives around 2.4 GHz and satellite receivers expect 10.7 to 12.7 GHz, so you&#x27;d need an upconverter. Still, it&#x27;s a nice demonstration of how much these Wi-Fi radios can do when you go around the stack.</p>
+<p>Same day, Hackaday wrote up Henry Yuan&#x27;s setup that lets an AI agent drive a stock iPhone. The screen is mirrored over AirPlay with UxPlay and streamed to the agent as JPEG frames. An ESP32-S3 pretends to be a USB mouse and keyboard, and AssistiveTouch on the phone accepts that input. No jailbreak, no Mac, no developer account. It&#x27;s a small, physical version of computer use, and it&#x27;s model-agnostic.</p>
+<p>Last one: Bitmerse&#x27;s Romu, launched on Crowd Supply and reported October 14, is a tiny board that plugs straight into a USB-A port and carries a Raspberry Pi RP2354A with 2 MB of in-package flash. It ships with MicroPython and is meant for security keys, macro pads, and MIDI controllers. It starts at $40, which even CNX called pricey, with delivery around April 2027.</p>
+<h2>Data regulation</h2>
+<p>The Supreme Court heard Salazar v. Paramount Global on October 14. This follows the argument preview we ran on October 5. The question is who counts as a &quot;consumer&quot; under the Video Privacy Protection Act: anyone who buys anything from a video provider, or only people who subscribe to video. Several justices tied that definition to the rest of the statute, which points toward a narrower reading. And Kavanaugh, Kagan, and Sotomayor each suggested companies could simply get consent. If that&#x27;s where the ruling ends up, a lot of pixel-and-newsletter VPPA suits get much harder, and clear consent flows become the safe harbor.</p>
+<p>Also on October 14, the Eleventh Circuit upheld Florida&#x27;s HB 3 against the NetChoice and CCIA First Amendment challenge. The law bars accounts for kids 13 and under and requires parental consent at 14 and 15. The court leaned on the Supreme Court&#x27;s Free Speech Coalition v. Paxton decision to treat age verification as normal. Expect more states to copy this, and more age-assurance vendors in data flows.</p>
+<p>Character.AI filed for Chapter 11 in Delaware on October 12, with Disney as a $20 million stalking-horse bidder, and filed first-day motions on October 13. The privacy angle is the user base. The company says about 163 million current and past users aren&#x27;t creditors, and it cites the CCPA and GDPR to redact personal details in filings. What happens to chat data in a sale is the question regulators will press, the same fight we saw with 23andMe.</p>
+<h2>Claude for GTM engineering</h2>
+<p>Claude Code 2.1.299 shipped October 14, with about 190 changes. This follows 2.1.296, presented October 10. Two matter for long pipeline sessions. First, idle compaction: a conversation over 200K tokens that sits idle for about 54 minutes gets compacted before the one-hour cache expires, so you don&#x27;t pay full price to resume. Second, MCP allow rules now match only the named server, and agent tool lists follow the same scoping, so check any permission rules you wrote for HubSpot or Snowflake servers. Write also now refuses to silently convert Windows-1252 or Shift-JIS files to UTF-8, which will save someone a bad CSV.</p>
+<p>And on October 5, Anthropic&#x27;s blog ran a case study on how Cresta turned its contact-center expertise into an agent builder on the Claude Agent SDK. It&#x27;s a concrete example of a vertical company packaging its domain playbooks as agents. That&#x27;s close to what a GTM team does when it turns sales motions into skills and plugins, and worth a skim for patterns.</p>
+<p>That&#x27;s the diff. See you tomorrow.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://fish.audio/blog/fish-audio-drama-3/">Fish Audio Drama 3</a></li>
+<li><a href="https://techcrunch.com/2026/10/14/cedardb-wants-one-database-to-handle-both-transactions-and-analytics-as-ai-agents-raise-the-stakes/">CedarDB Cloud limited availability</a></li>
+<li><a href="https://www.sciencedaily.com/releases/2026/10/261013015758.htm">IISc expanded CO2 hydrogenation network on copper</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78305-2">NdFeB magnet recycling by molten salt electrolysis with Mg cathode</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78628-0">p-type 2D transistors via weak disorder engineering</a></li>
+<li><a href="https://www.cnx-software.com/2026/10/14/viewe-4-3-inch-esp32-s31-display-development-board/">VIEWE 4.3-inch ESP32-S31 display board</a></li>
+<li><a href="https://hackaday.com/2026/10/14/using-an-esp32-c3s-rf-hardware-for-dvb-s2-video-transmission/">ESP32-DATV: DVB-S2 from an ESP32-C3</a></li>
+<li><a href="https://hackaday.com/2026/10/14/ai-controls-iphone-via-esp32/">AI agent controls an iPhone via ESP32-S3</a></li>
+<li><a href="https://www.cnx-software.com/2026/10/14/romu-tiny-raspberry-pi-rp2354a-usb-board/">Bitmerse Romu RP2354A USB board</a></li>
+<li><a href="https://privacy-daily.com/article/2026/10/14/scotus-seems-to-view-vppa-definitions-as-connected-when-determining-scope-2610140030">Salazar v. Paramount Global argued</a></li>
+<li><a href="https://privacy-daily.com/article/2026/10/14/11th-circuit-gives-green-light-to-florida-social-media-ban-2610140063">Eleventh Circuit upholds Florida HB 3</a></li>
+<li><a href="https://ppc.land/character-ai-says-its-163-million-users-are-not-bankruptcy-creditors/">Character.AI Chapter 11 privacy filings</a></li>
+<li><a href="https://dev.classmethod.jp/en/articles/20261014-cc-updates-v2-1-299/">Claude Code 2.1.299</a></li>
+<li><a href="https://claude.com/blog/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk">Cresta agent builder on the Claude Agent SDK</a></li>
+</ul>
+</main>
+</body>
+</html>

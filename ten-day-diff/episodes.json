@@ -2132,5 +2132,111 @@
     ]
    }
   ]
+ },
+ {
+  "date": "2026-10-15",
+  "published_at": "2026-10-15_0559",
+  "window": "Oct 5 to Oct 14",
+  "title": "Drama 3 TTS, ESP32-S31 board, and VPPA at the Supreme Court",
+  "duration": "9:36",
+  "audio_url": "episodes/2026-10-15_0559.mp3",
+  "script_url": "scripts/2026-10-15_0559.html",
+  "sections": [
+   {
+    "area": "Technical - AI/software",
+    "items": [
+     {
+      "name": "Fish Audio Drama 3",
+      "date": "2026-10-13",
+      "url": "https://fish.audio/blog/fish-audio-drama-3/"
+     },
+     {
+      "name": "CedarDB Cloud limited availability",
+      "date": "2026-10-14",
+      "url": "https://techcrunch.com/2026/10/14/cedardb-wants-one-database-to-handle-both-transactions-and-analytics-as-ai-agents-raise-the-stakes/"
+     }
+    ]
+   },
+   {
+    "area": "Technical - Materials science",
+    "items": [
+     {
+      "name": "IISc expanded CO2 hydrogenation network on copper",
+      "date": "2026-10-13",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261013015758.htm"
+     },
+     {
+      "name": "NdFeB magnet recycling by molten salt electrolysis with Mg cathode",
+      "date": "2026-10-13",
+      "url": "https://www.nature.com/articles/s41467-026-78305-2"
+     },
+     {
+      "name": "p-type 2D transistors via weak disorder engineering",
+      "date": "2026-10-14",
+      "url": "https://www.nature.com/articles/s41467-026-78628-0"
+     }
+    ]
+   },
+   {
+    "area": "DIY electronics",
+    "items": [
+     {
+      "name": "VIEWE 4.3-inch ESP32-S31 display board",
+      "date": "2026-10-14",
+      "url": "https://www.cnx-software.com/2026/10/14/viewe-4-3-inch-esp32-s31-display-development-board/"
+     },
+     {
+      "name": "ESP32-DATV: DVB-S2 from an ESP32-C3",
+      "date": "2026-10-14",
+      "url": "https://hackaday.com/2026/10/14/using-an-esp32-c3s-rf-hardware-for-dvb-s2-video-transmission/"
+     },
+     {
+      "name": "AI agent controls an iPhone via ESP32-S3",
+      "date": "2026-10-14",
+      "url": "https://hackaday.com/2026/10/14/ai-controls-iphone-via-esp32/"
+     },
+     {
+      "name": "Bitmerse Romu RP2354A USB board",
+      "date": "2026-10-14",
+      "url": "https://www.cnx-software.com/2026/10/14/romu-tiny-raspberry-pi-rp2354a-usb-board/"
+     }
+    ]
+   },
+   {
+    "area": "Data regulation",
+    "items": [
+     {
+      "name": "Salazar v. Paramount Global argued",
+      "date": "2026-10-14",
+      "url": "https://privacy-daily.com/article/2026/10/14/scotus-seems-to-view-vppa-definitions-as-connected-when-determining-scope-2610140030"
+     },
+     {
+      "name": "Eleventh Circuit upholds Florida HB 3",
+      "date": "2026-10-14",
+      "url": "https://privacy-daily.com/article/2026/10/14/11th-circuit-gives-green-light-to-florida-social-media-ban-2610140063"
+     },
+     {
+      "name": "Character.AI Chapter 11 privacy filings",
+      "date": "2026-10-13",
+      "url": "https://ppc.land/character-ai-says-its-163-million-users-are-not-bankruptcy-creditors/"
+     }
+    ]
+   },
+   {
+    "area": "Claude for GTM engineering",
+    "items": [
+     {
+      "name": "Claude Code 2.1.299",
+      "date": "2026-10-14",
+      "url": "https://dev.classmethod.jp/en/articles/20261014-cc-updates-v2-1-299/"
+     },
+     {
+      "name": "Cresta agent builder on the Claude Agent SDK",
+      "date": "2026-10-05",
+      "url": "https://claude.com/blog/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk"
+     }
+    ]
+   }
+  ]
  }
 ]
