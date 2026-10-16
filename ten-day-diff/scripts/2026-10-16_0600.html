@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muse Spark Open, Claude API OpenTelemetry, and an Article 22 checkout opinion · The Ten-Day Diff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f5f6f3;--fg:#1d2320;--muted:#5d6862;--line:#dde2dd;--accent:#1f6f5c;
+--display:"Fraunces",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#121614;--fg:#e4e9e5;--muted:#9aa6a0;--line:#2b3430;--accent:#5cc2a4;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 var(--body);padding:32px 16px 64px}
+main{max-width:660px;margin:0 auto}
+.label{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:600 clamp(26px,6vw,36px)/1.15 var(--display);margin:8px 0 6px;text-wrap:balance}
+.meta{font:400 13px/1.4 var(--mono);color:var(--muted);margin:0 0 28px}
+h2{font:600 21px/1.3 var(--display);margin:36px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
+p{margin:0 0 16px}
+ul{padding-left:20px} li{margin:4px 0;font-size:15px}
+a{color:var(--accent);text-underline-offset:3px}
+.back{font:500 13px var(--body);text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../">← All episodes</a>
+<p class="label" style="margin-top:24px">The Ten-Day Diff · script</p>
+<h1>Muse Spark Open, Claude API OpenTelemetry, and an Article 22 checkout opinion</h1>
+<p class="meta">Oct 16, 2026 · covers Oct 6 to Oct 15</p>
+<p>This is The Ten-Day Diff for Friday, October 16. The window runs from October 6 through October 15, and today&#x27;s run is mostly about the last two days of it: big open models, a new way to watch what your Claude calls are doing, and a European court opinion on automated checkout decisions.</p>
+<h2>Technical - AI/software</h2>
+<p>Meta released Muse Spark Open on October 15. It is an 816-billion-parameter mixture-of-experts model with 42 billion active per token and a one-million-token context. The weights are on Hugging Face, and Meta ran it on two Mac Studios linked through MLX, about a terabyte of memory between them. The license is not fully open: hosted resellers need a deal once they pass $20 million a year. Meta&#x27;s own MCP-Atlas score of 89.2 is the number to watch if you care about tool-calling agents.</p>
+<p>NVIDIA shipped Nemotron 3.5 Super VL and Nemotron 3.5 Bolt the same day. Super VL is 120B total with 12B active, reads text, images, documents and video, and comes with open datasets and training recipes, not just weights. Bolt 74B-A9B uses native 2-bit quantization to fit in 24 GB, so a single desktop GPU can run it through llama.cpp, Ollama or vLLM.</p>
+<p>On October 13, Snowflake put the Cortex Agent SDK into public preview for Python and TypeScript. It lets your own app run Cortex Agents, manage threads, and reconnect to long-running turns. If parts of your pipeline already live in Snowflake, this is the supported way to drive those agents from outside Snowsight.</p>
+<p>And on October 15, Anthropic said six METR staff now have employee-like access inside the company, with laptops, office space and internal tools. METR can publish what it finds without Anthropic&#x27;s approval, with only narrow redactions allowed.</p>
+<h2>Technical - Materials science</h2>
+<p>A Kyushu University team reported a layered Sillén oxybromide, Bi1.9Te0.1LaO4.05Br, in Nature Communications on October 14. It reaches 0.01 S/cm of oxide-ion conductivity at 233 °C. YSZ needs about 644 °C to do that. It also holds up in reducing and CO2-containing gas with almost no chemical expansion. That puts it right in the 200 to 400 °C gap where fuel cells and oxygen sensors have lacked good electrolytes.</p>
+<p>Also on October 14, a Lodz University of Technology group published what it calls universal crystallization kinetics for solution-processed semiconductors. They trigger nucleation mechanically at a chosen second during spin coating. Pick the right moment, and tin perovskite transistors hit 2.6 cm²/V·s instead of 0.2. The same diffusion model fits perovskites and TIPS-pentacene, which makes it a process knob you can actually tune.</p>
+<p>On October 13, UNIST, Pusan and KAIST reported colossal birefringence in CuAlO2, a wide-gap semiconductor with a 3.71 eV direct gap. The index difference peaks at 3.67 and stays above 0.5 across the visible. They trace it to a copper band-edge transition that only shows up in-plane. Thin, low-loss waveplates are the obvious use.</p>
+<h2>DIY electronics</h2>
+<p>HPMicro&#x27;s HPM5100 series came out on October 15. It is a 400 MHz RISC-V MCU with four 16-bit ADCs, four op-amps, CAN FD, high-speed USB with the PHY built in, and 32 PWM channels. Chips run about $2.33 to $2.91 in China, the evaluation board is about $38.50, and the open HPM SDK already supports it. For motor control or sensor front ends, that is a lot of analog on one cheap part.</p>
+<p>Also on October 15, Orange Pi announced the O1 board on the SOPHGO BM1688. You get eight Cortex-A53 cores, a 16 TOPS INT8 accelerator, dual gigabit Ethernet, two camera inputs, and optional 4G or 5G. It costs $195 with 8 GB. The catch is software: the Ubuntu download folder was empty at launch.</p>
+<h2>Data regulation</h2>
+<p>On October 15, Advocate General Laila Medina gave her opinion in case C-568/25, VKI v. Universal Versand. She says refusing pay-later options at checkout based on a fully automated credit check can be a decision under GDPR Article 22. The retailer has to justify each data input, and has to show why a human couldn&#x27;t review it. It is not binding yet. Still, any automated scoring step you build that gates what a customer can buy should be designed with this in mind.</p>
+<p>Also on October 15, the Eleventh Circuit vacated the injunction against Georgia&#x27;s SB 351. That law requires age checks and parental consent for users under 16. This follows the same court&#x27;s Florida HB 3 decision, presented October 15. Two states in two days means age verification is becoming a real compliance cost for any consumer platform.</p>
+<h2>Claude for GTM engineering</h2>
+<p>On October 14, the Claude API added OpenTelemetry export in beta. Messages API calls and Managed Agents sessions now emit spans in Python, TypeScript, Go, Java and more, and you turn it on as a destination in the Console. For a HubSpot and Gong pipeline, that means latency and token traces sit next to the rest of your observability.</p>
+<p>Code Review became generally available for Team and Enterprise on October 15. Most reviews now finish in six to ten minutes, and each repo can be set to Quick, Standard or Deep. Eligible Enterprise orgs can claim at least $10,000 in credits through January 15.</p>
+<p>Also on October 15, fast mode for Opus 5.5 left research preview. You no longer need approval or the beta header, and it is on Microsoft Foundry too.</p>
+<p>Last, Claude Code 2.1.300 and 2.1.301 landed October 14 and 15. This follows Claude Code 2.1.299, presented October 15. Large requests are now gzipped by default. OpenTelemetry events carry cache-creation tokens and classifier verdicts, and Claude Tag gained Slack Connect support with private approve-or-deny cards for connectors. There is also a new environment variable that stops unattended retries from waiting out a long usage limit, which matters for scheduled jobs like this one.</p>
+<p>That&#x27;s the diff for today.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://siliconangle.com/2026/10/15/meta-releases-816b-parameter-muse-spark-open-for-coding-and-agent-work/">Muse Spark Open</a></li>
+<li><a href="https://www.unite.ai/nvidia-releases-open-nemotron-3-5-super-vl-and-bolt-edge-models/">Nemotron 3.5 Super VL and Bolt</a></li>
+<li><a href="https://docs.snowflake.com/release-notes/2026/other/2026-10-13-cortex-agent-sdk-preview">Snowflake Cortex Agent SDK public preview</a></li>
+<li><a href="https://www.anthropic.com/news/an-update-on-independent-evaluators">Anthropic gives METR employee-like access</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-77848-8">Bi1.9Te0.1LaO4.05Br oxide-ion conductor</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78354-7">Universal crystallization kinetics of solution-processed semiconductors</a></li>
+<li><a href="https://www.nature.com/articles/s41467-026-78383-2">Colossal birefringence in CuAlO2</a></li>
+<li><a href="https://www.cnx-software.com/2026/10/15/hpmicro-hpm5100-risc-v-mcu-integrates-four-16-bit-adcs-four-op-amps-for-analog-sensing-and-motor-control/">HPMicro HPM5100 RISC-V MCU</a></li>
+<li><a href="https://www.cnx-software.com/2026/10/15/orange-pi-o1-sbc-features-16-tops-sophgo-bm1688-ai-soc-supports-4g-5g-cellular-connectivity/">Orange Pi O1 BM1688 SBC</a></li>
+<li><a href="https://ppc.land/universal-versand-faces-eu-ruling-on-algorithm-that-blocks-pay-later-options/">AG opinion in C-568/25 on automated payment refusals</a></li>
+<li><a href="https://law.georgia.gov/press-releases/2026-10-15/carr-secures-major-victory-defense-georgias-social-media-law">Eleventh Circuit lifts injunction on Georgia SB 351</a></li>
+<li><a href="https://platform.claude.com/docs/en/release-notes/overview">Claude API OpenTelemetry export (beta)</a></li>
+<li><a href="https://claude.com/resources/articles/code-review-is-now-generally-available">Claude Code Review generally available</a></li>
+<li><a href="https://platform.claude.com/docs/en/release-notes/overview">Opus 5.5 fast mode out of research preview</a></li>
+<li><a href="https://code.claude.com/docs/en/changelog">Claude Code 2.1.300 and 2.1.301</a></li>
+</ul>
+</main>
+</body>
+</html>

@@ -2238,5 +2238,116 @@
     ]
    }
   ]
+ },
+ {
+  "date": "2026-10-16",
+  "published_at": "2026-10-16_0600",
+  "window": "Oct 6 to Oct 15",
+  "title": "Muse Spark Open, Claude API OpenTelemetry, and an Article 22 checkout opinion",
+  "duration": "8:05",
+  "audio_url": "episodes/2026-10-16_0600.mp3",
+  "script_url": "scripts/2026-10-16_0600.html",
+  "sections": [
+   {
+    "area": "Technical - AI/software",
+    "items": [
+     {
+      "name": "Muse Spark Open",
+      "date": "2026-10-15",
+      "url": "https://siliconangle.com/2026/10/15/meta-releases-816b-parameter-muse-spark-open-for-coding-and-agent-work/"
+     },
+     {
+      "name": "Nemotron 3.5 Super VL and Bolt",
+      "date": "2026-10-15",
+      "url": "https://www.unite.ai/nvidia-releases-open-nemotron-3-5-super-vl-and-bolt-edge-models/"
+     },
+     {
+      "name": "Snowflake Cortex Agent SDK public preview",
+      "date": "2026-10-13",
+      "url": "https://docs.snowflake.com/release-notes/2026/other/2026-10-13-cortex-agent-sdk-preview"
+     },
+     {
+      "name": "Anthropic gives METR employee-like access",
+      "date": "2026-10-15",
+      "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
+     }
+    ]
+   },
+   {
+    "area": "Technical - Materials science",
+    "items": [
+     {
+      "name": "Bi1.9Te0.1LaO4.05Br oxide-ion conductor",
+      "date": "2026-10-14",
+      "url": "https://www.nature.com/articles/s41467-026-77848-8"
+     },
+     {
+      "name": "Universal crystallization kinetics of solution-processed semiconductors",
+      "date": "2026-10-14",
+      "url": "https://www.nature.com/articles/s41467-026-78354-7"
+     },
+     {
+      "name": "Colossal birefringence in CuAlO2",
+      "date": "2026-10-13",
+      "url": "https://www.nature.com/articles/s41467-026-78383-2"
+     }
+    ]
+   },
+   {
+    "area": "DIY electronics",
+    "items": [
+     {
+      "name": "HPMicro HPM5100 RISC-V MCU",
+      "date": "2026-10-15",
+      "url": "https://www.cnx-software.com/2026/10/15/hpmicro-hpm5100-risc-v-mcu-integrates-four-16-bit-adcs-four-op-amps-for-analog-sensing-and-motor-control/"
+     },
+     {
+      "name": "Orange Pi O1 BM1688 SBC",
+      "date": "2026-10-15",
+      "url": "https://www.cnx-software.com/2026/10/15/orange-pi-o1-sbc-features-16-tops-sophgo-bm1688-ai-soc-supports-4g-5g-cellular-connectivity/"
+     }
+    ]
+   },
+   {
+    "area": "Data regulation",
+    "items": [
+     {
+      "name": "AG opinion in C-568/25 on automated payment refusals",
+      "date": "2026-10-15",
+      "url": "https://ppc.land/universal-versand-faces-eu-ruling-on-algorithm-that-blocks-pay-later-options/"
+     },
+     {
+      "name": "Eleventh Circuit lifts injunction on Georgia SB 351",
+      "date": "2026-10-15",
+      "url": "https://law.georgia.gov/press-releases/2026-10-15/carr-secures-major-victory-defense-georgias-social-media-law"
+     }
+    ]
+   },
+   {
+    "area": "Claude for GTM engineering",
+    "items": [
+     {
+      "name": "Claude API OpenTelemetry export (beta)",
+      "date": "2026-10-14",
+      "url": "https://platform.claude.com/docs/en/release-notes/overview"
+     },
+     {
+      "name": "Claude Code Review generally available",
+      "date": "2026-10-15",
+      "url": "https://claude.com/resources/articles/code-review-is-now-generally-available"
+     },
+     {
+      "name": "Opus 5.5 fast mode out of research preview",
+      "date": "2026-10-15",
+      "url": "https://platform.claude.com/docs/en/release-notes/overview"
+     },
+     {
+      "name": "Claude Code 2.1.300 and 2.1.301",
+      "date": "2026-10-15",
+      "url": "https://code.claude.com/docs/en/changelog"
+     }
+    ]
+   }
+  ]
  }
 ]
