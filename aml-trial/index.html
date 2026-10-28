@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How a family-built watch reads AML trial eligibility criteria with Claude and turns them into questions for the care team.">
+<title>One-Patient Trial Watch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column, interrupted by "record" panels styled like a ClinicalTrials.gov eligibility excerpt, with a highlighter marking the one line that decides. */
+:root {
+  --paper: #f7f9fb;
+  --panel: #ffffff;
+  --ink: #18242f;
+  --muted: #566573;
+  --rule: #d5dde4;
+  --accent: #1f5f8b;
+  --mark: #e8f27a;
+  --mark-ink: #18242f;
+  --stop: #a3382c;
+  --stop-soft: #f6e3e0;
+  --ok: #2f6f4f;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0f161c; --panel: #16212a; --ink: #e3eaf0; --muted: #9aabb8; --rule: #2a3843;
+    --accent: #7fb6dc; --mark: #c9d65a; --mark-ink: #10171d; --stop: #f08a7c; --stop-soft: #3a2220; --ok: #8fcfa9;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f161c; --panel: #16212a; --ink: #e3eaf0; --muted: #9aabb8; --rule: #2a3843;
+  --accent: #7fb6dc; --mark: #c9d65a; --mark-ink: #10171d; --stop: #f08a7c; --stop-soft: #3a2220; --ok: #8fcfa9;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding-block: 3.5rem 4rem; display: grid; gap: 3.25rem; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2.1rem, 6vw, 3.2rem); font-weight: 700; letter-spacing: -0.015em; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 500; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.eyebrow { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lead { font-size: 1.2rem; color: var(--ink); }
+section { display: grid; gap: 1.1rem; }
+.hero { display: grid; gap: 1.4rem; }
+mark { background: var(--mark); color: var(--mark-ink); padding: 0 0.15em; border-radius: 2px; }
+
+/* The record panel: a real eligibility excerpt */
+.record { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 1.1rem 1.2rem; display: grid; gap: 0.7rem; font-family: var(--mono); font-size: 0.86rem; line-height: 1.55; }
+.record .head { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; justify-content: space-between; color: var(--muted); }
+.record .nct { color: var(--accent); font-weight: 500; }
+.record ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.25rem; }
+.record .sec { color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.74rem; }
+.verdict { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem; border-top: 1px dashed var(--rule); padding-top: 0.7rem; font-family: var(--body); font-size: 0.95rem; }
+.pill { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; background: var(--stop-soft); color: var(--stop); border-radius: 999px; padding: 0.1rem 0.6rem; }
+.verdict p { color: var(--muted); flex: 1 1 18rem; }
+
+/* Steps: a real sequence, so numbered */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.3rem; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 2.4rem 1fr; gap: 0.2rem 0.8rem; counter-increment: step; }
+.steps li::before { content: counter(step); grid-row: span 2; font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: var(--accent); line-height: 1.2; }
+.steps p { color: var(--muted); }
+
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem 1.6rem; }
+.rules div { display: grid; gap: 0.3rem; align-content: start; border-top: 2px solid var(--ink); padding-top: 0.7rem; }
+.rules p { color: var(--muted); font-size: 1rem; }
+
+.numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); gap: 1.2rem 1.6rem; }
+.numbers div { display: grid; gap: 0.15rem; align-content: start; }
+.numbers b { font-family: var(--display); font-weight: 700; font-size: 2rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.numbers span { color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+
+.log { display: grid; gap: 0.6rem; }
+.log .row { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.8rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.6rem; font-size: 1rem; }
+.log .st { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.25rem; color: var(--ok); }
+.log .st.none { color: var(--muted); }
+.lessons { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.6rem; }
+footer { border-top: 1px solid var(--rule); padding-top: 1.2rem; color: var(--muted); font-size: 0.95rem; display: grid; gap: 0.5rem; }
+@media (max-width: 30rem) {
+  body { font-size: 17px; }
+  .log .row { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+<style>html{color-scheme:light dark}body{margin:0}</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">A side project, built with Claude Code</p>
+  <h1>Hundreds of open trials, one patient, and the line of fine print that decides</h1>
+  <p class="lead">When someone in my family was diagnosed with acute myeloid leukemia, I wanted to know which clinical trials might matter for her. The answer is buried in eligibility criteria, and the trial list changes every week. So I built a watch that reads it for us and turns it into questions for her doctors.</p>
+  <div class="record" aria-label="Example eligibility excerpt">
+    <div class="head"><span class="nct">NCT07539818</span><span>Phase 3 · maintenance after remission</span></div>
+    <span class="sec">Inclusion criteria, one line of many</span>
+    <ul>
+      <li><mark>Age ≥14 and &lt;75 years</mark></li>
+    </ul>
+    <div class="verdict"><span class="pill">Blocking criterion</span><p>The review quotes the exact line from the record, so a person can check it in seconds.</p></div>
+  </div>
+</header>
+
+<section>
+  <h2>The problem</h2>
+  <p>ClinicalTrials.gov lists over 500 active AML studies of phase 2 or later. Each one has pages of inclusion and exclusion criteria. For an older patient already on treatment, most trials are ruled out by a single line: an age cap, a requirement that the patient is untreated, a mutation she doesn't have. Finding those lines by hand, and checking again every week as trials open and close, is more than a family can keep up with.</p>
+  <p>Her oncologists are the ones who decide. What we can do is arrive at appointments with better questions.</p>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><h3>Gather, twice a day</h3><p>A scheduled GitHub Actions job pulls from free public sources: ClinicalTrials.gov, PubMed, Europe PMC preprints, FDA drug shortages and ClinVar. It records what is new or changed since the last run.</p></li>
+    <li><h3>Rank, without throwing anything away</h3><p>Trials are sorted by checks in a fixed order: age, myeloid disease, enrolling now, non-intensive treatment, not transplant-focused, a site near home, phase 3 or 4. Missing a check moves a trial down. It never removes it.</p></li>
+    <li><h3>Read the fine print</h3><p>Claude reads each trial's eligibility text against her de-identified profile and returns a verdict: blocking criterion, depends on a fact we don't have yet, or nothing blocking found. Every verdict must quote the exact line it relies on. Code checks that the quote really appears in the record, and rejects the verdict if it doesn't.</p></li>
+    <li><h3>Get a second opinion where it matters</h3><p>For the blockers that matter most (trials near home, or ranked high), a stronger model reads them again. Where the two disagree, I look at the record myself and note which one stands.</p></li>
+    <li><h3>Publish questions, not answers</h3><p>The result is a private page with the open questions for her care team, who should answer each one, and a link to the evidence. "Was she tested for NPM1?" is something we can ask. "She should enroll" is never something the page says.</p></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Ground rules</h2>
+  <div class="rules">
+    <div><h3>Questions for the care team</h3><p>The page frames every finding as a question for her oncologist. It never recommends a treatment or says she qualifies.</p></div>
+    <div><h3>Quote it or drop it</h3><p>A verdict without a verbatim quote from the record is rejected and retried. A person can check any verdict against its source in seconds.</p></div>
+    <div><h3>Only re-read what changed</h3><p>Verdicts are cached with the exact text they were based on. A trial is read again only when its record changes, an answer about her changes, or a 90-day audit comes due.</p></div>
+    <div><h3>A fixed budget</h3><p>The review runs on my own Claude subscription. Each daily refresh gets at most 15% of a 5-hour usage window, and it stops early if the window runs high.</p></div>
+    <div><h3>Her records stay home</h3><p>Lab reports never go to GitHub. The profile in the repository holds only the facts the matching needs, with no name or dates of birth, and the repository is private.</p></div>
+    <div><h3>A person decides</h3><p>Model disagreements, new data sources and every change to the search go through me first.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>The first week, in numbers</h2>
+  <div class="numbers">
+    <div><b>516</b><span>AML studies of phase 2 or later tracked, refreshed twice a day</span></div>
+    <div><b>499</b><span>trials whose eligibility text Claude has read against her profile</span></div>
+    <div><b>~7%</b><span>of one 5-hour usage window for the first full pass over 465 trials</span></div>
+    <div><b>77 of 91</b><span>high-stakes blockers where the second opinion agreed with the first</span></div>
+    <div><b>6</b><span>trials the first pass ruled out too quickly, kept after I checked the disagreements</span></div>
+    <div><b>9</b><span>open questions for her care team, each with the trial or record behind it</span></div>
+  </div>
+  <p>The most useful finding was simple. Because she had already started treatment, most first-line trials no longer apply. The few that accept patients already on her drugs, sometimes only within one or two cycles, are the ones to ask about now.</p>
+</section>
+
+<section>
+  <h2>It also looks for what it is missing</h2>
+  <p>Each run, the watch proposes one new source or search, tests it live against the public APIs, and logs what it would have found that we didn't already have. I accept or reject it. Some of what has come out of that log so far:</p>
+  <div class="log">
+    <div class="row"><span class="st">Accepted</span><span>Phase 1 trials with a site nearby, ranked last. It found 33 early-phase studies the main search never saw.</span></div>
+    <div class="row"><span class="st">Accepted</span><span>Preprints from medRxiv and bioRxiv, which show results weeks or months before a journal prints them.</span></div>
+    <div class="row"><span class="st">Accepted</span><span>Closed trials of her drugs that have posted results on ClinicalTrials.gov, often before any paper.</span></div>
+    <div class="row"><span class="st">Accepted</span><span>Expanded-access programs, which let a patient outside a trial get an unapproved drug through her own doctor. It found four for AML that are open now.</span></div>
+    <div class="row"><span class="st none">No yield</span><span>Every blood-cancer study at her own hospital, whatever its label. All 22 studies it would have added were for other cancers, so it wasn't added.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>What I learned</h2>
+  <ul class="lessons">
+    <li>Making the model quote its source did more for trust than any prompt wording. A verdict you can check in five seconds is one you can actually use.</li>
+    <li>Order matters more than filters. Trials that miss a check go lower on the list instead of disappearing, and some of them came back as relevant once we knew more about her.</li>
+    <li>Medical records are messy. Real eligibility text uses a dozen ways to write "Inclusion Criteria", and the parser had to learn each one from real records.</li>
+    <li>A second model is worth it where a mistake costs the most, and nowhere else. Its disagreements were the most useful thing for me to review.</li>
+    <li>Writing a design doc first, then a build spec, then a phased plan made the AI-assisted work far easier to steer than prompting as I went.</li>
+  </ul>
+</section>
+
+<footer>
+  <p><a href="/">johnboen.com</a> · more projects</p>
+  <p>Built in Python with no outside packages, scheduled with GitHub Actions, and reviewed with Claude through Claude Code. The page for her care is private.</p>
+  <p>Nothing here is medical advice. Eligibility for any trial is for a patient's own oncologist to judge.</p>
+</footer>
+
+</div>
+</body>
+</html>

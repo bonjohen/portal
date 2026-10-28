@@ -54,6 +54,42 @@
 
                     <article class="card" data-expandable>
                         <div class="card-content">
+                            <h3 class="card-title">AML-TRIAL — One-Patient Trial Watch</h3>
+                            <p class="card-value">Reads the fine print of hundreds of leukemia trials and turns it into questions for one patient's care team</p>
+                            <p class="card-why">Built when a family member was diagnosed with acute myeloid leukemia, to keep up with a trial list that changes every week.</p>
+                            <p class="card-description">A twice-daily watch over ClinicalTrials.gov, PubMed, preprints, FDA shortages, ClinVar and CIViC. Trials are ranked by ordered checks instead of filtered out, and Claude reads each enrolling trial's eligibility text against a de-identified profile. Every verdict must quote the exact line it relies on, a stronger model gives second opinions on the blockers that matter most, and each run proposes and live-tests one new data source.</p>
+                            <div class="card-tags">
+                                <span class="tag">Clinical Trials</span>
+                                <span class="tag">Claude Code</span>
+                                <span class="tag">GitHub Actions</span>
+                                <span class="tag">Python</span>
+                            </div>
+                            <p class="card-freshness">Last updated Oct 28, 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>A GitHub Actions job fetches free public APIs twice a day and commits snapshots and change reports. A local review step sends only new or changed enrolling trials to Claude under a fixed share of a subscription usage window, caches each verdict against the exact text it read, and publishes a private page of open questions with links to the evidence.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Python standard library only, pytest and ruff, GitHub Actions, Claude Code (claude -p with JSON-schema output), ClinicalTrials.gov API v2, NCBI E-utilities, Europe PMC, OpenAlex, openFDA and CIViC GraphQL.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>Making the model quote its source did more for trust than any prompt wording: a verdict you can check in five seconds is one you can use. Ranking instead of filtering kept trials in view that turned out to matter once we knew more.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="/aml-trial/" class="btn btn-card">Read the Story</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
                             <h3 class="card-title">I2I — Idea to Implementation</h3>
                             <p class="card-value">A structured, prompt-driven SDLC workflow from idea through phased delivery</p>
                             <p class="card-why">Built to codify the development process I actually use — a repeatable sequence of prompts that moves a software idea through design, PDR, planning, and phased implementation.</p>
