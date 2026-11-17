@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#10111e" />
+<meta name="description" content="A one-minute guided exploration of story archetypes as emotional shapes." />
+<title>LoreKiln — Stories Have Shapes</title>
+<style>
+:root{color-scheme:dark;--bg:#10111e;--panel:#171928;--line:#383b54;--ink:#f6f0e7;--muted:#b1acc4;--accent:#f5b87c}
+*{box-sizing:border-box}html{background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;color:var(--ink);min-height:100vh;background:radial-gradient(ellipse at 12% 8%,#292139 0,transparent 45%),var(--bg)}
+.shell{width:min(1440px,calc(100% - 36px));margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:24px 0 18px;gap:20px}.logo{font-family:Georgia,serif;font-size:1.42rem;letter-spacing:.035em;font-weight:700}.logo span{color:var(--accent)}.top small{font-size:.77rem;letter-spacing:.13em;color:var(--muted);text-transform:uppercase}
+h1{font:clamp(2rem,4.6vw,4.1rem)/1.07 Georgia,serif;letter-spacing:-.03em;margin:14px 0 12px;max-width:900px}.intro{color:var(--muted);line-height:1.5;margin:0 0 24px;max-width:800px}.stage{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(290px,.75fr);gap:15px;min-height:min(590px,60vh)}.viewport{background:#0c0d17;min-height:430px;border:1px solid var(--line);border-radius:17px;position:relative;overflow:hidden;isolation:isolate}.viewport:before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(8,9,18,.10),transparent 14%,transparent 86%,rgba(8,9,18,.10))}.visual{position:absolute;left:0;top:0;width:1536px;height:1024px;max-width:none;transform-origin:0 0;will-change:transform;transition:transform 2.3s cubic-bezier(.22,.71,.24,1);user-select:none;pointer-events:none}.viewport-label{position:absolute;z-index:3;top:17px;left:18px;background:#11121fd9;border:1px solid #ffffff35;border-radius:30px;color:#f9e6d4;font-size:.73rem;font-weight:750;text-transform:uppercase;letter-spacing:.12em;padding:10px 14px}.hint{position:absolute;z-index:3;bottom:14px;left:18px;color:#e1d4d2;font-size:.72rem;text-shadow:0 1px 5px #000;background:#10111eb8;padding:7px 10px;border-radius:8px}
+.panel{padding:clamp(22px,3vw,40px);background:linear-gradient(160deg,#222036,#161725);border:1px solid var(--line);border-radius:17px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:750}.scene-title{font:clamp(1.75rem,2.6vw,2.65rem)/1.14 Georgia,serif;letter-spacing:-.015em;margin:12px 0 24px}.lines{display:flex;flex-direction:column;gap:17px;min-height:175px}.line{font-size:clamp(1rem,1.35vw,1.2rem);line-height:1.55;color:#fff6eb;opacity:0;transform:translateY(12px);transition:opacity .65s,transform .65s}.line.show{opacity:1;transform:translateY(0)}.scene-count{color:var(--muted);font-size:.85rem}
+.controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;padding:22px 0}.buttons{display:flex;gap:10px;flex-wrap:wrap}button{font:inherit;border-radius:12px;border:1px solid #57546a;padding:11px 16px;min-height:44px;background:#28273b;color:var(--ink);cursor:pointer}button:hover,button:focus-visible{background:#38364f;outline:2px solid transparent}button.main{background:var(--accent);border-color:var(--accent);color:#1d1522;font-weight:800}button:disabled{opacity:.4;cursor:not-allowed}.progress-wrap{flex:1;min-width:170px;display:flex;align-items:center;gap:12px}.progress{height:6px;flex:1;border-radius:99px;background:#464358;overflow:hidden}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#e9a7a7,#ffd6a0);transition:width .12s linear}.time{font-size:.82rem;font-variant-numeric:tabular-nums;color:var(--muted);min-width:80px}.footer{padding:0 0 28px;color:var(--muted);font-size:.82rem;line-height:1.5}.footer strong{color:#ddd2df}
+@media(max-width:850px){.top{padding-top:17px}.top small{display:none}.stage{grid-template-columns:1fr;min-height:0}.viewport{height:clamp(270px,49vw,480px);min-height:0}.panel{min-height:305px}.lines{min-height:110px}.intro{margin-bottom:17px}.controls{align-items:stretch}.progress-wrap{width:100%;flex-basis:100%}}@media(prefers-reduced-motion:reduce){.visual,.line,.progress-bar{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><div class="logo">Lore<span>Kiln</span></div><small>Story structures, seen differently</small></header>
+<h1>Every character has a story shape.</h1>
+<p class="intro">A sixty-second visual tour of three emotional journeys. Watch the illustration come into focus, one perspective at a time.</p>
+<main class="stage" aria-label="Guided visual demonstration">
+ <div class="viewport" id="viewport" aria-label="Illustration zoomed to the current topic"><img class="visual" id="visual" src="assets/story-archetypes.png" width="1536" height="1024" alt="Infographic comparing Cinderella, Tragedy, and Voyage and Return as emotional shapes" /><span class="viewport-label" id="viewportLabel">The full picture</span><span class="hint">Conceptual illustration · not measured chart data</span></div>
+ <section class="panel" aria-live="polite"><div><div class="eyebrow" id="eyebrow">01 / 06 · Introduction</div><h2 class="scene-title" id="sceneTitle">The shape of a story</h2><div class="lines" id="lines"></div></div><div class="scene-count" id="sceneCount">A journey through six emotional dimensions</div></section>
+</main>
+<div class="controls"><div class="buttons"><button class="main" id="play" type="button">Play 60-second tour</button><button id="prev" type="button">Previous</button><button id="next" type="button">Next</button><button id="restart" type="button">Restart</button></div><div class="progress-wrap"><div class="progress" role="progressbar" aria-label="Tour progress" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0" id="progress"><div class="progress-bar" id="progressBar"></div></div><span class="time" id="time">0:00 / 1:00</span></div></div>
+<footer class="footer"><strong>How to use:</strong> Press Play to move through six synchronized scenes, or use Previous and Next to explore manually. Text is ready to read aloud; this demo does not synthesize or play narration. The image is illustrative and does not yet encode exact numerical values.</footer>
+</div>
+<script>
+(() => {
+ const scenes = [
+  {title:'The shape of a story',tag:'Introduction',label:'The full picture',duration:8,crop:[0,0,1536,1024],blocks:['Stories change more than fortune.','Each beat can shift hope, agency, security, belonging, knowledge, and fortune.']},
+  {title:'Six dimensions',tag:'The building blocks',label:'Cinderella · emotional dimensions',duration:9,crop:[115,112,725,352],blocks:['Each shape is one emotional snapshot.','The six directions show different dimensions of a character’s experience.']},
+  {title:'Cinderella rises',tag:'A rising arc',label:'Cinderella · rising arc',duration:13,crop:[275,109,1536,362],blocks:['Cinderella starts with little control. Help expands her possibilities.','A reversal contracts her world, then recognition brings a lasting rise.']},
+  {title:'Tragedy falls',tag:'A falling arc',label:'Tragedy · falling arc',duration:11,crop:[205,354,1536,581],blocks:['The tragic hero begins with something valuable.','Choices and consequences slowly destroy it, even as understanding grows.']},
+  {title:'Voyage and Return',tag:'A returning arc',label:'Voyage and Return · changing arc',duration:11,crop:[205,570,1536,812],blocks:['The traveler leaves home and discovers an unfamiliar world.','They return near where they began, but with new knowledge.']},
+  {title:'One world. Many heroes.',tag:'The larger idea',label:'Three story shapes · one principle',duration:8,crop:[0,807,1536,1024],blocks:['These arcs can belong to characters sharing the same events.','Change perspective, and the same event tells a different story.']}
+ ];
+ const total=scenes.reduce((n,s)=>n+s.duration,0), $=id=>document.getElementById(id);
+ let index=0,elapsed=0,playing=false,last=null,frame=null;
+ const cumulative=i=>scenes.slice(0,i).reduce((n,s)=>n+s.duration,0);
+ function zoom(){const box=$('viewport').getBoundingClientRect(), [x,y,w,h]=scenes[index].crop; const scale=Math.min(box.width/w,box.height/h); const tx=(box.width-w*scale)/2-x*scale;const ty=(box.height-h*scale)/2-y*scale;$('visual').style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;}
+ function renderScene(){const s=scenes[index];$('eyebrow').textContent=`${String(index+1).padStart(2,'0')} / ${String(scenes.length).padStart(2,'0')} · ${s.tag}`;$('sceneTitle').textContent=s.title;$('viewportLabel').textContent=s.label;$('sceneCount').textContent=`Scene ${index+1} of ${scenes.length} · ${s.duration} seconds`;
+  $('lines').replaceChildren(...s.blocks.map(t=>{const d=document.createElement('div');d.className='line';d.textContent=t;return d;}));zoom();paintLines();}
+ function paintLines(){const local=Math.max(0,elapsed-cumulative(index)),blockEls=[...$('lines').children];blockEls.forEach((el,j)=>el.classList.toggle('show',local>=Math.min(.4+j*(scenes[index].duration/Math.max(2,blockEls.length+1)),scenes[index].duration-1)));}
+ function update(){const t=Math.min(total,Math.floor(elapsed));$('progressBar').style.width=`${elapsed/total*100}%`;$('progress').setAttribute('aria-valuenow',String(t));$('time').textContent=`${Math.floor(t/60)}:${String(t%60).padStart(2,'0')} / 1:00`;$('play').textContent=playing?'Pause':elapsed>=total?'Replay':'Play 60-second tour';paintLines();}
+ function jump(i){index=Math.max(0,Math.min(scenes.length-1,i));elapsed=cumulative(index);renderScene();update();}
+ function tick(ts){if(!playing)return;if(last!==null)elapsed+=(ts-last)/1000;last=ts;if(elapsed>=total){elapsed=total;playing=false;last=null;index=scenes.length-1;update();return;}let next=0;while(next<scenes.length-1&&elapsed>=cumulative(next+1))next++;if(next!==index){index=next;renderScene();}update();frame=requestAnimationFrame(tick);}
+ function pause(){playing=false;last=null;if(frame)cancelAnimationFrame(frame);update();}
+ function play(){if(elapsed>=total)jump(0);playing=true;last=null;update();frame=requestAnimationFrame(tick);}
+ $('play').addEventListener('click',()=>playing?pause():play());$('prev').addEventListener('click',()=>{pause();jump(index-1)});$('next').addEventListener('click',()=>{pause();jump(index+1)});$('restart').addEventListener('click',()=>{pause();jump(0)});
+ window.addEventListener('resize',zoom);new ResizeObserver(zoom).observe($('viewport'));$('visual').addEventListener('load',zoom);renderScene();update();
+})();
+</script>
+</body>
+</html>

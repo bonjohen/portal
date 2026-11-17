@@ -54,6 +54,41 @@
 
                     <article class="card" data-expandable>
                         <div class="card-content">
+                            <h3 class="card-title">LoreKiln — Stories Have Shapes</h3>
+                            <p class="card-value">A sixty-second guided tour of story archetypes as emotional shapes</p>
+                            <p class="card-why">Built to show, in one minute, the idea behind LoreKiln: every character's journey has a shape, and the same events can draw a different shape for each character.</p>
+                            <p class="card-description">A single-page demonstration that pans and zooms across one illustration in six timed scenes. Each story beat is read along six dimensions (hope, agency, security, belonging, knowledge and fortune), then traced through three arcs: Cinderella rises, Tragedy falls, and Voyage and Return comes home changed. Play, pause, or step through the scenes by hand.</p>
+                            <div class="card-tags">
+                                <span class="tag">Storytelling</span>
+                                <span class="tag">Narrative Structure</span>
+                                <span class="tag">HTML/CSS/JS</span>
+                            </div>
+                            <p class="card-freshness">Last updated Nov 17, 2026</p>
+                        </div>
+                        <div class="card-expand-content">
+                            <div class="card-detail">
+                                <h4>Architecture</h4>
+                                <p>One static HTML file and one image. A scene list sets each scene's duration, crop rectangle and two narration lines; a requestAnimationFrame timeline moves a CSS transform across the image and fades the text in on cue, with the total held to exactly sixty seconds.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>Tech Stack</h4>
+                                <p>Plain HTML, CSS and JavaScript with no dependencies, build step or backend. ResizeObserver keeps the zoom framed at any screen size, and reduced-motion settings turn the animation off.</p>
+                            </div>
+                            <div class="card-detail">
+                                <h4>What I Learned</h4>
+                                <p>A guided zoom over one good picture explains more than a page of charts. The page says plainly that the illustration is conceptual, not measured data, so the demo never claims more than it shows.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-links">
+                                <a href="/LoreKiln/" class="btn btn-card">Watch the Tour</a>
+                            </div>
+                            <button class="card-expand-btn" aria-expanded="false" aria-label="Show details">Details</button>
+                        </div>
+                    </article>
+
+                    <article class="card" data-expandable>
+                        <div class="card-content">
                             <h3 class="card-title">AML-TRIAL — AML Trial Watch</h3>
                             <p class="card-value">A live list of leukemia trials ranked for one patient, with the open questions for her care team</p>
                             <p class="card-why">Built when a family member was diagnosed with acute myeloid leukemia, to keep up with a trial list that changes every week.</p>

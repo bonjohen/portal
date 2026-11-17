@@ -16,6 +16,7 @@ The portal communicates what was built, why it was built, and how it was built â
 
 | Project | What It Does | Links |
 |---|---|---|
+| **LoreKiln** | Sixty-second guided tour of story archetypes as emotional shapes across six dimensions | [Live](https://johnboen.com/LoreKiln/) |
 | **AML-TRIAL** | Twice-daily leukemia trial watch: Claude reads eligibility criteria and quotes the deciding line, as questions for one patient's care team | [Live](https://johnboen.com/aml-trial/) |
 | **Certification** | 2,500 scenario-based questions across 50 exams and 10 providers, Atlas design system, JSON data layer | [Live](https://certification.johnboen.com/) / [Repo](https://github.com/bonjohen/certification) |
 | **JobClass** | Labor market data pipeline with 57+ table DuckDB warehouse, 21 lessons learned, Pipeline Explorer | [Live](https://jobclass.johnboen.com/) / [Repo](https://github.com/bonjohen/jobclass) |
