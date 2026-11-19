@@ -1,0 +1,812 @@
+{
+ "version": 1,
+ "books": [
+  {
+   "series": "ROA",
+   "book": 1,
+   "title": "Rise of Alcyoneus, Book 1",
+   "chapters": [
+    {
+     "id": "ROA:0001:001",
+     "episode": 1,
+     "text": "roa/b01/text/ROA-0001-001.md",
+     "title": "Back Row",
+     "audio": "roa/b01/kokoro/ROA-0001-001.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-001.ass"
+    },
+    {
+     "id": "ROA:0001:002",
+     "episode": 2,
+     "text": "roa/b01/text/ROA-0001-002.md",
+     "title": "A Fish for the King",
+     "audio": "roa/b01/kokoro/ROA-0001-002.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-002.ass"
+    },
+    {
+     "id": "ROA:0001:003",
+     "episode": 3,
+     "text": "roa/b01/text/ROA-0001-003.md",
+     "title": "How the heroes ended",
+     "audio": "roa/b01/kokoro/ROA-0001-003.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-003.ass"
+    },
+    {
+     "id": "ROA:0001:004",
+     "episode": 4,
+     "text": "roa/b01/text/ROA-0001-004.md",
+     "title": "Nobody Chose It",
+     "audio": "roa/b01/kokoro/ROA-0001-004.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-004.ass"
+    },
+    {
+     "id": "ROA:0001:005",
+     "episode": 5,
+     "text": "roa/b01/text/ROA-0001-005.md",
+     "title": "Rope and Fire",
+     "audio": "roa/b01/kokoro/ROA-0001-005.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-005.ass"
+    },
+    {
+     "id": "ROA:0001:006",
+     "episode": 6,
+     "text": "roa/b01/text/ROA-0001-006.md",
+     "title": "Warm Clay",
+     "audio": "roa/b01/kokoro/ROA-0001-006.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-006.ass"
+    },
+    {
+     "id": "ROA:0001:007",
+     "episode": 7,
+     "text": "roa/b01/text/ROA-0001-007.md",
+     "title": "Up You Come",
+     "audio": "roa/b01/kokoro/ROA-0001-007.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-007.ass"
+    },
+    {
+     "id": "ROA:0001:008",
+     "episode": 8,
+     "text": "roa/b01/text/ROA-0001-008.md",
+     "title": "The old escape hatch",
+     "audio": "roa/b01/kokoro/ROA-0001-008.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-008.ass"
+    },
+    {
+     "id": "ROA:0001:009",
+     "episode": 9,
+     "text": "roa/b01/text/ROA-0001-009.md",
+     "title": "The proper frame",
+     "audio": "roa/b01/kokoro/ROA-0001-009.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-009.ass"
+    },
+    {
+     "id": "ROA:0001:010",
+     "episode": 10,
+     "text": "roa/b01/text/ROA-0001-010.md",
+     "title": "The boy who did not fall",
+     "audio": "roa/b01/kokoro/ROA-0001-010.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-010.ass"
+    },
+    {
+     "id": "ROA:0001:011",
+     "episode": 11,
+     "text": "roa/b01/text/ROA-0001-011.md",
+     "title": "The back row, from the side",
+     "audio": "roa/b01/kokoro/ROA-0001-011.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-011.ass"
+    },
+    {
+     "id": "ROA:0001:012",
+     "episode": 12,
+     "text": "roa/b01/text/ROA-0001-012.md",
+     "title": "Thinner each morning",
+     "audio": "roa/b01/kokoro/ROA-0001-012.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-012.ass"
+    },
+    {
+     "id": "ROA:0001:013",
+     "episode": 13,
+     "text": "roa/b01/text/ROA-0001-013.md",
+     "title": "His pieces back",
+     "audio": "roa/b01/kokoro/ROA-0001-013.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-013.ass"
+    },
+    {
+     "id": "ROA:0001:014",
+     "episode": 14,
+     "text": "roa/b01/text/ROA-0001-014.md",
+     "title": "Mourners",
+     "audio": "roa/b01/kokoro/ROA-0001-014.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-014.ass"
+    },
+    {
+     "id": "ROA:0001:015",
+     "episode": 15,
+     "text": "roa/b01/text/ROA-0001-015.md",
+     "title": "Too long to be a man's",
+     "audio": "roa/b01/kokoro/ROA-0001-015.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-015.ass"
+    },
+    {
+     "id": "ROA:0001:016",
+     "episode": 16,
+     "text": "roa/b01/text/ROA-0001-016.md",
+     "title": "The same hand",
+     "audio": "roa/b01/kokoro/ROA-0001-016.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-016.ass"
+    },
+    {
+     "id": "ROA:0001:017",
+     "episode": 17,
+     "text": "roa/b01/text/ROA-0001-017.md",
+     "title": "Onto his soil",
+     "audio": "roa/b01/kokoro/ROA-0001-017.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-017.ass"
+    },
+    {
+     "id": "ROA:0001:018",
+     "episode": 18,
+     "text": "roa/b01/text/ROA-0001-018.md",
+     "title": "The one who never visits",
+     "audio": "roa/b01/kokoro/ROA-0001-018.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-018.ass"
+    },
+    {
+     "id": "ROA:0001:019",
+     "episode": 19,
+     "text": "roa/b01/text/ROA-0001-019.md",
+     "title": "What is left of her",
+     "audio": "roa/b01/kokoro/ROA-0001-019.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-019.ass"
+    },
+    {
+     "id": "ROA:0001:020",
+     "episode": 20,
+     "text": "roa/b01/text/ROA-0001-020.md",
+     "title": "A note in the wood",
+     "audio": "roa/b01/kokoro/ROA-0001-020.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-020.ass"
+    },
+    {
+     "id": "ROA:0001:021",
+     "episode": 21,
+     "text": "roa/b01/text/ROA-0001-021.md",
+     "title": "Received at ten past three",
+     "audio": "roa/b01/kokoro/ROA-0001-021.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-021.ass"
+    },
+    {
+     "id": "ROA:0001:022",
+     "episode": 22,
+     "text": "roa/b01/text/ROA-0001-022.md",
+     "title": "Forty-one",
+     "audio": "roa/b01/kokoro/ROA-0001-022.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-022.ass"
+    },
+    {
+     "id": "ROA:0001:023",
+     "episode": 23,
+     "text": "roa/b01/text/ROA-0001-023.md",
+     "title": "The mason's name",
+     "audio": "roa/b01/kokoro/ROA-0001-023.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-023.ass"
+    },
+    {
+     "id": "ROA:0001:024",
+     "episode": 24,
+     "text": "roa/b01/text/ROA-0001-024.md",
+     "title": "Breath on the glass",
+     "audio": "roa/b01/kokoro/ROA-0001-024.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-024.ass"
+    },
+    {
+     "id": "ROA:0001:025",
+     "episode": 25,
+     "text": "roa/b01/text/ROA-0001-025.md",
+     "title": "The cabinet by the sea",
+     "audio": "roa/b01/kokoro/ROA-0001-025.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-025.ass"
+    },
+    {
+     "id": "ROA:0001:026",
+     "episode": 26,
+     "text": "roa/b01/text/ROA-0001-026.md",
+     "title": "In order",
+     "audio": "roa/b01/kokoro/ROA-0001-026.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-026.ass"
+    },
+    {
+     "id": "ROA:0001:027",
+     "episode": 27,
+     "text": "roa/b01/text/ROA-0001-027.md",
+     "title": "Forty seconds",
+     "audio": "roa/b01/kokoro/ROA-0001-027.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-027.ass"
+    },
+    {
+     "id": "ROA:0001:028",
+     "episode": 28,
+     "text": "roa/b01/text/ROA-0001-028.md",
+     "title": "How anyone would know",
+     "audio": "roa/b01/kokoro/ROA-0001-028.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-028.ass"
+    },
+    {
+     "id": "ROA:0001:029",
+     "episode": 29,
+     "text": "roa/b01/text/ROA-0001-029.md",
+     "title": "The line on the map",
+     "audio": "roa/b01/kokoro/ROA-0001-029.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-029.ass"
+    },
+    {
+     "id": "ROA:0001:030",
+     "episode": 30,
+     "text": "roa/b01/text/ROA-0001-030.md",
+     "title": "I do, Melpomene",
+     "audio": "roa/b01/kokoro/ROA-0001-030.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-030.ass"
+    },
+    {
+     "id": "ROA:0001:031",
+     "episode": 31,
+     "text": "roa/b01/text/ROA-0001-031.md",
+     "title": "A word to look up",
+     "audio": "roa/b01/kokoro/ROA-0001-031.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-031.ass"
+    },
+    {
+     "id": "ROA:0001:032",
+     "episode": 32,
+     "text": "roa/b01/text/ROA-0001-032.md",
+     "title": "Things nobody asked for",
+     "audio": "roa/b01/kokoro/ROA-0001-032.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-032.ass"
+    },
+    {
+     "id": "ROA:0001:033",
+     "episode": 33,
+     "text": "roa/b01/text/ROA-0001-033.md",
+     "title": "Beside every success",
+     "audio": "roa/b01/kokoro/ROA-0001-033.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-033.ass"
+    },
+    {
+     "id": "ROA:0001:034",
+     "episode": 34,
+     "text": "roa/b01/text/ROA-0001-034.md",
+     "title": "Four lenses",
+     "audio": "roa/b01/kokoro/ROA-0001-034.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-034.ass"
+    },
+    {
+     "id": "ROA:0001:035",
+     "episode": 35,
+     "text": "roa/b01/text/ROA-0001-035.md",
+     "title": "The stick in the locked cabinet",
+     "audio": "roa/b01/kokoro/ROA-0001-035.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-035.ass"
+    },
+    {
+     "id": "ROA:0001:036",
+     "episode": 36,
+     "text": "roa/b01/text/ROA-0001-036.md",
+     "title": "A drone over the pines",
+     "audio": "roa/b01/kokoro/ROA-0001-036.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-036.ass"
+    },
+    {
+     "id": "ROA:0001:037",
+     "episode": 37,
+     "text": "roa/b01/text/ROA-0001-037.md",
+     "title": "Breath in the strings",
+     "audio": "roa/b01/kokoro/ROA-0001-037.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-037.ass"
+    },
+    {
+     "id": "ROA:0001:038",
+     "episode": 38,
+     "text": "roa/b01/text/ROA-0001-038.md",
+     "title": "The plate of 1931",
+     "audio": "roa/b01/kokoro/ROA-0001-038.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-038.ass"
+    },
+    {
+     "id": "ROA:0001:039",
+     "episode": 39,
+     "text": "roa/b01/text/ROA-0001-039.md",
+     "title": "The night before the board",
+     "audio": "roa/b01/kokoro/ROA-0001-039.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-039.ass"
+    },
+    {
+     "id": "ROA:0001:040",
+     "episode": 40,
+     "text": "roa/b01/text/ROA-0001-040.md",
+     "title": "Questions on the Plain",
+     "audio": "roa/b01/kokoro/ROA-0001-040.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-040.ass"
+    },
+    {
+     "id": "ROA:0001:041",
+     "episode": 41,
+     "text": "roa/b01/text/ROA-0001-041.md",
+     "title": "The wire beyond the olives",
+     "audio": "roa/b01/kokoro/ROA-0001-041.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-041.ass"
+    },
+    {
+     "id": "ROA:0001:042",
+     "episode": 42,
+     "text": "roa/b01/text/ROA-0001-042.md",
+     "title": "What the girl measured",
+     "audio": "roa/b01/kokoro/ROA-0001-042.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-042.ass"
+    },
+    {
+     "id": "ROA:0001:043",
+     "episode": 43,
+     "text": "roa/b01/text/ROA-0001-043.md",
+     "title": "What is in the wood",
+     "audio": "roa/b01/kokoro/ROA-0001-043.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-043.ass"
+    },
+    {
+     "id": "ROA:0001:044",
+     "episode": 44,
+     "text": "roa/b01/text/ROA-0001-044.md",
+     "title": "Nearly as old",
+     "audio": "roa/b01/kokoro/ROA-0001-044.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-044.ass"
+    },
+    {
+     "id": "ROA:0001:045",
+     "episode": 45,
+     "text": "roa/b01/text/ROA-0001-045.md",
+     "title": "Who owns the hall",
+     "audio": "roa/b01/kokoro/ROA-0001-045.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-045.ass"
+    },
+    {
+     "id": "ROA:0001:046",
+     "episode": 46,
+     "text": "roa/b01/text/ROA-0001-046.md",
+     "title": "The voice in the hall",
+     "audio": "roa/b01/kokoro/ROA-0001-046.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-046.ass"
+    },
+    {
+     "id": "ROA:0001:047",
+     "episode": 47,
+     "text": "roa/b01/text/ROA-0001-047.md",
+     "title": "Two thousand years without",
+     "audio": "roa/b01/kokoro/ROA-0001-047.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-047.ass"
+    },
+    {
+     "id": "ROA:0001:048",
+     "episode": 48,
+     "text": "roa/b01/text/ROA-0001-048.md",
+     "title": "One band at a time",
+     "audio": "roa/b01/kokoro/ROA-0001-048.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-048.ass"
+    },
+    {
+     "id": "ROA:0001:049",
+     "episode": 49,
+     "text": "roa/b01/text/ROA-0001-049.md",
+     "title": "Only one parcel",
+     "audio": "roa/b01/kokoro/ROA-0001-049.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-049.ass"
+    },
+    {
+     "id": "ROA:0001:050",
+     "episode": 50,
+     "text": "roa/b01/text/ROA-0001-050.md",
+     "title": "The empty seats",
+     "audio": "roa/b01/kokoro/ROA-0001-050.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-050.ass"
+    },
+    {
+     "id": "ROA:0001:051",
+     "episode": 51,
+     "text": "roa/b01/text/ROA-0001-051.md",
+     "title": "What a death is",
+     "audio": "roa/b01/kokoro/ROA-0001-051.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-051.ass"
+    },
+    {
+     "id": "ROA:0001:052",
+     "episode": 52,
+     "text": "roa/b01/text/ROA-0001-052.md",
+     "title": "Never free",
+     "audio": "roa/b01/kokoro/ROA-0001-052.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-052.ass"
+    },
+    {
+     "id": "ROA:0001:053",
+     "episode": 53,
+     "text": "roa/b01/text/ROA-0001-053.md",
+     "title": "The fingernail",
+     "audio": "roa/b01/kokoro/ROA-0001-053.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-053.ass"
+    },
+    {
+     "id": "ROA:0001:054",
+     "episode": 54,
+     "text": "roa/b01/text/ROA-0001-054.md",
+     "title": "The car park",
+     "audio": "roa/b01/kokoro/ROA-0001-054.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-054.ass"
+    },
+    {
+     "id": "ROA:0001:055",
+     "episode": 55,
+     "text": "roa/b01/text/ROA-0001-055.md",
+     "title": "Mother?",
+     "audio": "roa/b01/kokoro/ROA-0001-055.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-055.ass"
+    },
+    {
+     "id": "ROA:0001:056",
+     "episode": 56,
+     "text": "roa/b01/text/ROA-0001-056.md",
+     "title": "From above the stairs",
+     "audio": "roa/b01/kokoro/ROA-0001-056.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-056.ass"
+    },
+    {
+     "id": "ROA:0001:057",
+     "episode": 57,
+     "text": "roa/b01/text/ROA-0001-057.md",
+     "title": "For ever",
+     "audio": "roa/b01/kokoro/ROA-0001-057.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-057.ass"
+    },
+    {
+     "id": "ROA:0001:058",
+     "episode": 58,
+     "text": "roa/b01/text/ROA-0001-058.md",
+     "title": "Each on its own clock",
+     "audio": "roa/b01/kokoro/ROA-0001-058.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-058.ass"
+    },
+    {
+     "id": "ROA:0001:059",
+     "episode": 59,
+     "text": "roa/b01/text/ROA-0001-059.md",
+     "title": "Now there is someone",
+     "audio": "roa/b01/kokoro/ROA-0001-059.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-059.ass"
+    },
+    {
+     "id": "ROA:0001:060",
+     "episode": 60,
+     "text": "roa/b01/text/ROA-0001-060.md",
+     "title": "The warm hand",
+     "audio": "roa/b01/kokoro/ROA-0001-060.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-060.ass"
+    },
+    {
+     "id": "ROA:0001:061",
+     "episode": 61,
+     "text": "roa/b01/text/ROA-0001-061.md",
+     "title": "Three times a day",
+     "audio": "roa/b01/kokoro/ROA-0001-061.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-061.ass"
+    },
+    {
+     "id": "ROA:0001:062",
+     "episode": 62,
+     "text": "roa/b01/text/ROA-0001-062.md",
+     "title": "White on the stick",
+     "audio": "roa/b01/kokoro/ROA-0001-062.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-062.ass"
+    },
+    {
+     "id": "ROA:0001:063",
+     "episode": 63,
+     "text": "roa/b01/text/ROA-0001-063.md",
+     "title": "Routine",
+     "audio": "roa/b01/kokoro/ROA-0001-063.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-063.ass"
+    },
+    {
+     "id": "ROA:0001:064",
+     "episode": 64,
+     "text": "roa/b01/text/ROA-0001-064.md",
+     "title": "Three notes",
+     "audio": "roa/b01/kokoro/ROA-0001-064.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-064.ass"
+    },
+    {
+     "id": "ROA:0001:065",
+     "episode": 65,
+     "text": "roa/b01/text/ROA-0001-065.md",
+     "title": "What we had for lunch",
+     "audio": "roa/b01/kokoro/ROA-0001-065.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-065.ass"
+    },
+    {
+     "id": "ROA:0001:066",
+     "episode": 66,
+     "text": "roa/b01/text/ROA-0001-066.md",
+     "title": "A frieze on the steps",
+     "audio": "roa/b01/kokoro/ROA-0001-066.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-066.ass"
+    },
+    {
+     "id": "ROA:0001:067",
+     "episode": 67,
+     "text": "roa/b01/text/ROA-0001-067.md",
+     "title": "Filed a year before",
+     "audio": "roa/b01/kokoro/ROA-0001-067.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-067.ass"
+    },
+    {
+     "id": "ROA:0001:068",
+     "episode": 68,
+     "text": "roa/b01/text/ROA-0001-068.md",
+     "title": "Back in his jaw",
+     "audio": "roa/b01/kokoro/ROA-0001-068.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-068.ass"
+    },
+    {
+     "id": "ROA:0001:069",
+     "episode": 69,
+     "text": "roa/b01/text/ROA-0001-069.md",
+     "title": "Angry enough",
+     "audio": "roa/b01/kokoro/ROA-0001-069.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-069.ass"
+    },
+    {
+     "id": "ROA:0001:070",
+     "episode": 70,
+     "text": "roa/b01/text/ROA-0001-070.md",
+     "title": "What the music took",
+     "audio": "roa/b01/kokoro/ROA-0001-070.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-070.ass"
+    },
+    {
+     "id": "ROA:0001:071",
+     "episode": 71,
+     "text": "roa/b01/text/ROA-0001-071.md",
+     "title": "The name on the stern",
+     "audio": "roa/b01/kokoro/ROA-0001-071.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-071.ass"
+    },
+    {
+     "id": "ROA:0001:072",
+     "episode": 72,
+     "text": "roa/b01/text/ROA-0001-072.md",
+     "title": "The land he stands on",
+     "audio": "roa/b01/kokoro/ROA-0001-072.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-072.ass"
+    },
+    {
+     "id": "ROA:0001:073",
+     "episode": 73,
+     "text": "roa/b01/text/ROA-0001-073.md",
+     "title": "The stairs",
+     "audio": "roa/b01/kokoro/ROA-0001-073.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-073.ass"
+    },
+    {
+     "id": "ROA:0001:074",
+     "episode": 74,
+     "text": "roa/b01/text/ROA-0001-074.md",
+     "title": "The right to sell",
+     "audio": "roa/b01/kokoro/ROA-0001-074.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-074.ass"
+    },
+    {
+     "id": "ROA:0001:075",
+     "episode": 75,
+     "text": "roa/b01/text/ROA-0001-075.md",
+     "title": "What it has cost",
+     "audio": "roa/b01/kokoro/ROA-0001-075.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-075.ass"
+    },
+    {
+     "id": "ROA:0001:076",
+     "episode": 76,
+     "text": "roa/b01/text/ROA-0001-076.md",
+     "title": "The night at the canal",
+     "audio": "roa/b01/kokoro/ROA-0001-076.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-076.ass"
+    },
+    {
+     "id": "ROA:0001:077",
+     "episode": 77,
+     "text": "roa/b01/text/ROA-0001-077.md",
+     "title": "What leaves the parcel",
+     "audio": "roa/b01/kokoro/ROA-0001-077.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-077.ass"
+    },
+    {
+     "id": "ROA:0001:078",
+     "episode": 78,
+     "text": "roa/b01/text/ROA-0001-078.md",
+     "title": "Watched from above",
+     "audio": "roa/b01/kokoro/ROA-0001-078.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-078.ass"
+    },
+    {
+     "id": "ROA:0001:079",
+     "episode": 79,
+     "text": "roa/b01/text/ROA-0001-079.md",
+     "title": "A guard on the quad",
+     "audio": "roa/b01/kokoro/ROA-0001-079.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-079.ass"
+    },
+    {
+     "id": "ROA:0001:080",
+     "episode": 80,
+     "text": "roa/b01/text/ROA-0001-080.md",
+     "title": "The signature",
+     "audio": "roa/b01/kokoro/ROA-0001-080.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-080.ass"
+    },
+    {
+     "id": "ROA:0001:081",
+     "episode": 81,
+     "text": "roa/b01/text/ROA-0001-081.md",
+     "title": "Among the boxes",
+     "audio": "roa/b01/kokoro/ROA-0001-081.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-081.ass"
+    },
+    {
+     "id": "ROA:0001:082",
+     "episode": 82,
+     "text": "roa/b01/text/ROA-0001-082.md",
+     "title": "Off the point",
+     "audio": "roa/b01/kokoro/ROA-0001-082.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-082.ass"
+    },
+    {
+     "id": "ROA:0001:083",
+     "episode": 83,
+     "text": "roa/b01/text/ROA-0001-083.md",
+     "title": "The only thing as old",
+     "audio": "roa/b01/kokoro/ROA-0001-083.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-083.ass"
+    },
+    {
+     "id": "ROA:0001:084",
+     "episode": 84,
+     "text": "roa/b01/text/ROA-0001-084.md",
+     "title": "Ninety",
+     "audio": "roa/b01/kokoro/ROA-0001-084.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-084.ass"
+    },
+    {
+     "id": "ROA:0001:085",
+     "episode": 85,
+     "text": "roa/b01/text/ROA-0001-085.md",
+     "title": "Between them",
+     "audio": "roa/b01/kokoro/ROA-0001-085.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-085.ass"
+    },
+    {
+     "id": "ROA:0001:086",
+     "episode": 86,
+     "text": "roa/b01/text/ROA-0001-086.md",
+     "title": "What he can't put down",
+     "audio": "roa/b01/kokoro/ROA-0001-086.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-086.ass"
+    },
+    {
+     "id": "ROA:0001:087",
+     "episode": 87,
+     "text": "roa/b01/text/ROA-0001-087.md",
+     "title": "The floor from above",
+     "audio": "roa/b01/kokoro/ROA-0001-087.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-087.ass"
+    },
+    {
+     "id": "ROA:0001:088",
+     "episode": 88,
+     "text": "roa/b01/text/ROA-0001-088.md",
+     "title": "Blood on the grass",
+     "audio": "roa/b01/kokoro/ROA-0001-088.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-088.ass"
+    },
+    {
+     "id": "ROA:0001:089",
+     "episode": 89,
+     "text": "roa/b01/text/ROA-0001-089.md",
+     "title": "One after another",
+     "audio": "roa/b01/kokoro/ROA-0001-089.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-089.ass"
+    },
+    {
+     "id": "ROA:0001:090",
+     "episode": 90,
+     "text": "roa/b01/text/ROA-0001-090.md",
+     "title": "The spear not thrown",
+     "audio": "roa/b01/kokoro/ROA-0001-090.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-090.ass"
+    },
+    {
+     "id": "ROA:0001:091",
+     "episode": 91,
+     "text": "roa/b01/text/ROA-0001-091.md",
+     "title": "All of them gone",
+     "audio": "roa/b01/kokoro/ROA-0001-091.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-091.ass"
+    },
+    {
+     "id": "ROA:0001:092",
+     "episode": 92,
+     "text": "roa/b01/text/ROA-0001-092.md",
+     "title": "The new sister",
+     "audio": "roa/b01/kokoro/ROA-0001-092.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-092.ass"
+    },
+    {
+     "id": "ROA:0001:093",
+     "episode": 93,
+     "text": "roa/b01/text/ROA-0001-093.md",
+     "title": "A sale is open",
+     "audio": "roa/b01/kokoro/ROA-0001-093.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-093.ass"
+    },
+    {
+     "id": "ROA:0001:094",
+     "episode": 94,
+     "text": "roa/b01/text/ROA-0001-094.md",
+     "title": "The people near him",
+     "audio": "roa/b01/kokoro/ROA-0001-094.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-094.ass"
+    },
+    {
+     "id": "ROA:0001:095",
+     "episode": 95,
+     "text": "roa/b01/text/ROA-0001-095.md",
+     "title": "The line",
+     "audio": "roa/b01/kokoro/ROA-0001-095.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-095.ass"
+    },
+    {
+     "id": "ROA:0001:096",
+     "episode": 96,
+     "text": "roa/b01/text/ROA-0001-096.md",
+     "title": "Forty seconds on",
+     "audio": "roa/b01/kokoro/ROA-0001-096.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-096.ass"
+    },
+    {
+     "id": "ROA:0001:097",
+     "episode": 97,
+     "text": "roa/b01/text/ROA-0001-097.md",
+     "title": "What either of you made me for",
+     "audio": "roa/b01/kokoro/ROA-0001-097.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-097.ass"
+    },
+    {
+     "id": "ROA:0001:098",
+     "episode": 98,
+     "text": "roa/b01/text/ROA-0001-098.md",
+     "title": "The biggest thing since Heracles",
+     "audio": "roa/b01/kokoro/ROA-0001-098.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-098.ass"
+    },
+    {
+     "id": "ROA:0001:099",
+     "episode": 99,
+     "text": "roa/b01/text/ROA-0001-099.md",
+     "title": "Arms out",
+     "audio": "roa/b01/kokoro/ROA-0001-099.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-099.ass"
+    },
+    {
+     "id": "ROA:0001:100",
+     "episode": 100,
+     "text": "roa/b01/text/ROA-0001-100.md",
+     "title": "A ring in a fish",
+     "audio": "roa/b01/kokoro/ROA-0001-100.mp3",
+     "ass": "roa/b01/kokoro/ROA-0001-100.ass"
+    }
+   ]
+  }
+ ]
+}
