@@ -28,6 +28,9 @@
   }
   .brand { font-family: var(--serif); font-size: 20px; letter-spacing: 0.02em; }
   .brand b { color: var(--ember); font-weight: normal; }
+  #book-select { max-width: 340px; min-width: 0; font-size: 14px; }
+  header, .main, footer { min-width: 0; }
+  body { grid-template-columns: minmax(0, 1fr); }
   .book-title { color: var(--dim); font-size: 14px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .badge { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ember); border: 1px solid var(--ember); border-radius: 999px; padding: 2px 9px; }
   .icon-btn { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 6px 10px; cursor: pointer; font: inherit; font-size: 13px; }
@@ -94,6 +97,10 @@
     nav.open { display: block; }
     #toggle-chapters { display: inline-block; }
     .book-title { display: none; }
+    #book-select { flex: 1; max-width: none; }
+    .badge { display: none; }
+    header { gap: 8px; padding: 8px 10px; }
+    .brand { font-size: 17px; }
     .page { padding: 24px 18px 40vh; }
     h1 { font-size: 27px; }
     .text p { font-size: 18px; }
@@ -108,6 +115,7 @@
 <header>
   <button class="icon-btn" id="toggle-chapters" aria-controls="chapters">Chapters</button>
   <div class="brand">Lore<b>Kiln</b></div>
+  <select id="book-select" aria-label="Series and book"></select>
   <div class="book-title" id="book-title"></div>
   <span class="badge">Preview</span>
 </header>
@@ -305,24 +313,39 @@
   }
 
   // ---------- chapters ----------
-  function buildNav() {
+  function buildSelect() {
+    const sel = $("book-select");
+    sel.innerHTML = "";
+    manifest.books.forEach((b, k) => {
+      const o = document.createElement("option");
+      o.value = k;
+      o.textContent = `${b.title} (${b.chapters.length})`;
+      sel.appendChild(o);
+    });
+    sel.onchange = () => {
+      const b = manifest.books[Number(sel.value)];
+      const last = store.get("last." + b.series + b.book, null);
+      const i = Math.max(0, b.chapters.findIndex(c => c.id === last));
+      openChapter(b, i, false);
+    };
+  }
+
+  function buildNav(b) {
     const nav = $("chapters");
     nav.innerHTML = "";
-    for (const b of manifest.books) {
-      const h = document.createElement("h2");
-      h.textContent = b.title;
-      nav.appendChild(h);
-      b.chapters.forEach((ch, i) => {
-        const btn = document.createElement("button");
-        btn.dataset.id = ch.id;
-        if (!ch.audio) btn.classList.add("noaudio");
-        btn.innerHTML = `<span class="num">${String(ch.episode).padStart(3, "0")}</span><span></span><span class="state"></span>`;
-        btn.children[1].textContent = ch.title;
-        btn.children[2].textContent = ch.audio ? "" : "text";
-        btn.onclick = () => { openChapter(b, i, false); nav.classList.remove("open"); };
-        nav.appendChild(btn);
-      });
-    }
+    const h = document.createElement("h2");
+    h.textContent = b.title;
+    nav.appendChild(h);
+    b.chapters.forEach((ch, i) => {
+      const btn = document.createElement("button");
+      btn.dataset.id = ch.id;
+      if (!ch.audio) btn.classList.add("noaudio");
+      btn.innerHTML = `<span class="num">${String(ch.episode).padStart(3, "0")}</span><span></span><span class="state"></span>`;
+      btn.children[1].textContent = ch.title;
+      btn.children[2].textContent = ch.audio ? "" : "text";
+      btn.onclick = () => { openChapter(b, i, false); nav.classList.remove("open"); };
+      nav.appendChild(btn);
+    });
   }
 
   function mediaStrip() {
@@ -334,10 +357,15 @@
     savePos();
     audio.pause();
     $("cur").textContent = "0:00"; $("dur").textContent = "0:00"; $("seek").value = 0;
+    if (book !== b) {
+      buildNav(b);
+      $("book-select").value = manifest.books.indexOf(b);
+      $("book-title").textContent = "";
+    }
     book = b; index = i; chapter = b.chapters[i];
     store.set("last", chapter.id);
+    store.set("last." + b.series + b.book, chapter.id);
     document.querySelectorAll("nav button").forEach(el => el.classList.toggle("active", el.dataset.id === chapter.id));
-    $("book-title").textContent = b.title;
     $("chapter-id").textContent = chapter.id;
     $("chapter-title").textContent = chapter.title;
     document.title = `${chapter.title} — ${b.title}`;
@@ -430,7 +458,7 @@
       return;
     }
     if (!manifest.books?.length) { $("chapter-title").textContent = "No chapters in the manifest"; return; }
-    buildNav();
+    buildSelect();
     const last = store.get("last", null);
     let b = manifest.books[0], i = 0;
     for (const bk of manifest.books) { const k = bk.chapters.findIndex(c => c.id === last); if (k >= 0) { b = bk; i = k; break; } }
