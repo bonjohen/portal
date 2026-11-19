@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — John Boen</title>
+    <meta name="robots" content="noindex">
+    <script>
+        // Moved paths. GitHub Pages serves this page for any missing URL, so
+        // a case-only rename (which Windows cannot hold as two folders) is
+        // redirected here instead of with a stub page at the old path.
+        (function () {
+            var moved = { '/lorekiln': '/lorekiln' };
+            var path = location.pathname;
+            var lower = path.toLowerCase();
+            for (var from in moved) {
+                if ((lower === from || lower.indexOf(from + '/') === 0) && path !== lower) {
+                    location.replace(moved[from] + path.slice(from.length) + location.search + location.hash);
+                    return;
+                }
+            }
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <main>
+        <section class="section">
+            <div class="container hero-content">
+                <h1 class="hero-title">Page not found</h1>
+                <p class="hero-body">That page doesn't exist or has moved.</p>
+                <p><a href="/" class="btn btn-card">Back to johnboen.com</a></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
