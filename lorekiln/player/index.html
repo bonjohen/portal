@@ -263,13 +263,13 @@
     mode = "none";
     try {
       if (ch.timing) {
-        const tj = await (await fetch(MEDIA + ch.timing)).json();
+        const tj = await (await fetch(ch.timing)).json();
         align(tj.words.filter(w => w.p !== 0).map((w, i) => ({ w: w.w, t: w.t, g: i }))); // p 0 is the title line
         mode = "word";
         return;
       }
       if (ch.ass) {
-        const lines = parseAss(await (await fetch(MEDIA + ch.ass)).text());
+        const lines = parseAss(await (await fetch(ch.ass)).text());
         const timed = [];
         lines.forEach((l, gi) => {
           if (gi === 0 && /^Episode\b/i.test(l.text)) return; // the title line is in the heading
@@ -375,10 +375,10 @@
     $("notice").innerHTML = "";
     textEl.textContent = "Loading…";
     try {
-      renderText(await (await fetch(MEDIA + chapter.text)).text());
+      renderText(await (await fetch(chapter.text)).text());
     } catch { textEl.textContent = "Couldn't load this chapter's text."; return; }
     if (chapter.audio) {
-      audio.src = MEDIA + chapter.audio;
+      audio.src = chapter.audio;
       audio.playbackRate = Number($("speed").value);
       await loadTimings(chapter);
       textEl.classList.toggle("untimed", mode === "none");
@@ -450,11 +450,29 @@
     $("speed").value = store.get("speed", "1");
     $("follow").checked = store.get("follow", true);
     mediaStrip();
-    try {
-      manifest = await (await fetch(MEDIA + "manifest.json")).json();
-    } catch {
+    // Sources: ?media=<url> for one media folder; otherwise library.json beside the page
+    // ({"sources": ["/lorekiln-roa/", ...]}), each with its own manifest.json; otherwise media/.
+    let sources = [MEDIA];
+    if (!params.get("media")) {
+      try {
+        const lib = await fetch("library.json");
+        if (lib.ok) sources = (await lib.json()).sources.map(s => s.replace(/\/?$/, "/"));
+      } catch {}
+    }
+    manifest = { books: [] };
+    for (const base of sources) {
+      try {
+        const m = await (await fetch(base + "manifest.json")).json();
+        for (const b of m.books || []) {
+          for (const c of b.chapters) for (const k of ["text", "audio", "ass", "timing"]) if (c[k]) c[k] = base + c[k];
+          manifest.books.push(b);
+        }
+      } catch (e) { console.warn("no manifest at", base, e); }
+    }
+    manifest.books.sort((a, b) => a.title.localeCompare(b.title) || a.book - b.book);
+    if (!manifest.books.length) {
       $("chapter-title").textContent = "No manifest found";
-      textEl.innerHTML = `<p>Couldn't load <code>${MEDIA}manifest.json</code>.</p><p>On the workstation, run <code>tools\\preview_player.cmd</code> in the LoreKiln player folder. Anywhere else, add the media location to the address: <code>?media=https://…/</code></p>`;
+      textEl.innerHTML = `<p>Couldn't load a chapter list from ${sources.map(s => `<code>${s}manifest.json</code>`).join(", ")}.</p><p>On the workstation, run <code>tools\\preview_player.cmd</code> in the LoreKiln player folder. Anywhere else, add the media location to the address: <code>?media=https://…/</code></p>`;
       return;
     }
     if (!manifest.books?.length) { $("chapter-title").textContent = "No chapters in the manifest"; return; }
