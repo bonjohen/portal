@@ -196,9 +196,11 @@
   const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
   // Fetch that turns HTTP errors and network failures into one plain sentence.
+  // "no-cache" revalidates with the server (a cheap 304 when unchanged), so a newly published
+  // episode shows up on the next load instead of after Pages' 10-minute cache.
   async function get(url) {
     let res;
-    try { res = await fetch(url); } catch { throw new Error(navigator.onLine === false ? "you're offline" : "the network request failed"); }
+    try { res = await fetch(url, { cache: "no-cache" }); } catch { throw new Error(navigator.onLine === false ? "you're offline" : "the network request failed"); }
     if (!res.ok) throw new Error(res.status === 404 ? "not found (404)" : `the server answered ${res.status}`);
     return res;
   }
@@ -648,7 +650,7 @@
     let sources = [MEDIA];
     if (!params.get("media")) {
       try {
-        const lib = await fetch("library.json");
+        const lib = await fetch("library.json", { cache: "no-cache" });
         if (lib.ok) sources = (await lib.json()).sources.map(s => s.replace(/\/?$/, "/"));
       } catch {}
     }
