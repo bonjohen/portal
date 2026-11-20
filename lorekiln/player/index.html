@@ -29,6 +29,9 @@
   .brand { font-family: var(--serif); font-size: 20px; letter-spacing: 0.02em; }
   .brand b { color: var(--ember); font-weight: normal; }
   #book-select { max-width: 340px; min-width: 0; font-size: 14px; }
+  #book-thumb { height: 40px; width: auto; border-radius: 4px; flex: none; }
+  #book-thumb[hidden], nav img.cover[hidden] { display: none; }
+  nav img.cover { display: block; width: calc(100% - 36px); max-width: 254px; height: auto; margin: 8px 18px 4px; border-radius: 6px; }
   header, .main, footer { min-width: 0; }
   body { grid-template-columns: minmax(0, 1fr); }
   .book-title { color: var(--dim); font-size: 14px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -128,6 +131,7 @@
 <header>
   <button class="icon-btn" id="toggle-chapters" aria-controls="chapters">Chapters</button>
   <div class="brand">Lore<b>Kiln</b></div>
+  <img id="book-thumb" alt="" hidden>
   <select id="book-select" aria-label="Series and book"></select>
   <div class="book-title" id="book-title"></div>
   <span class="badge">Preview</span>
@@ -395,6 +399,12 @@
   function buildNav(b) {
     const nav = $("chapters");
     nav.innerHTML = "";
+    if (b.cover) {
+      const img = document.createElement("img");
+      img.className = "cover"; img.src = b.cover; img.alt = `Cover of ${b.title}`;
+      img.onerror = () => { img.hidden = true; };
+      nav.appendChild(img);
+    }
     const h = document.createElement("h2");
     h.textContent = b.title;
     nav.appendChild(h);
@@ -444,6 +454,10 @@
       buildNav(b);
       $("book-select").value = manifest.books.indexOf(b);
       $("book-title").textContent = "";
+      const thumb = $("book-thumb");
+      thumb.hidden = !b.cover;
+      if (b.cover) { thumb.onerror = () => { thumb.hidden = true; }; thumb.src = b.cover; thumb.alt = `Cover of ${b.title}`; }
+      else thumb.removeAttribute("src");
     }
     book = b; index = i; chapter = b.chapters[i];
     const key = chapterKey(b, chapter);
@@ -640,6 +654,22 @@
   // Version-stamp media URLs so a republished episode isn't served from an old cache.
   function stamp(url, v) { return v ? `${url}${url.includes("?") ? "&" : "?"}v=${encodeURIComponent(v)}` : url; }
 
+  // Covers from the series' optional catalog.json (docs/planning/CATALOG-TEXT-AND-ART.md section 4):
+  // a book's cover counts only when its cover candidate (or, with no candidates, the book) is approved.
+  // Returns {"ROA1": url}; anything missing or malformed just means no cover.
+  function approvedCovers(cat, base) {
+    const out = {};
+    if (!cat || !Array.isArray(cat.books)) return out;
+    const code = cat.series && cat.series.code;
+    for (const cb of cat.books) {
+      if (!cb || typeof cb.cover !== "string" || !cb.cover || !code) continue;
+      const cand = Array.isArray(cb.cover_candidates) ? cb.cover_candidates.find(c => c && c.image === cb.cover) : null;
+      if ((cand ? cand.status : cb.status) !== "approved") continue;
+      out[`${code}${cb.book}`] = new URL(cb.cover, new URL(base, location.href)).href;
+    }
+    return out;
+  }
+
   async function start() {
     $("speed").value = store.get("speed", "1");
     if (!$("speed").value) $("speed").value = "1";
@@ -659,14 +689,18 @@
     }
     const books = [], failed = [];
     for (const base of sources) {
+      const catalog = fetch(base + "catalog.json", { cache: "no-cache" })
+        .then(r => r.ok ? r.json() : null).catch(() => null);
       try {
         const m = await (await get(base + "manifest.json")).json();
+        const covers = approvedCovers(await catalog, base);
         for (const b of m.books || []) {
           if (!b || !Array.isArray(b.chapters)) continue;
           b.chapters = b.chapters.filter(c => c && Number(c.episode) <= maxEpisode);
           if (!b.chapters.length) continue;
           b.edition ||= "canon";
           b.title ||= `${b.series} Book ${b.book}`;
+          b.cover = isPrime(b) ? null : covers[`${b.series}${b.book}`] || null;
           for (const c of b.chapters) {
             for (const k of ["text", "audio", "ass", "timing"]) if (c[k]) c[k] = base + c[k];
             for (const k of ["audio", "ass", "timing"]) if (c[k]) c[k] = stamp(c[k], c.audio_version);
