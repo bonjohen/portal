@@ -647,11 +647,14 @@
     mediaStrip();
     // Sources: ?media=<url> for one media folder; otherwise library.json beside the page
     // ({"sources": ["/lorekiln-roa/", ...]}), each with its own manifest.json; otherwise media/.
-    let sources = [MEDIA];
+    // library.json's max_episode hides every later episode of every book (default 20): they
+    // never reach the book menu, the chapter list, next-episode or autoplay.
+    let sources = [MEDIA], maxEpisode = 20;
     if (!params.get("media")) {
       try {
-        const lib = await fetch("library.json", { cache: "no-cache" });
-        if (lib.ok) sources = (await lib.json()).sources.map(s => s.replace(/\/?$/, "/"));
+        const lib = await (await fetch("library.json", { cache: "no-cache" })).json();
+        if (Array.isArray(lib.sources)) sources = lib.sources.map(s => s.replace(/\/?$/, "/"));
+        if (Number.isInteger(lib.max_episode) && lib.max_episode > 0) maxEpisode = lib.max_episode;
       } catch {}
     }
     const books = [], failed = [];
@@ -660,6 +663,8 @@
         const m = await (await get(base + "manifest.json")).json();
         for (const b of m.books || []) {
           if (!b || !Array.isArray(b.chapters)) continue;
+          b.chapters = b.chapters.filter(c => c && Number(c.episode) <= maxEpisode);
+          if (!b.chapters.length) continue;
           b.edition ||= "canon";
           b.title ||= `${b.series} Book ${b.book}`;
           for (const c of b.chapters) {
