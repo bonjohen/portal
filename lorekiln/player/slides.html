@@ -13,6 +13,7 @@
   #stage img { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform, opacity;
                opacity: 0; transition: opacity 600ms ease; user-select: none; pointer-events: none; }
   #stage img.on { opacity: 1; }
+  #stage img.lit { opacity: 0; transition: none; }
   #shade { position: fixed; inset: 0; pointer-events: none;
            background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.7)); }
   #title { position: fixed; top: max(14px, env(safe-area-inset-top)); left: 16px; right: 16px;
@@ -103,6 +104,38 @@ function cropAt(v, rel, len) {
   return keys[keys.length - 1].box;
 }
 
+// Spotlight and focus pull (keys with "move"): which effect is on at `rel` seconds into an entry, how
+// strongly (s, 0 to 1, ramping in after its key and out before a key without it), and on which ellipse
+// ([cx, cy, rx, ry], fractions of the picture; a run of spotlights glides from one thing to the next).
+const RAMP_S = 0.35, GLIDE_S = 0.3;
+function effectAt(v, rel) {
+  const keys = v.keys;
+  if (!keys) return null;
+  let j = -1;
+  for (let i = 0; i < keys.length; i++) if (keys[i].t <= rel) j = i;
+  const k = keys[j];
+  if (!k || !k.move) return null;
+  const prev = keys[j - 1], next = keys[j + 1], same = prev && prev.move === k.move;
+  let s = same ? 1 : Math.min(1, (rel - k.t) / RAMP_S);
+  if (next && next.move !== k.move) s = Math.min(s, (next.t - rel) / RAMP_S);
+  const spot = same ? mix(prev.spot, k.spot, ease(Math.min(1, (rel - k.t) / GLIDE_S))) : k.spot;
+  return { move: k.move, spot, s: ease(Math.max(0, Math.min(1, s))) };
+}
+
+// The picture dims (spotlight) or blurs (focus) and a copy of it, masked to a soft ellipse, stays clear on top.
+function applyEffect(img, e, scale) {
+  const lit = img.lit;
+  if (!e || e.s < 0.001) { img.style.filter = ""; lit.style.opacity = 0; return; }
+  const IW = img.naturalWidth, IH = img.naturalHeight, [cx, cy, rx, ry] = e.spot;
+  img.style.filter = e.move === "spotlight" ? `brightness(${(1 - 0.6 * e.s).toFixed(3)})`
+    : `blur(${(6 * e.s / scale).toFixed(2)}px) brightness(${(1 - 0.12 * e.s).toFixed(3)})`;
+  lit.style.webkitMaskImage = lit.style.maskImage =
+    `radial-gradient(ellipse ${rx * IW}px ${ry * IH}px at ${cx * IW}px ${cy * IH}px, #000 60%, transparent 100%)`;
+  lit.style.width = img.style.width;
+  lit.style.transform = img.style.transform;
+  lit.style.opacity = 1;
+}
+
 function itemIndex(t) { return player.plan.items.indexOf(at(player.plan, t)); }
 
 // Place an image so the crop [x, y, w, h] (fractions) covers the screen, centred.
@@ -116,6 +149,7 @@ function place(img, crop) {
   ty = Math.min(0, Math.max(VH - s * IH, ty));
   img.style.width = IW + "px";
   img.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
+  return s;
 }
 
 // The block's own text, punctuation and all, with each timed word wrapped where it sits.
@@ -156,8 +190,13 @@ function frame() {
     const k = itemIndex(t), item = player.plan.items[k], v = visuals[k];
     if (v) {
       const img = images[v.image];
-      if (shown !== img) { if (shown) shown.classList.remove("on"); img.classList.add("on"); shown = img; }
-      place(img, cropAt(v, t - item.start, item.end - item.start));
+      if (shown !== img) {
+        if (shown) { shown.classList.remove("on"); applyEffect(shown, null, 1); }
+        img.classList.add("on");
+        shown = img;
+      }
+      const scale = place(img, cropAt(v, t - item.start, item.end - item.start));
+      applyEffect(img, effectAt(v, t - item.start), scale);
       showPanel(k);
       const now = wordAt(player.plan, t);
       for (const [i, s] of Object.entries(spans)) {
@@ -185,6 +224,12 @@ async function main() {
     img.src = await freshUrl(base + v.image);
     img.alt = "";
     $("stage").append(img);
+    const lit = new Image();                       // the clear copy for spotlight and focus pull
+    lit.src = img.src;
+    lit.alt = "";
+    lit.className = "lit";
+    $("stage").append(lit);
+    img.lit = lit;
     images[v.image] = img;
   }
   await Promise.all(Object.values(images).map(i => i.decode().catch(() => {})));
