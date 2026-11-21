@@ -48,11 +48,31 @@
 <div id="msg">Loading…</div>
 <script type="module">
 // A narrated slide show (a basic comic) from a playback script with a visual track:
-// ?script=<url of a .script.json>. Each block's picture fills the screen and moves from its start
+// ?script=b04 plays book 4 of the overview series (looked up in its published manifest; &site=<url>
+// for another series site), or ?script=<url of a .script.json> plays that script. Each block's picture fills the screen and moves from its start
 // crop to its end crop while the narrator reads; the block's words sit on top and light up as spoken.
 import { ScriptPlayer, at, wordAt, timeOfWord } from "./engine.js";
 
-const url = new URLSearchParams(location.search).get("script");
+const params = new URLSearchParams(location.search);
+const SITE = params.get("site") || "https://bonjohen.github.io/lorekiln-overview/";
+
+async function getJson(u) {
+  const res = await fetch(u, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`couldn't load ${u} (${res.status === 404 ? "not found" : "error " + res.status})`);
+  return res.json();
+}
+
+// "b04" -> the slide show of book 4 in the series site's manifest; anything else is a script URL.
+async function resolveScript(param) {
+  const m = /^b(\d+)$/i.exec(param || "");
+  if (!m) return param;
+  const book = parseInt(m[1], 10);
+  const manifest = await getJson(new URL("manifest.json", SITE).href);
+  const ch = (manifest.books || []).filter(b => b.book === book).flatMap(b => b.chapters).find(c => c.script);
+  if (!ch) throw new Error(`book ${book} has no slide show at ${SITE}`);
+  return new URL(ch.script, SITE).href;
+}
+let url = params.get("script");
 const $ = id => document.getElementById(id);
 let player, script, base, visuals = [], images = {}, shown = null, spans = [], panelBlock = -1;
 
@@ -128,8 +148,9 @@ function frame() {
 }
 
 async function main() {
-  if (!url) { $("msg").textContent = "Add ?script=<url of a .script.json>"; return; }
-  script = await (await fetch(url, { cache: "no-cache" })).json();
+  if (!url) { $("msg").textContent = "Add ?script=b04 (a book) or ?script=<url of a .script.json>"; return; }
+  url = await resolveScript(url);
+  script = await getJson(url);
   base = url.slice(0, url.lastIndexOf("/") + 1);
   if (!script.visual) { $("msg").textContent = "This script has no visual track."; return; }
   // One visual per sequence segment, in order (build_slides.py writes them that way).
