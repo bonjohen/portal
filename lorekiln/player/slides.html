@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Narrated Slides</title>
+<style>
+  :root { --fg: #f4efe6; --muted: #cfc6b8; --hi: #ffcf6e; --panel: rgba(12, 9, 7, 0.62); --bg: #0d0a08; }
+  :root[data-theme="light"] { --fg: #f4efe6; --muted: #cfc6b8; --hi: #ffcf6e; --panel: rgba(12, 9, 7, 0.62); --bg: #0d0a08; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); overflow: hidden; }
+  body { font: 18px/1.55 Georgia, "Times New Roman", serif; }
+  #stage { position: fixed; inset: 0; overflow: hidden; background: var(--bg); }
+  #stage img { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform, opacity;
+               opacity: 0; transition: opacity 600ms ease; user-select: none; pointer-events: none; }
+  #stage img.on { opacity: 1; }
+  #shade { position: fixed; inset: 0; pointer-events: none;
+           background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.7)); }
+  #title { position: fixed; top: max(14px, env(safe-area-inset-top)); left: 16px; right: 16px;
+           font: 600 15px/1.3 system-ui, sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  #panel { position: fixed; left: 16px; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom));
+           max-width: 44rem; margin: 0 auto; background: var(--panel); border-radius: 12px; padding: 14px 18px;
+           backdrop-filter: blur(3px); max-height: 45vh; overflow-y: auto; }
+  #panel span { cursor: pointer; border-radius: 3px; transition: color 120ms; }
+  #panel span.now { color: var(--hi); }
+  #panel span.done { color: var(--fg); }
+  #panel span.todo { color: var(--muted); }
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+         display: flex; gap: 10px; align-items: center; font: 15px system-ui, sans-serif; }
+  #bar button { font: 15px system-ui, sans-serif; color: var(--fg); background: rgba(255,255,255,0.12);
+                border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 8px 14px; min-width: 44px; }
+  #pos { flex: 1; min-width: 60px; accent-color: var(--hi); }
+  #time { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  #msg { position: fixed; inset: 0; display: grid; place-items: center; font: 16px system-ui, sans-serif; color: var(--muted); }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="shade"></div>
+<div id="title"></div>
+<div id="panel" hidden></div>
+<div id="bar">
+  <button id="prev" aria-label="Previous block">⏮</button>
+  <button id="play" aria-label="Play">▶</button>
+  <button id="next" aria-label="Next block">⏭</button>
+  <input id="pos" type="range" min="0" max="1000" value="0" aria-label="Position">
+  <span id="time">0:00</span>
+</div>
+<div id="msg">Loading…</div>
+<script type="module">
+// A narrated slide show (a basic comic) from a playback script with a visual track:
+// ?script=<url of a .script.json>. Each block's picture fills the screen and moves from its start
+// crop to its end crop while the narrator reads; the block's words sit on top and light up as spoken.
+import { ScriptPlayer, at, wordAt, timeOfWord } from "./engine.js";
+
+const url = new URLSearchParams(location.search).get("script");
+const $ = id => document.getElementById(id);
+let player, script, base, visuals = [], images = {}, shown = null, spans = [], panelBlock = -1;
+
+const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+const ease = p => p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+
+function itemIndex(t) { return player.plan.items.indexOf(at(player.plan, t)); }
+
+// Place an image so the crop [x, y, w, h] (fractions) covers the screen, centred.
+function place(img, crop) {
+  const VW = innerWidth, VH = innerHeight, IW = img.naturalWidth, IH = img.naturalHeight;
+  if (!IW) return;
+  const [x, y, w, h] = crop;
+  const s = Math.max(VW / (w * IW), VH / (h * IH));
+  let tx = VW / 2 - s * (x + w / 2) * IW, ty = VH / 2 - s * (y + h / 2) * IH;
+  tx = Math.min(0, Math.max(VW - s * IW, tx));          // never show past the picture's edge
+  ty = Math.min(0, Math.max(VH - s * IH, ty));
+  img.style.width = IW + "px";
+  img.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
+}
+
+// The block's own text, punctuation and all, with each timed word wrapped where it sits.
+function showPanel(k) {
+  if (k === panelBlock) return;
+  panelBlock = k;
+  const seg = script.sequence[k], [a, b] = seg.choose[0].words, panel = $("panel");
+  const text = (script.paragraphs.find(q => q.p === script.words[a].p) || {}).text || "";
+  panel.textContent = "";
+  spans = [];
+  let pos = 0;
+  for (let i = a; i <= b; i++) {
+    const w = script.words[i].w;
+    let at = text.indexOf(w, pos);
+    if (at < 0) at = text.toLowerCase().indexOf(w.toLowerCase(), pos);
+    const s = document.createElement("span");
+    if (at < 0) {                                            // not in the text: show the word as timed
+      panel.append(" ");
+      s.textContent = w;
+    } else {
+      panel.append(text.slice(pos, at));
+      s.textContent = text.substr(at, w.length);
+      pos = at + w.length;
+    }
+    s.dataset.i = i;
+    panel.append(s);
+    spans[i] = s;
+  }
+  panel.append(text.slice(pos));
+  panel.hidden = false;
+  panel.scrollTop = 0;
+  $("title").textContent = `${visuals[k].slide} · ${visuals[k].title}`;
+}
+
+function frame() {
+  if (player && player.plan) {
+    const t = Math.min(player.currentTime, player.length - 0.001);
+    const k = itemIndex(t), item = player.plan.items[k], v = visuals[k];
+    if (v) {
+      const img = images[v.image];
+      if (shown !== img) { if (shown) shown.classList.remove("on"); img.classList.add("on"); shown = img; }
+      const p = ease(Math.max(0, Math.min(1, (t - item.start) / (item.end - item.start))));
+      place(img, v.from.map((f, j) => f + (v.to[j] - f) * p));
+      showPanel(k);
+      const now = wordAt(player.plan, t);
+      for (const [i, s] of Object.entries(spans)) {
+        s.className = +i === now ? "now" : +i < now ? "done" : "todo";
+      }
+    }
+    $("time").textContent = `${fmt(player.currentTime)} / ${fmt(player.length)}`;
+    if (!dragging) $("pos").value = Math.round(1000 * player.currentTime / player.length);
+  }
+  requestAnimationFrame(frame);
+}
+
+async function main() {
+  if (!url) { $("msg").textContent = "Add ?script=<url of a .script.json>"; return; }
+  script = await (await fetch(url, { cache: "no-cache" })).json();
+  base = url.slice(0, url.lastIndexOf("/") + 1);
+  if (!script.visual) { $("msg").textContent = "This script has no visual track."; return; }
+  // One visual per sequence segment, in order (build_slides.py writes them that way).
+  const bySeg = Object.fromEntries(script.visual.map(v => [v.start.seg, v]));
+  visuals = script.sequence.map(s => bySeg[s.id]);
+  for (const v of script.visual) {
+    if (images[v.image]) continue;
+    const img = new Image();
+    img.src = base + v.image;
+    img.alt = "";
+    $("stage").append(img);
+    images[v.image] = img;
+  }
+  await Promise.all(Object.values(images).map(i => i.decode().catch(() => {})));
+  player = new ScriptPlayer(script, base, { onEnd: () => { $("play").textContent = "▶"; } });
+  $("msg").textContent = "Decoding audio…";
+  await player.load();
+  $("msg").remove();
+  window.player = player;
+  requestAnimationFrame(frame);
+}
+
+let dragging = false;
+$("play").onclick = async () => {
+  if (!player) return;
+  if (player.playing) { player.pause(); $("play").textContent = "▶"; }
+  else { await player.play(); $("play").textContent = "⏸"; }
+};
+function jump(d) {
+  const k = Math.max(0, Math.min(script.sequence.length - 1, itemIndex(player.currentTime) + d));
+  player.seek(player.plan.items[k].start);
+}
+$("prev").onclick = () => player && jump(player.currentTime - player.plan.items[itemIndex(player.currentTime)].start > 2 ? 0 : -1);
+$("next").onclick = () => player && jump(1);
+$("pos").oninput = () => { dragging = true; };
+$("pos").onchange = () => { dragging = false; player && player.seek(player.length * $("pos").value / 1000); };
+$("panel").onclick = e => { const i = e.target.dataset && e.target.dataset.i; if (i != null && player) player.seek(timeOfWord(player.plan, +i)); };
+addEventListener("keydown", e => { if (e.code === "Space") { e.preventDefault(); $("play").click(); } });
+main().catch(e => { $("msg").textContent = "Error: " + e.message; console.error("[slides]", e); });
+</script>
+</body>
+</html>
