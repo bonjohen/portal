@@ -98,7 +98,7 @@ function cropAt(v, rel, len) {
   if (rel <= keys[0].t) return keys[0].box;
   for (let j = 0; j < keys.length - 1; j++) {
     const a = keys[j], b = keys[j + 1];
-    if (rel < b.t) return mix(a.box, b.box, ease((rel - a.t) / (b.t - a.t)));
+    if (rel < b.t) return b.cut ? a.box : mix(a.box, b.box, ease((rel - a.t) / (b.t - a.t)));   // a cut: hold, then switch
   }
   return keys[keys.length - 1].box;
 }
