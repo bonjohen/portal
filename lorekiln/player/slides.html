@@ -56,6 +56,16 @@ import { ScriptPlayer, at, wordAt, timeOfWord } from "./engine.js";
 const params = new URLSearchParams(location.search);
 const SITE = params.get("site") || "https://bonjohen.github.io/lorekiln-overview/";
 
+// A republished picture keeps its file name, so ask the server each time (a cheap check when it
+// hasn't changed) instead of trusting the browser's copy, and show it from memory.
+async function freshUrl(u) {
+  try {
+    const res = await fetch(u, { cache: "no-cache" });
+    if (!res.ok) return u;
+    return URL.createObjectURL(await res.blob());
+  } catch (e) { return u; }
+}
+
 async function getJson(u) {
   const res = await fetch(u, { cache: "no-cache" });
   if (!res.ok) throw new Error(`couldn't load ${u} (${res.status === 404 ? "not found" : "error " + res.status})`);
@@ -159,7 +169,7 @@ async function main() {
   for (const v of script.visual) {
     if (images[v.image]) continue;
     const img = new Image();
-    img.src = base + v.image;
+    img.src = await freshUrl(base + v.image);
     img.alt = "";
     $("stage").append(img);
     images[v.image] = img;

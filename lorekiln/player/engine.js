@@ -46,7 +46,7 @@ export function wordAt(p, t) {
   if (!c.words) return null;
   const rel = t - item.start;
   let k = 0;
-  for (let i = 0; i < c.t.length; i++) if (c.t[i] <= rel) k = i;
+  for (let i = 0; i < c.t.length; i++) if (c.t[i] <= rel + 1e-6) k = i;   // rounding: a word's own start counts
   return c.words[0] + k;
 }
 
@@ -95,7 +95,7 @@ export class ScriptPlayer {
     this.ctx = this.ctx || new AudioContext({ sampleRate: SAMPLE_RATE });
     const decoded = {};
     await Promise.all(Object.entries(this.script.sources).map(async ([key, src]) => {
-      const res = await fetch(this.base + src.file);
+      const res = await fetch(this.base + src.file, { cache: "no-cache" });   // republished audio keeps its name
       if (!res.ok) throw new Error(`${src.file}: ${res.status}`);
       this.buffers[key] = await this.ctx.decodeAudioData(await res.arrayBuffer());
       decoded[key] = this.buffers[key].duration;
