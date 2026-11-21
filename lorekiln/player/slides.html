@@ -88,6 +88,20 @@ let player, script, base, visuals = [], images = {}, shown = null, spans = [], p
 
 const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
 const ease = p => p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+const mix = (a, b, p) => a.map((f, j) => f + (b[j] - f) * p);
+
+// The crop at `rel` seconds into an entry: through its keyframes (the camera that follows the words,
+// [{t, box}] in time order), or from `from` to `to` over the entry's length.
+function cropAt(v, rel, len) {
+  const keys = v.keys;
+  if (!keys || !keys.length) return mix(v.from, v.to, ease(Math.max(0, Math.min(1, rel / len))));
+  if (rel <= keys[0].t) return keys[0].box;
+  for (let j = 0; j < keys.length - 1; j++) {
+    const a = keys[j], b = keys[j + 1];
+    if (rel < b.t) return mix(a.box, b.box, ease((rel - a.t) / (b.t - a.t)));
+  }
+  return keys[keys.length - 1].box;
+}
 
 function itemIndex(t) { return player.plan.items.indexOf(at(player.plan, t)); }
 
@@ -143,8 +157,7 @@ function frame() {
     if (v) {
       const img = images[v.image];
       if (shown !== img) { if (shown) shown.classList.remove("on"); img.classList.add("on"); shown = img; }
-      const p = ease(Math.max(0, Math.min(1, (t - item.start) / (item.end - item.start))));
-      place(img, v.from.map((f, j) => f + (v.to[j] - f) * p));
+      place(img, cropAt(v, t - item.start, item.end - item.start));
       showPanel(k);
       const now = wordAt(player.plan, t);
       for (const [i, s] of Object.entries(spans)) {
