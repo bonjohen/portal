@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Audio Probe</title>
+<style>
+  :root { --fg: #f4efe6; --muted: #cfc6b8; --hi: #ffcf6e; --bg: #0d0a08; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); }
+  body { font: 16px/1.45 system-ui, sans-serif; padding: max(16px, env(safe-area-inset-top)) 16px calc(16px + env(safe-area-inset-bottom)); }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p { color: var(--muted); margin: 0 0 12px; font-size: 14px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
+  button { font: 16px system-ui, sans-serif; color: var(--fg); background: rgba(255,255,255,0.12);
+           border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 10px 16px; min-height: 44px; }
+  button.on { border-color: var(--hi); color: var(--hi); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 12px 0; font-size: 14px; }
+  dt { color: var(--muted); }
+  dd { margin: 0; overflow-wrap: anywhere; }
+  #log { font: 12px/1.4 ui-monospace, Menlo, monospace; color: var(--muted); white-space: pre-wrap; max-height: 40vh; overflow-y: auto;
+         border-top: 1px solid rgba(255,255,255,0.15); padding-top: 8px; }
+</style>
+</head>
+<body>
+<h1>Slides audio probe</h1>
+<p>Temporary test page (docs/slides_phone_pdr.md 7.2). Pick a mode, wait for "ready", press Play, then try the silent switch, the screen lock and the lock-screen controls. Note what you hear in docs/slides_phone_audio_findings.md.</p>
+<div class="row">
+  <button id="mA">A: one WAV in &lt;audio&gt;</button>
+  <button id="mB">B: live Web Audio</button>
+</div>
+<div class="row">
+  <button id="play" disabled>Play</button>
+  <button id="back" disabled>−10 s</button>
+  <button id="fwd" disabled>+10 s</button>
+</div>
+<dl>
+  <dt>Mode</dt><dd id="mode">none</dd>
+  <dt>State</dt><dd id="state">pick a mode</dd>
+  <dt>Time</dt><dd id="time">–</dd>
+  <dt>Block</dt><dd id="block">–</dd>
+  <dt>Ready in</dt><dd id="ready">–</dd>
+  <dt>Decoded at</dt><dd id="rate">–</dd>
+  <dt>Browser</dt><dd id="ua"></dd>
+</dl>
+<div id="log"></div>
+<script type="module">
+import { ScriptPlayer, at, SAMPLE_RATE } from "./engine.js";
+import { mixPlan, resampleLinear } from "./slides.js";
+
+const params = new URLSearchParams(location.search);
+const SITE = params.get("site") || "https://bonjohen.github.io/lorekiln-overview/";
+const $ = id => document.getElementById(id);
+const t0 = performance.now();
+const log = m => { $("log").textContent = `${((performance.now() - t0) / 1000).toFixed(1)}s ${m}\n` + $("log").textContent; console.log("[probe]", m); };
+const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+$("ua").textContent = navigator.userAgent;
+
+async function getJson(u) {
+  const res = await fetch(u, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`couldn't load ${u} (${res.status})`);
+  return res.json();
+}
+async function resolveScript(param) {
+  const m = /^b(\d+)$/i.exec(param || "b04");
+  if (!m) return param;
+  const book = parseInt(m[1], 10);
+  const manifest = await getJson(new URL("manifest.json", SITE).href);
+  const ch = (manifest.books || []).filter(b => b.book === book).flatMap(b => b.chapters).find(c => c.script);
+  if (!ch) throw new Error(`book ${book} has no slide show at ${SITE}`);
+  return new URL(ch.script, SITE).href;
+}
+
+let mode = null, script, base, engine, audio, lock = null, lastBlock = -1;
+
+// A common clock and controls over both modes.
+const now = () => mode === "A" ? audio.currentTime : engine.currentTime;
+const isPlaying = () => mode === "A" ? !audio.paused : engine.playing;
+const length = () => engine.plan.length;
+
+async function setup(m) {
+  if (mode) { log("reload the page to switch modes"); return; }
+  mode = m;
+  $("m" + m).classList.add("on");
+  $("mode").textContent = m === "A" ? "A: one WAV in <audio>" : "B: live Web Audio";
+  if (navigator.audioSession) { try { navigator.audioSession.type = "playback"; log("audioSession.type = playback"); } catch (e) { log("audioSession: " + e.message); } }
+  else log("no navigator.audioSession");
+  const url = await resolveScript(params.get("script"));
+  script = await getJson(url);
+  base = url.slice(0, url.lastIndexOf("/") + 1);
+  log("script " + url);
+  const start = performance.now();
+  engine = new ScriptPlayer(script, base, { onEnd: () => { log("engine ended"); show(); } });
+  if (m === "A") engine.ctx = new OfflineAudioContext(1, 1, SAMPLE_RATE);   // decode without a live context
+  $("state").textContent = "decoding…";
+  await engine.load();
+  const rates = Object.entries(engine.buffers).map(([k, b]) => `${k} ${b.sampleRate} Hz ${b.duration.toFixed(1)} s`);
+  $("rate").textContent = rates.join(", ");
+  if (engine.warnings.length) log("warnings: " + engine.warnings.join("; "));
+  if (m === "A") {
+    $("state").textContent = "mixing…";
+    const channels = Object.fromEntries(Object.entries(engine.buffers).map(([k, b]) =>
+      [k, resampleLinear(b.getChannelData(0), b.sampleRate, SAMPLE_RATE)]));
+    const wav = mixPlan(engine.plan, channels, SAMPLE_RATE);
+    engine.buffers = {};
+    audio = new Audio();
+    audio.preload = "auto";
+    audio.src = URL.createObjectURL(new Blob([wav], { type: "audio/wav" }));
+    log(`WAV ${(wav.length / 1e6).toFixed(1)} MB, ${fmt(engine.plan.length)}`);
+    await new Promise((ok, bad) => { audio.onloadedmetadata = ok; audio.onerror = () => bad(new Error("audio element couldn't load the WAV")); });
+    for (const ev of ["play", "pause", "ended", "stalled", "waiting", "error"]) audio.addEventListener(ev, () => { log("audio " + ev); show(); });
+    audio.addEventListener("timeupdate", tick);
+    mediaSession();
+  } else {
+    engine.ctx.addEventListener("statechange", () => { log("context " + engine.ctx.state); if (engine.ctx.state !== "running" && engine.playing) { engine.pause(); show(); } });
+  }
+  $("ready").textContent = `${((performance.now() - start) / 1000).toFixed(1)} s`;
+  $("state").textContent = "ready";
+  for (const b of ["play", "back", "fwd"]) $(b).disabled = false;
+  requestAnimationFrame(frame);
+}
+
+// Block changes are logged from timeupdate in mode A (it fires while the page is hidden) and from frames in B.
+function tick() {
+  const k = engine.plan.items.indexOf(at(engine.plan, Math.min(now(), length() - 0.001)));
+  if (k !== lastBlock) {
+    lastBlock = k;
+    log(`block ${k + 1}${document.hidden ? " (hidden)" : ""}`);
+    const v = (script.visual || []).find(x => x.start.seg === script.sequence[k].id);
+    if (mode === "A" && navigator.mediaSession) {
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({ title: v ? v.title : `Block ${k + 1}`, artist: "LoreKiln overview",
+          album: "Audio probe", artwork: v ? [{ src: base + v.image }] : [] });
+      } catch {}
+      positionState();
+    }
+  }
+  $("time").textContent = `${fmt(now())} / ${fmt(length())}`;
+  $("block").textContent = `${lastBlock + 1} / ${engine.plan.items.length}`;
+}
+function frame() { tick(); requestAnimationFrame(frame); }
+
+function positionState() {
+  const ms = navigator.mediaSession;
+  if (!ms || !ms.setPositionState) return;
+  try { ms.setPositionState({ duration: length(), playbackRate: 1, position: Math.min(now(), length()) }); } catch {}
+}
+function mediaSession() {
+  const ms = navigator.mediaSession;
+  if (!ms) { log("no mediaSession"); return; }
+  const on = (a, h) => { try { ms.setActionHandler(a, h); } catch {} };
+  on("play", () => { log("lock screen: play"); toggle(true); });
+  on("pause", () => { log("lock screen: pause"); toggle(false); });
+  on("seekbackward", () => { log("lock screen: back"); seekBy(-10); });
+  on("seekforward", () => { log("lock screen: forward"); seekBy(10); });
+  on("seekto", d => { log("lock screen: seek"); audio.currentTime = d.seekTime; positionState(); });
+  on("previoustrack", () => { log("lock screen: previous"); jump(-1); });
+  on("nexttrack", () => { log("lock screen: next"); jump(1); });
+}
+
+async function wake(want) {
+  if (!("wakeLock" in navigator)) return;
+  try {
+    if (want && !lock) { lock = await navigator.wakeLock.request("screen"); log("wake lock on"); lock.onrelease = () => { lock = null; log("wake lock released"); }; }
+    if (!want && lock) { await lock.release(); lock = null; }
+  } catch (e) { log("wake lock: " + e.message); }
+}
+
+async function toggle(want = !isPlaying()) {
+  if (mode === "A") { if (want) await audio.play().catch(e => log("play refused: " + e.message)); else audio.pause(); }
+  else if (want) await engine.play(); else engine.pause();
+  wake(want);
+  if (navigator.mediaSession) try { navigator.mediaSession.playbackState = want ? "playing" : "paused"; } catch {}
+  positionState();
+  show();
+}
+function seekTo(t) {
+  t = Math.max(0, Math.min(length(), t));
+  if (mode === "A") audio.currentTime = t; else engine.seek(t);
+  positionState();
+}
+const seekBy = d => seekTo(now() + d);
+function jump(d) {
+  const k = Math.max(0, Math.min(engine.plan.items.length - 1, lastBlock + d));
+  seekTo(engine.plan.items[k].start);
+}
+function show() { $("play").textContent = isPlaying() ? "Pause" : "Play"; $("state").textContent = isPlaying() ? "playing" : "paused"; }
+
+$("mA").onclick = () => setup("A").catch(e => { log("error: " + e.message); $("state").textContent = "error"; });
+$("mB").onclick = () => setup("B").catch(e => { log("error: " + e.message); $("state").textContent = "error"; });
+$("play").onclick = () => toggle();
+$("back").onclick = () => seekBy(-10);
+$("fwd").onclick = () => seekBy(10);
+document.addEventListener("visibilitychange", () => {
+  log(document.hidden ? "page hidden" : "page visible");
+  if (!document.hidden && isPlaying && mode && isPlaying()) wake(true);
+});
+</script>
+</body>
+</html>
