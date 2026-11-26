@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LoreKiln</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%226%22 fill=%22%23e08a3c%22/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #14110f; --panel: #1c1815; --line: #2e2823; --ink: #e9e1d6; --dim: #8e8275; --faint: #5c534a;
+    --ember: #e08a3c; --ember-soft: rgba(224, 138, 60, 0.18); --outside: #0d0b0a;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #f7f2ea; --panel: #efe7db; --line: #ddd2c2; --ink: #2a221b; --dim: #6f6256; --faint: #a3968a;
+            --ember: #b8621b; --ember-soft: rgba(184, 98, 27, 0.14); --outside: #e8e0d4; }
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { background: var(--outside); }
+  body { margin: 0 auto; max-width: 480px; min-height: 100vh; min-height: 100dvh; background: var(--bg); color: var(--ink);
+         font: 16px/1.45 var(--sans); padding: 0 0 calc(24px + env(safe-area-inset-bottom)); }
+  a { color: inherit; }
+  header { display: flex; align-items: center; gap: 12px; padding: calc(12px + env(safe-area-inset-top)) 16px 12px;
+           border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 2; }
+  .brand { font-family: var(--serif); font-size: 22px; letter-spacing: 0.02em; margin: 0; font-weight: normal; }
+  .brand b { color: var(--ember); font-weight: normal; }
+  header .about { margin-left: auto; font-size: 14px; color: var(--dim); text-decoration: none; padding: 12px 4px; }
+  #account:empty { display: none; }
+  main { padding: 0 16px; }
+  h2 { font: 600 13px/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); margin: 24px 0 10px; }
+
+  #continue { display: flex; align-items: center; gap: 12px; margin-top: 16px; padding: 12px; border: 1px solid var(--ember);
+              border-radius: 12px; background: var(--ember-soft); text-decoration: none; min-height: 64px; }
+  #continue img { width: 40px; height: 56px; object-fit: cover; border-radius: 4px; flex: none; }
+  #continue .k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ember); }
+  #continue .t { font-size: 15px; }
+
+  #series { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 8px; margin: 0 -2px;
+            scrollbar-width: none; }
+  #series::-webkit-scrollbar { display: none; }
+  .card { flex: none; width: 128px; scroll-snap-align: start; border: 2px solid transparent; border-radius: 12px; padding: 0;
+          background: var(--panel); color: var(--ink); text-align: left; cursor: pointer; overflow: hidden; font: inherit; }
+  .card[aria-selected="true"] { border-color: var(--ember); }
+  .card .art { height: 176px; display: grid; place-items: center; background: linear-gradient(160deg, var(--line), var(--panel));
+               font-family: var(--serif); font-size: 20px; line-height: 1.2; padding: 12px; text-align: center; }
+  .card img { width: 100%; height: 176px; object-fit: cover; display: block; }
+  .card .name { display: block; font-size: 13px; padding: 8px 10px 10px; min-height: 44px; }
+
+  .seg { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .seg button { font: 14px var(--sans); color: var(--ink); background: var(--panel); border: 1px solid var(--line);
+                border-radius: 999px; padding: 0 16px; min-height: 44px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { border-color: var(--ember); color: var(--ember); }
+
+  #place { font-family: var(--serif); font-size: 20px; margin: 20px 0 0; }
+  #place small { display: block; font: 13px var(--sans); color: var(--dim); margin-top: 2px; }
+  #tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .tile { display: flex; flex-direction: column; justify-content: space-between; min-height: 88px; padding: 12px 14px;
+          border-radius: 12px; border: 1px solid var(--line); background: var(--panel); text-decoration: none; }
+  .tile.explore { grid-column: span 2; }
+  .tile svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tile .n { font-size: 17px; font-weight: 600; margin-top: 8px; }
+  .tile .r { font-size: 13px; color: var(--dim); }
+  a.tile { border-color: var(--ember); }
+  a.tile svg, a.tile .r { color: var(--ember); }
+  a.tile:active { background: var(--ember-soft); }
+  .tile[aria-disabled="true"] { color: var(--faint); }
+
+  #episodes { list-style: none; margin: 0; padding: 0; }
+  #episodes button { width: 100%; display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 8px 4px;
+                     background: none; border: 0; border-bottom: 1px solid var(--line); color: var(--ink); font: 15px var(--sans);
+                     text-align: left; cursor: pointer; }
+  #episodes .num { font-variant-numeric: tabular-nums; color: var(--dim); width: 2.2em; flex: none; }
+  #episodes .ti { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #episodes .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  #episodes .dot.played { background: var(--dim); }
+  #episodes button[aria-current="true"] { color: var(--ember); }
+  #episodes button[aria-current="true"] .num { color: var(--ember); }
+  #status { color: var(--dim); margin: 24px 0; }
+  #status button { margin-top: 12px; }
+  button.plain { font: 15px var(--sans); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; min-height: 44px; padding: 0 16px; }
+  :focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { #series { scroll-snap-type: none; } * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="brand">Lore<b>Kiln</b></h1>
+  <a class="about" href="../">The story shapes</a>
+  <div id="account"></div>
+</header>
+<main>
+  <a id="continue" hidden></a>
+  <div id="status">Loading the library…</div>
+  <section id="library" hidden>
+    <h2>Series</h2>
+    <div id="series" role="listbox" aria-label="Series"></div>
+    <div class="seg" id="books" hidden></div>
+    <p id="place" aria-live="polite"></p>
+    <div id="tiles"></div>
+    <h2>Episodes</h2>
+    <ol id="episodes"></ol>
+  </section>
+</main>
+<script type="module">
+import { store, loadLibrary, chapterKey, bookKey, isPrime, placeLink, sectionsFor, findChapter } from "../player/library.js?v=1";
+import { seriesCards, defaultPlace, continueLine } from "./home.js?v=1";
+
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+const MEDIA = params.get("media") ? new URL(params.get("media"), location.href).href.replace(/\/?$/, "/") : null;
+const fmt = s => { s = Math.max(0, Math.floor(s || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+const posOf = key => store.get("pos." + key, 0);
+const ICONS = {
+  listen: '<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>',
+  watch: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z"/>',
+  play: '<rect x="2.5" y="7" width="19" height="10" rx="5"/><path d="M7 10.5v3M5.5 12h3"/><circle cx="16" cy="11" r=".8"/><circle cx="18" cy="13" r=".8"/>',
+  rpg: '<path d="M12 2.5l8.5 5v9L12 21.5l-8.5-5v-9z"/><path d="M12 2.5v19M3.5 7.5l17 9M20.5 7.5l-17 9"/>',
+  explore: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+};
+
+let lib, cards = [], card = null, book = null, index = 0;
+
+// Continue, from storage alone, before the library loads: no title yet, so nothing hidden can show.
+const last = store.get("last", null);
+if (last) {
+  const c = $("continue");
+  c.hidden = false;
+  c.href = placeLink("listen", last, { media: MEDIA });
+  c.innerHTML = '<div><div class="k">Continue</div><div class="t">Where you left off</div></div>';
+}
+
+function choose(b, i, { remember = true } = {}) {
+  book = b; index = i;
+  card = cards.find(c => c.books.includes(b)) || cards[0];
+  const ch = b.chapters[i], key = chapterKey(b, ch);
+  if (remember) store.set("home", { series: card.series, book: bookKey(b), key });
+  renderSeries(); renderBooks(); renderPlace(ch, key); renderEpisodes();
+}
+
+function renderSeries() {
+  $("series").innerHTML = "";
+  for (const c of cards) {
+    const btn = document.createElement("button");
+    btn.className = "card"; btn.setAttribute("role", "option");
+    btn.setAttribute("aria-selected", String(c === card));
+    btn.innerHTML = (c.cover ? `<img alt="" src="${c.cover}">` : `<div class="art"></div>`) + `<span class="name"></span>`;
+    if (!c.cover) btn.querySelector(".art").textContent = c.title;
+    btn.querySelector(".name").textContent = c.title;
+    const img = btn.querySelector("img");
+    if (img) img.onerror = () => { img.replaceWith(Object.assign(document.createElement("div"), { className: "art", textContent: c.title })); };
+    btn.onclick = () => {
+      if (c === card) return;
+      const home = store.get("home", null);
+      const pick = c.books.find(b => home && home.book === bookKey(b)) || c.books.find(b => !isPrime(b)) || c.books[0];
+      const lastHere = store.get("last." + bookKey(pick), null);
+      choose(pick, Math.max(0, pick.chapters.findIndex(ch => chapterKey(pick, ch) === lastHere)));
+    };
+    $("series").append(btn);
+  }
+}
+
+function renderBooks() {
+  const canon = card.books.filter(b => !isPrime(b));
+  const box = $("books");
+  box.innerHTML = "";
+  const twin = card.books.find(b => isPrime(b) !== isPrime(book) &&
+    (isPrime(b) ? b.compare_to && b.compare_to.book === book.book : book.compare_to && book.compare_to.book === b.book));
+  box.hidden = canon.length < 2 && !twin;
+  if (box.hidden) return;
+  const pressed = (on, label, fn) => { const x = document.createElement("button"); x.textContent = label; x.setAttribute("aria-pressed", String(on)); x.onclick = fn; box.append(x); };
+  if (canon.length > 1) for (const b of canon) pressed(b.book === book.book && !isPrime(book), card.about ? b.title : `Book ${b.book}`, () => choose(b, 0));
+  if (twin) {
+    const ep = book.chapters[index].episode;
+    const go = b => { const k = b.chapters.findIndex(c => c.episode === ep); choose(b, Math.max(0, k)); };
+    pressed(!isPrime(book), "Canon", () => isPrime(book) && go(twin));
+    pressed(isPrime(book), "Prime", () => !isPrime(book) && go(twin));
+  }
+}
+
+function renderPlace(ch, key) {
+  $("place").innerHTML = "";
+  $("place").append(document.createTextNode(ch.title || ch.id));
+  const small = document.createElement("small");
+  small.textContent = `${card.about ? book.title : `${card.title} · Book ${book.book}${isPrime(book) ? " · Prime" : ""}`} · Episode ${ch.episode}`;
+  $("place").append(small);
+  $("tiles").innerHTML = "";
+  for (const s of sectionsFor(book, ch, lib.sections)) {
+    const linkKey = book.role === "overview" ? null : key;      // overview shows have no Listen to come back to
+    const href = s.state === "open" ? placeLink(s.name, linkKey, { media: MEDIA, script: ch.script, sections: lib.sections }) : null;
+    const el = document.createElement(href ? "a" : "div");
+    el.className = `tile ${s.name}`;
+    if (href) el.href = href; else el.setAttribute("aria-disabled", "true");
+    el.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[s.name]}</svg><div><div class="n"></div><div class="r"></div></div>`;
+    el.querySelector(".n").textContent = s.label;
+    el.querySelector(".r").textContent = s.reason;
+    $("tiles").append(el);
+  }
+}
+
+function renderEpisodes() {
+  const ol = $("episodes");
+  ol.innerHTML = "";
+  book.chapters.forEach((ch, i) => {
+    const li = document.createElement("li"), b = document.createElement("button");
+    b.innerHTML = `<span class="num">${ch.episode}</span><span class="ti"></span><span class="dot${posOf(chapterKey(book, ch)) > 0 ? " played" : ""}"></span>`;
+    b.querySelector(".ti").textContent = ch.title || ch.id;
+    if (i === index) b.setAttribute("aria-current", "true");
+    b.onclick = () => { choose(book, i); $("place").scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); };
+    li.append(b); ol.append(li);
+  });
+}
+
+function renderContinue() {
+  const line = continueLine(lib.books, last, posOf);
+  const c = $("continue");
+  if (!line) { c.hidden = true; return; }
+  const b = line.book, ch = b.chapters[line.index];
+  c.hidden = false;
+  c.innerHTML = (b.cover ? `<img alt="" src="${b.cover}">` : "") + '<div><div class="k">Continue</div><div class="t"></div></div>';
+  c.querySelector(".t").textContent = `${(b.title || "").replace(/,?\s*Book\s+\d+.*$/i, "")} · Book ${b.book} · ${ch.title || ch.id}${line.at > 0 ? " · " + fmt(line.at) : ""}`;
+  const img = c.querySelector("img");
+  if (img) img.onerror = () => img.remove();
+}
+
+async function start() {
+  lib = await loadLibrary({ media: MEDIA, overview: true });
+  if (!lib.books.length && !lib.overview.length) {
+    const offline = navigator.onLine === false;
+    $("status").innerHTML = `<p>${offline ? "You're offline, so" : "Something went wrong:"} the library couldn't load.</p>` +
+      (lib.failed.length ? `<p>${lib.failed.map(f => `${f.base}: ${f.reason}`).map(t => t.replace(/</g, "&lt;")).join("<br>")}</p>` : "") +
+      `<button class="plain" onclick="location.reload()">Reload</button>`;
+    return;
+  }
+  $("status").hidden = true;
+  $("library").hidden = false;
+  cards = seriesCards(lib.books, lib.overview);
+  renderContinue();
+  const place = defaultPlace(lib.books, lib.overview, store.get("home", null), last);
+  choose(place.book, place.index, { remember: false });
+}
+start().catch(e => { console.error("[home]", e); $("status").textContent = "Something went wrong: " + e.message; });
+</script>
+</body>
+</html>

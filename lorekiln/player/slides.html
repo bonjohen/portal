@@ -31,6 +31,10 @@
                 border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 8px 14px; min-width: 44px; }
   #pos { flex: 1; min-width: 60px; accent-color: var(--hi); }
   #time { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  #listen { position: fixed; top: max(8px, env(safe-area-inset-top)); right: 12px; z-index: 2; font: 600 14px/1 system-ui, sans-serif;
+             color: var(--fg); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px;
+             padding: 12px 16px; text-decoration: none; }
+  #listen[hidden] { display: none; }
   #msg { position: fixed; inset: 0; display: grid; place-items: center; font: 16px system-ui, sans-serif; color: var(--muted); }
 </style>
 </head>
@@ -38,6 +42,7 @@
 <div id="stage"></div>
 <div id="shade"></div>
 <div id="title"></div>
+<a id="listen" hidden>Listen</a>
 <div id="panel" hidden></div>
 <div id="bar">
   <button id="prev" aria-label="Previous block">⏮</button>
@@ -53,6 +58,7 @@
 // for another series site), or ?script=<url of a .script.json> plays that script. Each block's picture fills the screen and moves from its start
 // crop to its end crop while the narrator reads; the block's words sit on top and light up as spoken.
 import { ScriptPlayer, at, wordAt, timeOfWord } from "./engine.js";
+import { placeLink } from "./library.js?v=1";
 
 const params = new URLSearchParams(location.search);
 const SITE = params.get("site") || "https://bonjohen.github.io/lorekiln-overview/";
@@ -85,6 +91,8 @@ async function resolveScript(param) {
 }
 let url = params.get("script");
 const $ = id => document.getElementById(id);
+// Opened from the library (?ch=<chapter key>): a way back to Listen at the same episode.
+if (params.get("ch")) { $("listen").href = placeLink("listen", params.get("ch"), { media: params.get("media") }); $("listen").hidden = false; $("title").style.right = "112px"; }
 let player, script, base, visuals = [], images = {}, shown = null, spans = [], panelBlock = -1;
 
 const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
