@@ -1,4 +1,4 @@
 {"max_episode": 20, "homeReady": true,
- "sources": ["https://bonjohen.github.io/lorekiln-roa/", "https://bonjohen.github.io/lorekiln-qsg/", "https://bonjohen.github.io/lorekiln-tat/", "https://bonjohen.github.io/lorekiln-ear/"],
+ "sources": ["https://bonjohen.github.io/lorekiln-roa/", "https://bonjohen.github.io/lorekiln-roa-muse/", "https://bonjohen.github.io/lorekiln-qsg/", "https://bonjohen.github.io/lorekiln-tat/", "https://bonjohen.github.io/lorekiln-ear/"],
  "overview": ["https://bonjohen.github.io/lorekiln-overview/"],
  "sections": {}}
